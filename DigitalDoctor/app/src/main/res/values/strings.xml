@@ -4,4 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="liability_button">Liability</string>
+    <string name="terms_and_conditions_button">Terms and Conditions</string>
+    <string name="back_button">Back</string>
 </resources>
