@@ -1,6 +1,7 @@
 package com.juniordesign.digitaldoctor;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -223,6 +225,11 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("firstStart", false);
         editor.apply();
+    }
+
+    public void onSettingsButtonPressed(View view) {
+        Intent settings = new Intent(this, SettingsActivity.class);
+        startActivity(settings);
     }
 
 }
