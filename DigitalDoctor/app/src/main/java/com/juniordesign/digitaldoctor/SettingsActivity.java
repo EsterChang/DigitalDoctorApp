@@ -11,14 +11,14 @@ import android.view.View;
 
 public class  SettingsActivity extends AppCompatActivity {
 
-    BottomNavigationView mBottomNav;
+//    BottomNavigationView mBottomNav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        mBottomNav = findViewById(R.id.navigationView);
-        mBottomNav.getMenu().findItem(R.id.navigation_home).setChecked(true);
+//        mBottomNav = findViewById(R.id.navigationView);
+//        mBottomNav.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
     }
