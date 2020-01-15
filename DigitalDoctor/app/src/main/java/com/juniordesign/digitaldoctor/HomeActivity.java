@@ -2,6 +2,7 @@ package com.juniordesign.digitaldoctor;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 
 
 public class HomeActivity extends AppCompatActivity {
+    DatabaseHelper db;
     private static final String SELECTED_ITEM = "arg_selected_item";
 
     private BottomNavigationView mBottomNav;
@@ -21,6 +23,42 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        db = new DatabaseHelper(this);
+
+        db.deleteData("Head Injury");
+//        boolean insertion = db.insertDataIntoBodyPartTable("Head", "Dizziness", "Occured after a fall", "Head Injury");
+//        if (insertion) {
+//            new AlertDialog.Builder(this).setTitle("Complete.").setMessage("was able to add to the database.").setPositiveButton("I agree", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    dialogInterface.dismiss();
+//                }
+//            })
+//                    .setCancelable(false)
+//                    .create()
+//                    .show();
+//        }
+        Cursor res = db.getAllData("body_part_specific_table");
+        StringBuffer buffer = new StringBuffer();
+        if (res.getCount() != 0) {
+
+            while (res.moveToNext()) {
+                buffer.append("Area: " + res.getString(0) + "\n");
+                buffer.append("Symptom: " + res.getString(1) + "\n");
+                buffer.append("Info: " + res.getString(2) + "\n");
+                buffer.append("Name: " + res.getString(3) + "\n");
+            }
+        }
+        new AlertDialog.Builder(this).setTitle("Complete.").setMessage(buffer.toString()).setPositiveButton("I agree", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+
 
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigationView);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
