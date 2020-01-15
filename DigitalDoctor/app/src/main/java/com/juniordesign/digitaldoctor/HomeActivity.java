@@ -25,41 +25,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         db = new DatabaseHelper(this);
 
-        db.deleteData("Head Injury");
-//        boolean insertion = db.insertDataIntoBodyPartTable("Head", "Dizziness", "Occured after a fall", "Head Injury");
-//        if (insertion) {
-//            new AlertDialog.Builder(this).setTitle("Complete.").setMessage("was able to add to the database.").setPositiveButton("I agree", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialogInterface, int i) {
-//                    dialogInterface.dismiss();
-//                }
-//            })
-//                    .setCancelable(false)
-//                    .create()
-//                    .show();
-//        }
-        Cursor res = db.getAllData("body_part_specific_table");
-        StringBuffer buffer = new StringBuffer();
-        if (res.getCount() != 0) {
-
-            while (res.moveToNext()) {
-                buffer.append("Area: " + res.getString(0) + "\n");
-                buffer.append("Symptom: " + res.getString(1) + "\n");
-                buffer.append("Info: " + res.getString(2) + "\n");
-                buffer.append("Name: " + res.getString(3) + "\n");
-            }
-        }
-        new AlertDialog.Builder(this).setTitle("Complete.").setMessage(buffer.toString()).setPositiveButton("I agree", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            })
-                    .setCancelable(false)
-                    .create()
-                    .show();
-
-
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigationView);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -91,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
 
         if (firstStart) {
             showTermsDialog();
+            db.loadAllData();
         }
     }
 

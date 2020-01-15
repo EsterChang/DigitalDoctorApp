@@ -8,6 +8,25 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+
+    /*
+    This is not necessary for this class, but shows how I might use a Cursor and a StringBuffer
+    to get the results of a database query
+
+        Cursor res = db.getAllData("body_part_specific_table");
+        StringBuffer buffer = new StringBuffer();
+        if (res.getCount() != 0) {
+            while (res.moveToNext()) {
+                buffer.append("Area: " + res.getString(0) + "\n");
+                buffer.append("Symptom: " + res.getString(1) + "\n");
+                buffer.append("Info: " + res.getString(2) + "\n");
+                buffer.append("Name: " + res.getString(3) + "\n");
+            }
+        }
+     */
+
+
+
     public static final String DATABASE_NAME = "DigitalDoctor.db";
     public static final Integer DATABASE_VERSION = 1;
 
@@ -24,8 +43,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String SYMPTOM_SEVERITY = "symptom_severity";
     public static final String SYMPTOM_INFORMATION = "symptom_info";
 
+
+    // This creates a database (without a factory), as the first version of the database
     public DatabaseHelper(@Nullable Context context) {
-        // This creates a database (without a factory), as the first version of the database
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         SQLiteDatabase db = this.getWritableDatabase();
     }
@@ -73,6 +93,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //Inserts data, completely generic. Expects a table name, and an array of values in the correct
+    //ordering of the table
     public boolean insertData(String tableName, String[] values) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -101,12 +123,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    public boolean loadAllData() {
+        return true;
+    }
+
     public Cursor getAllData(String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + tableName, null);
         return res;
     }
 
+    //This is an example for a deletion. I don't anticipate needing any of these unless we put in
+    //bad values to our system. For now, I have left it non-generic, as I don't think it is worth
+    //the time to invest making it more generic currently.
     public Integer deleteData(String symptomName) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(BODY_PART_TABLE, "" + SYMPTOM_NAME + " = ?", new String[] {symptomName});
