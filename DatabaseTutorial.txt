@@ -1,0 +1,74 @@
+Database Tutorial
+------------------
+
+****I PUT EVERYTHING I COULD THINK OF, LET ME KNOW IF YOU HAVE ANY QUESTIONS ABOUT
+****THE STRUCTURE. THE INSERTION/DELETION WILL BE COVERED LATER WHEN NECESSARY
+
+Inside our app, we currently have 1 Database: DigitalDoctor.db
+You can find it by opening it through
+	Help->Find Action
+	Search Device File Explorer
+	Open data->data->com.juniordesign.digitaldoctor->databases
+Inside that folder, you should see DigitalDoctor.db and DigitalDoctor.db-journal
+
+The database has 5 tables:
+
+
+body_part_specific_table
+
+primary_area|primary_symptom|extra_info|symptom_name
+-----------------------------------------------------
+            |               |          |        
+            |               |          |        
+            |               |          |        
+
+
+generalized_symptom_table
+
+primary_symptom|extra_info|symptom_name
+---------------------------------------
+               |          |        
+               |          |        
+               |          |        
+
+
+pregnancy_table
+
+primary_symptom|extra_info|symptom_name
+---------------------------------------
+               |          |        
+               |          |        
+               |          |   
+
+
+childhood_table
+
+primary_area|extra_info|symptom_name
+------------------------------------
+            |          |        
+            |          |        
+            |          |     
+
+
+diagnosis_table
+
+symptom_name|symptom_severity|symptom_info
+------------------------------------------
+            |                |
+            |                |
+            |                |
+
+
+Each table has primary keys. In essence, a primary key states there cannot be a
+duplicate of it throughout the table.
+
+The primary keys are as follows:
+	body_part_table: Combination key of symptom_name and primary_symptom
+	generalized_symptom_table: Combination key of symptom_name and primary_symptom
+	pregnancy_table: Combination key of symptom_name and primary_symptom
+	childhood_table: Combination key of symptom_name and primary_area
+	diagnosis_table: symptom_name
+
+Additionally, the memory for the database is permanent, across all loads. So,
+I have put the loadData() method, which will eventually load ALL the data for the 
+application to occur on the first load of the app, similar to the popups.
