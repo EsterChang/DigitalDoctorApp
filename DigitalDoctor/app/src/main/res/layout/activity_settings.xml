@@ -24,11 +24,13 @@
 
     <ImageButton
         android:id="@+id/back_button"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="45dp"
         android:layout_height="62dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#a9d6eb"
         android:onClick="onBackButtonPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,12 +40,15 @@
 
     <Button
         android:id="@+id/terms_and_conditions_button"
-        android:layout_width="268dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="84dp"
+        android:layout_width="255dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorSecondary"
+        android:onClick="onShowTermsandConditionButtonPressed"
         android:text="@string/terms_and_conditions_button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,17 +57,20 @@
 
     <Button
         android:id="@+id/liability_button"
-        android:layout_width="151dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="136dp"
+        android:layout_width="147dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorSecondary"
+        android:onClick="onShowLiabilityButtonPressed"
         android:text="@string/liability_button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintVertical_bias="0.424" />
 
 
 </android.support.constraint.ConstraintLayout>
