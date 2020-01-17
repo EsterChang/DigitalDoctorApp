@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 
 public class HomeActivity extends AppCompatActivity {
+    DatabaseHelper db;
     private static final String SELECTED_ITEM = "arg_selected_item";
 
     private BottomNavigationView mBottomNav;
@@ -21,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        db = new DatabaseHelper(this);
 
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigationView);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -53,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         if (firstStart) {
             showTermsDialog();
+            db.loadAllData();
         }
     }
 
