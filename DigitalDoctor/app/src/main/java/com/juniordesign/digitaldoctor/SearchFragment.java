@@ -15,13 +15,12 @@ import android.widget.ImageButton;
 /**
  * Fragment class for each nav menu item
  */
-public class HomeFragment extends Fragment {
+public class SearchFragment extends Fragment {
 
     private View mContent;
-    ImageButton settings;
 
     public static Fragment newInstance() {
-        Fragment frag = new HomeFragment();
+        Fragment frag = new SearchFragment();
         return frag;
     }
 
@@ -29,14 +28,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        settings = (ImageButton) rootView.findViewById(R.id.settings_button);
-        settings.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                Intent settings = new Intent(HomeFragment.this.getActivity(), SettingsActivity.class);
-                startActivity(settings);
-            }
-        });
+        View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         return rootView;
     }
 
@@ -45,7 +37,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // retrieve text and color from bundle or savedInstanceState
-        mContent = view.findViewById(R.id.fragment_content_home);
+        mContent = view.findViewById(R.id.fragment_content_search);
     }
 
     @Override
