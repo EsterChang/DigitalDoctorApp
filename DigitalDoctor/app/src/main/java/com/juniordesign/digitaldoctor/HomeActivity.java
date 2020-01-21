@@ -3,6 +3,7 @@ package com.juniordesign.digitaldoctor;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -12,7 +13,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -58,7 +61,39 @@ public class HomeActivity extends AppCompatActivity {
 
         if (firstStart) {
             showTermsDialog();
-            db.loadAllData();
+
+            // to be removed once we have all data loaded, and first start uncommented
+            //db.deleteAllData();
+
+            Resources res = getResources();
+            InputStream in_s = res.openRawResource(R.raw.body_part_table_information);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
+
+            //currently loads all data from our body part table
+            db.loadAllData(reader, db.BODY_PART_TABLE);
+
+            // note from Kyle --> this is for database testing purposes, do not delete
+
+//            Cursor cur = db.getAllData("body_part_specific_table");
+//            StringBuffer buffer = new StringBuffer();
+//            while (cur.moveToNext()) {
+//                buffer.append("Area: " + cur.getString(0) + "\n");
+//                buffer.append("Symptom: " + cur.getString(1) + "\n");
+//                buffer.append("Extra Info: " + cur.getString(2) + "\n");
+//                buffer.append("Name: " + cur.getString(3) + "\n");
+//            }
+//            new AlertDialog.Builder(this)
+//                    .setTitle("Database")
+//                    .setMessage(buffer.toString())
+//                    .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    })
+//                    .setCancelable(false)
+//                    .create()
+//                    .show();
         }
     }
 

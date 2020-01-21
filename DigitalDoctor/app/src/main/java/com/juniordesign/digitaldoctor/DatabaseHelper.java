@@ -7,26 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
-
-    /*
-    This is not necessary for this class, but shows how I might use a Cursor and a StringBuffer
-    to get the results of a database query
-
-        Cursor res = db.getAllData("body_part_specific_table");
-        StringBuffer buffer = new StringBuffer();
-        if (res.getCount() != 0) {
-            while (res.moveToNext()) {
-                buffer.append("Area: " + res.getString(0) + "\n");
-                buffer.append("Symptom: " + res.getString(1) + "\n");
-                buffer.append("Info: " + res.getString(2) + "\n");
-                buffer.append("Name: " + res.getString(3) + "\n");
-            }
-        }
-     */
-
-
-
     public static final String DATABASE_NAME = "DigitalDoctor.db";
     public static final Integer DATABASE_VERSION = 1;
 
@@ -93,6 +78,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public boolean loadAllData(BufferedReader reader, String tableName) {
+        String line = null;
+        try {
+            while( null != ( line = reader.readLine() ) ){
+                String[] values = formatLine( line );
+                insertData(tableName, values);
+            }
+            reader.close();
+            return true;
+        } catch (IOException exception) {
+            return false;
+        }
+    }
+
+    public String[] formatLine(String line) {
+        return line.split("@", 0);
+    }
+
     //Inserts data, completely generic. Expects a table name, and an array of values in the correct
     //ordering of the table
     public boolean insertData(String tableName, String[] values) {
@@ -123,14 +126,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean loadAllData() {
-        return true;
-    }
-
     public Cursor getAllData(String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + tableName, null);
         return res;
+    }
+
+    public void deleteAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("drop table if exists " + BODY_PART_TABLE);
+        db.execSQL("drop table if exists " + GENERALIZED_SYMPTOM_TABLE);
+        db.execSQL("drop table if exists " + PREGNANCY_TABLE);
+        db.execSQL("drop table if exists " + CHILDHOOD_SYMPTOM_TABLE);
+        db.execSQL("drop table if exists " + DIAGNOSIS_TABLE);
+        onCreate(db);
     }
 
     //This is an example for a deletion. I don't anticipate needing any of these unless we put in
