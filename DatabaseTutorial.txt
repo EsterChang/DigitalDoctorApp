@@ -4,12 +4,19 @@ Database Tutorial
 ****I PUT EVERYTHING I COULD THINK OF, LET ME KNOW IF YOU HAVE ANY QUESTIONS ABOUT
 ****THE STRUCTURE. THE INSERTION/DELETION WILL BE COVERED LATER WHEN NECESSARY
 
+
+VIEWING DATABASE LOCATION
+-------------------------
 Inside our app, we currently have 1 Database: DigitalDoctor.db
 You can find it by opening it through
 	Help->Find Action
 	Search Device File Explorer
 	Open data->data->com.juniordesign.digitaldoctor->databases
 Inside that folder, you should see DigitalDoctor.db and DigitalDoctor.db-journal
+
+
+DATABASE STRUCTURE
+------------------
 
 The database has 5 tables:
 
@@ -72,3 +79,16 @@ The primary keys are as follows:
 Additionally, the memory for the database is permanent, across all loads. So,
 I have put the loadData() method, which will eventually load ALL the data for the 
 application to occur on the first load of the app, similar to the popups.
+
+LOADING DATA
+------------
+I have a method written that takes in data from a raw text file, based on the 
+table name passed in. For example, the body_part_specific_table will load in from
+body_part_table_information.txt
+
+This is loaded by creating an array of each line's values:
+Head@Headache@From a fall@Head Injury
+will be an array like:
+["Head", "Headache", "From a fall", "Head Injury"]
+which is then created as "content values" (what is put in the array)
+and inserted in the order they are within the String array.
