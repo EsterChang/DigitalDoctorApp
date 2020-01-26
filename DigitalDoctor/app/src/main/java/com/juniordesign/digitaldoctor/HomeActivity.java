@@ -63,18 +63,40 @@ public class HomeActivity extends AppCompatActivity {
             showTermsDialog();
 
             // to be removed once we have all data loaded, and first start uncommented
-            //db.deleteAllData();
+            db.deleteAllData();
 
             Resources res = getResources();
+
             InputStream in_s = res.openRawResource(R.raw.body_part_table_information);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
 
             //currently loads all data from our body part table
             db.loadAllData(reader, db.BODY_PART_TABLE);
 
+            in_s = res.openRawResource(R.raw.generalized_symptom_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.GENERALIZED_SYMPTOM_TABLE);
+
+            in_s = res.openRawResource(R.raw.childhood_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.CHILDHOOD_SYMPTOM_TABLE);
+
+            in_s = res.openRawResource(R.raw.pregnancy_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.PREGNANCY_TABLE);
+
+            in_s = res.openRawResource(R.raw.diagnosis_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.DIAGNOSIS_TABLE);
+
+
             // note from Kyle --> this is for database testing purposes, do not delete
 
-//            Cursor cur = db.getAllData("body_part_specific_table");
+//            Cursor cur = db.getAllData(db.BODY_PART_TABLE);
 //            StringBuffer buffer = new StringBuffer();
 //            while (cur.moveToNext()) {
 //                buffer.append("Area: " + cur.getString(0) + "\n");
