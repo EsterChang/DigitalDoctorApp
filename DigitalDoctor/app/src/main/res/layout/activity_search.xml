@@ -59,6 +59,7 @@
 
     <ListView
         android:id="@+id/listView"
+        style="@style/Widget.AppCompat.ListView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@id/prompts"
@@ -66,6 +67,10 @@
         android:layout_alignRight="@id/prompts"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:cacheColorHint="@color/colorSecondary"
+        android:divider="@color/colorAccent"
+        android:dividerHeight="1dp" />
 
 </RelativeLayout>
