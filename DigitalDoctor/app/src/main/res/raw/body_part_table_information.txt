@@ -172,7 +172,7 @@ Chest Area@Irregular Heart Rate@An Irregular and Rapid Pulse, Intolerance to Hea
 Chest Area@Irregular Heart Rate@An Irregular or Rapid Heartbeat@Irregular Heartbeat
 Chest Area@Slow Heart Rate@A Slow and Irregular Pulse, Intolerance to Cold, Weakness and Fatigue, Generalized Body Swelling (Especially of the Face), and High Cholesterol Level, etc.@Underactive Thyroid Gland
 Chest Area@Slow Heart Rate@A Slow Pulse Rate@Impairment in Heart Pacing System
-Belly, Stomach Area, or Abdomen@Appetite@Increased Appetite, Thirst, Urination, and Weight Loss@Diabetes
+Belly, Stomach Area, or Abdomen@Appetite@Increased Appetite, Thirst, Urination, and Weight Loss@Early Stage of Diabetes
 Belly, Stomach Area, or Abdomen@Appetite@Increased Appetite, Tremors, Bulging Eyes, Heat Intolerance, Irregular Pulse, etc.@Overactive Thyroid Gland
 Belly, Stomach Area, or Abdomen@Appetite@Loss of Appetite and/or Weight Loss@Serious Underlying Illness
 Belly, Stomach Area, or Abdomen@Indigestion and Heartburn@Heartburn and Belching@Reflux
@@ -257,7 +257,7 @@ Urine@Appearance@Passing Bubbles in the Stream While You Urinate, “Machine Gun
 Urine@Appearance@Tea-Colored Urine, with or without Nausea and a Sense of Fullness, and/or Yellow Skin or Eyes@Chronic Problem with Gallstones
 Urine@Discomfort@Painful Urination, Increased Frequency and/or Urgency, Slowing of Urine Flow, Pain and Tenderness in the Lower Belly with Low Back Pain, in Men@Infection of the Urinary Tract
 Urine@Discomfort@Repeated Painful Burning, a Recurrent Feeling That You Need to Urinate, and/or Frequent Urination@Bladder Infection
-Urine@Frequency@Frequent Urination and Increased Thirst, Often with Weight Loss@Diabetes
+Urine@Frequency@Frequent Urination and Increased Thirst, Often with Weight Loss@Early Stage of Diabetes
 Urine@Frequency@Frequent Urination and Increased Thirst, with or without Nausea, Vomiting, Loss of Appetite, Abdominal Pain, and/or Many Other Symptoms@Hyperparathyroidism
 Urine@Frequency@Frequent Urination, a Recurrent Feeling That You Need to Urinate, with or without Pain or Burning@Bladder Infection
 Urine@Frequency@Inability to Urinate@Narrowed Urethra
@@ -271,7 +271,7 @@ Menstruation, Menopause, and PMS@Pain and PMS@Painful Menstruation and PMS@Preme
 Menstruation, Menopause, and PMS@Bleeding after Menopause@Vaginal Bleeding After Menopause@Ovarian Cancer
 Menstruation, Menopause, and PMS@Vaginal Bleeding@and/or Discharge of Grapelike Particles, Often with Severe Nausea and Vomiting, Appearing Pregnant, and a Positive Pregnancy Test@Tumor in the Womb
 Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Lower Belly Pain in the First Four Months of Pregnancy@Potential Miscarriage
-Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Severe Belly Pain or Contractions, on or After the Fifth Month of Pregnancy@Hemorhagge
+Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Severe Belly Pain or Contractions, on or After the Fifth Month of Pregnancy@Hemorrhage
 Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Bone Pain That Wakes You in the Night@Bone Cancer
 Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Legs with Severe Back Pain and Sometimes Fever@Serious Back Infection
 Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Hips, Buttocks, and/or Legs When Walking@Clogged Arteries
