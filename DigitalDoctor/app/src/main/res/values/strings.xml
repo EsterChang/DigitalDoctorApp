@@ -4,11 +4,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_home">HomeActivity</string>
-    <string name="liability_button">Liability</string>
-    <string name="terms_and_conditions_button">Terms and Conditions</string>
+    <string name="liability">Liability Warning</string>
+    <string name="liability_error">Error: cannot show Liability Warning.</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="terms_and_conditions_error">Error: cannot show Terms and Conditions.</string>
     <string name="back_button">Back</string>
-
-
+    <string name="agree">I Agree</string>
     <string name="question_1">Which of these categories best describes your symptoms?</string>
     <string name="prompt_1">Select Symptom Category</string>
     <string name="question_2">Where is your primary symptom located?</string>

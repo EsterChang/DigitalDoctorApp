@@ -1,0 +1,346 @@
+Head@Headache@after a Head Injury and/or with a Stiff Neck and Many Other Possible Symptoms@Head Injury
+Head@Headache@Episodic Headaches, and Heart Beating Inside Your Head@Blood Vessel Malformation
+Head@Headache@that Becomes Progressively Worse and/or Is Accompanied by Seizures@Brain Tumor
+Head@Headache@with Nausea, Drowsiness, Confusion, and/or Cherry Red Skin or Bright Red Gums and Lips, Often Worse Indoors and Affecting Everyone in the Household@Carbon Monoxide Poisoning
+Head@Headache@when Pregnant, with Dizziness, Nosebleeds, Blurred Vision, Double Vision, Swelling, and/or Upper- Right or Middle Belly Pain Under the Breastbone@Preeclampsia
+Head@Headache@with Stiff Neck and Fever@Meningitis
+Head@Headache@with Tender Temples and/or Blurred Vision@Temporal Arteritis
+Head@Headache@Sudden Onset of the Worst Headache of Your Life or “Thunderclap” Headache@Bleeding in the Brain
+Head@Dizziness@after a Head Injury, with Many Other Possible Symptoms@Head Injury
+Head@Dizziness@after Heat Exposure, with Fatigue, Headache, and/or Confusion@Heat Exhaustion
+Head@Dizziness@and/or Passing Out When You Sit Up or Stand@Orthostatic Hypotension
+Head@Dizziness@and Weakness, Rapid Heartbeat, Sweating, Acting Weird, Blackout Spells, and/or Seizures, Followed by Unconsciousness@Hypoglycemia
+Head@Dizziness@with Nausea, Vomiting@Light-headedness
+Head@Dizziness@with Weakness or Paralysis in the Arms or Legs (or One Side of the Body or Face), Burning Pain, Confusion, Difficulty Speaking, Double Vision, etc.@Stroke
+Head@Dizziness@A Short Episode of Vertigo (an Unbalanced Feeling), Weakness and/or Numbness (in a Leg, Arm, or One Side of the Face), Double Vision, Slurred Speech, Momentary Blindness, etc.@Transient Ischemic Attack
+Head@Dizziness@Sudden, with Weakness, Heart Pounding, Shortness of Breath, and/or Heavy Sweating, Often with Nausea and Vomiting@Painless Heart Attack
+Head@Head Injury@How Serious Is It?@Head Injury
+Head@Head Injury@Head Injury Followed by Loud, Combative Behavior@Brain Injury
+Head@Psychological Problems@Acting Weird and Blackout Spells, Seizures, Weakness, Rapid Heartbeat, and Sweating, Followed by Unconsciousness@Hypoglycemia
+Head@Psychological Problems@Anxiety and Depression with Possible Constant Fatigue and/or a Panic Disorder@Depression
+Head@Psychological Problems@Anxiety with Irregular Pulse, Fatigue, and an Increased Appetite@Overactive Thyroid Gland
+Head@Psychological Problems@Combative Behavior After a Head Injury@Brain Injury
+Head@Psychological Problems@Confusion with Paralysis, Numbness, and Slurred Speech@Stroke
+Head@Psychological Problems@Confusion After a Head Injury, with Many Other Possible Symptoms@Head Injury
+Head@Psychological Problems@Confusion, After Heat Exposure, Sometimes with Fatigue, Dizziness, and/or Headache@Heat Exhaustion
+Head@Psychological Problems@Delirium@Delirium
+Head@Psychological Problems@Depression After a Heart Attack@Depression after a Heart Attack
+Head@Psychological Problems@Feeling of Impending Doom, Possibly with Dizziness, Weakness, etc.@Painless Heart Attack
+Head@Psychological Problems@Memory Loss, with Cold Intolerance, Face or Body Swelling, Irregular and Slow Pulse, and/or High Cholesterol@Underactive Thyroid Gland
+Head@Psychological Problems@Personality Change, Acting Weird, Potentially Sudden@Sudden Personality Change
+Head@Psychological Problems@Personality Change, with Memory Loss, Usually in Senior Citizens@Dementia
+Head@Psychological Problems@Psychosis, with Confusion, Depression, Anxiety, Muscle Weakness, Bone Pain, Loss of Memory, Constipation, and/or Kidney Stones@Hyperparathyroidism
+Head@Face-General@Freckles Inside the Mouth or on the Lips@Growths in the Intestines
+Head@Face-General@Round, Pearly Bump on an Area of the Skin Exposed to the Sun@Skin Cancer
+Head@Face-General@A Short Episode of Numbness on One Side of the Face, Slurred Speech, Double Vision, Blurred Vision, “Vertigo” (an Unbalanced Feeling), Weakness in the Hand and/or Arm, and/or Momentary Blindness@Transient Ischemic Attack
+Head@Face-General@Sores in the Mouth, Nose, Eyes, etc., with a Targetlike Rash and Mild Fever, After Starting Certain Medications@Fatal Reaction
+Head@Face-General@Swelling of the Face, Intolerance to Cold, Weakness and Fatigue, Irregular and Slow Pulse, High Cholesterol Level, etc.@Underactive Thyroid Gland
+Head@Face-General@Swelling of the Lips and Throat and/or Difficulty Breathing After a Bee Sting or Exposure to Other Allergen@Severe Allergic Reaction
+Head@Face-General@Tired  Jaw,  Droopy  Eyelids,  and/or  Double Vision@Myasthenia Gravis
+Eyes@Eyeballs@Blue Mucous Membranes of the Eyes, Nose, Mouth, etc., or Blue Skin@Insufficient Oxygen Supply
+Eyes@Eyeballs@Bulging Eyes, Heat Intolerance, Fatigue, Tremors, Double Vision, etc.@Overactive Thyroid Gland
+Eyes@Eyeballs@Unequal Pupil Size Alone or with a Droopy Eyelid,and/or Double Vision@Aneurysm
+Eyes@Eyeballs@Unequal Pupils After a Head Injury, with Many Other Possible Symptoms@Head Injury
+Eyes@Eyeballs@Yellow Eyes, Yellow Jaundice, and Tea-Colored Urine@Chronic Problem with Gallstones
+Eyes@Eyeballs@Pain in One Eye When You Move Both Eyes@Infection or Tumor within Eye
+Eyes@Vision Abnormalities@Blurred Vision or Loss of Vision After a Head Injury, with Many Other Possible Symptoms@Head Injury
+Eyes@Vision Abnormalities@Blurred Vision usually with a Headache and/or Tender Temples@Temporal Arteritis
+Eyes@Vision Abnormalities@Blurred Vision when Pregnant, with Swelling, Upper-Right or Middle Belly Pain Under the Breastbone, Headaches, Dizziness, and/or Nosebleeds@Preeclampsia
+Eyes@Vision Abnormalities@Blurred Vision or Double Vision with Numbness, Weakness, Slurred Speech, “Vertigo” (an Unbalanced Feeling), and/or Momentary Blindness, etc.@Transient Ischemic Attack
+Eyes@Vision Abnormalities@Double Vision alone or with a Droopy Eyelid and/or Unequal Pupil Size@Aneurysm
+Eyes@Vision Abnormalities@Double Vision with Droopy Eyelids and/or Tired Jaw@Myasthenia Gravis
+Eyes@Vision Abnormalities@Haze, Blur, Cloud, Darkness, or “Curtain” Over One Eye, Even for a Few Seconds@Pre-Stroke
+Eyes@Vision Abnormalities@Narrowed Vision@Possible Pituitary Gland Tumor, Brain Tumor, Stroke, Injury to Retina, or Advanced Glaucoma
+Eyes@Vision Abnormalities@Straight Lines Appearing Wavy, Distorted, or Broken@Problem with the Retina
+Eyes@Vision Abnormalities@Sudden Onset of Many Floating Spots Before Your Eyes@Floater, or Something Worse
+Eyes@Vision Abnormalities@Any Flashes or Changes in the Number or Appearance of Floaters (Little Spots or Strings) in Your Visual Field@Retinal Detachment Tear
+Ear, Nose, Mouth, Throat, and Neck@Ear@Hearing Loss After a Head Injury, with Many Other Possible Symptoms@Head Injury
+Ear, Nose, Mouth, Throat, and Neck@Ear@Hearing Loss and/or Ringing in One Ear, with “Vertigo” (an Unbalanced Feeling)@Problem near the Hearing Nerve
+Ear, Nose, Mouth, Throat, and Neck@Ear@Hearing Your Heartbeat Inside Your Head, Usually in Association with Episodic Headaches@Blood Vessel Malformation
+Ear, Nose, Mouth, Throat, and Neck@Nose@and/or Upper Lip, When Infected@Nose Infection
+Ear, Nose, Mouth, Throat, and Neck@Nose@Blue Mucous Membranes of the Nose, Eyes, Mouth, etc., or Blue Skin@Insufficient Oxygen Supply
+Ear, Nose, Mouth, Throat, and Neck@Nose@Sores in the Nose, Mouth, Eyes, etc., with a Targetlike Rash  and  Mild  Fever,  After  Starting Certain Medicines@Fatal Reaction
+Ear, Nose, Mouth, Throat, and Neck@Nose@Nosebleed with Gum Bleeds, a Change in Bruising Patterns, Black or Red Dots on the Skin, Bleeding Too Long After a Cut, and/or Rectal Bleeding@Blood-Clotting Problem
+Ear, Nose, Mouth, Throat, and Neck@Nose@Nosebleed when Pregnant, with Blurred Vision, Double Vision, Swelling, Upper-Right or Middle Belly Pain Under the Breastbone, Headaches, and/or Dizziness@Preeclampsia
+Ear, Nose, Mouth, Throat, and Neck@Nose@Nosebleed@Nosebleed
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Blue Mucous Membranes of the Mouth, Nose, Eyes, etc., or Blue Skin@Insufficient Oxygen Supply
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Bright Red Gums and Lips, with Headache, Nausea, and/or  Drowsiness,  Often  Worse  Indoors   or Affecting Everyone in the Household@Carbon Monoxide Poisoning
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Fruity-Smelling Breath@Blood Sugar Problem
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Garlic-Smelling Breath or Metallic Taste on Tongue@Arsenic Poisoning
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Salt Craving, Muscle Cramps, and Dehydration, Associated with Steroid Use@Steroid Complications
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Slurred Speech (a Short Episode), with Numbness on One Side of the Face, Weakness in the Arm or Leg, Double Vision, Momentary Blindness, and/or “Vertigo” (an Unbalanced Feeling)@Transient Ischemic Attack
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Slurred Speech, Difficulty Finding Words, Speaking “Gibberish,” Numbness, Double Vision, Burning Pains, Sometimes with	Confusion, Weakness, Paralysis, etc.@Stroke
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Sores in the Mouth, Nose, Eyes, etc., with a Targetlike Rash and Mild Fever, After Starting Certain Medicines@Fatal Reaction
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Sore Tongue and Mouth, with Other Flu-Like Symptoms,  Rash,  and/or  Upset  Stomach@Allergic Reaction
+Ear, Nose, Mouth, Throat, and Neck@Mouth@“Strawberry Tongue,” Severe Sore Throat, Fever, and Rash@Scarlet Fever
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Swelling of the Lips, Tongue, Throat, and/or Difficulty Breathing After a Bee Sting or Exposure to Other Allergen@Severe Allergic Reaction
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Unexplained Loss of Appetite and/or Loss of Weight@Serious Underlying Illness
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Blue or Black Spots or Nonpigmented Growths in the Mouth@Mucosal Melanoma
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Chronically Infected Gums@Periodontal Disease
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Gum Bleeds, Nosebleeds, a Change in Bruising Patterns, Black or Red Dots on the Skin, Bleeding Too  Long After a Cut, and/or Rectal  Bleeding@Blood-Clotting Problem
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Mouth Sores or White Spots@Mouth Cancer
+Ear, Nose, Mouth, Throat, and Neck@Mouth@A Nonpainful, Raw-Looking Sore Near the Mouth and/or Genitals@Syphilis
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Persistent Swelling or Pain in the Mouth or Throat@Possible Cancer, Infection, or Gland Problems
+Ear, Nose, Mouth, Throat, and Neck@Mouth@Ulcer in the Mouth for More Than Three Weeks@Possible Mouth Cancer
+Ear, Nose, Mouth, Throat, and Neck@Mouth@White Patches in the Mouth and/or a Red Eroded Area in or Around the Mouth@Yeast Infection
+Ear, Nose, Mouth, Throat, and Neck@Throat@Gasping, with a “Seal-Like” Noise, a Convulsive Effort to Breathe, Often Associated with a Severe Sore Throat@Epiglottitis
+Ear, Nose, Mouth, Throat, and Neck@Throat@Hoarseness That Will Not Go Away@Cancer of the Vocal Chords
+Ear, Nose, Mouth, Throat, and Neck@Throat@Swallowing Difficulty or Pain@Partial Esophagus Obstruction
+Ear, Nose, Mouth, Throat, and Neck@Throat@Sore Throat followed by Fever and Joint Swelling Two Weeks Later@Rheumatic Fever
+Ear, Nose, Mouth, Throat, and Neck@Throat@Sore Throat with Fiery Red Rash All Over Your Body, and Fever, Possibly with a “Strawberry Tongue”@Scarlet Fever
+Ear, Nose, Mouth, Throat, and Neck@Throat@Severe Sore Throat@Throat Infection
+Ear, Nose, Mouth, Throat, and Neck@Neck@Darkening of Skin Behind the Neck@Potentially Cancer and/or Diabetes
+Ear, Nose, Mouth, Throat, and Neck@Neck@Gradually Increasing Pain in the Back of the Neck or Lower Back, Often with Night Sweats and Fever@Epidural or Intraspinal Abscess
+Ear, Nose, Mouth, Throat, and Neck@Neck@Lumps Anywhere in the Neck@Potenially Serious Neck Disease
+Ear, Nose, Mouth, Throat, and Neck@Neck@Lumps in the Front Base of the Neck@Thyroid Cancer
+Ear, Nose, Mouth, Throat, and Neck@Neck@Stiff Neck, Headache, and Fever@Meningitis
+Ear, Nose, Mouth, Throat, and Neck@Neck@Swelling of the Throat and Lips and/or Difficulty Breathing Following a Bee Sting or Exposure to Other Allergen@Severe Allergic Reaction
+Arms and Hands@Armpits@A Lump in the Armpit@Enlarged Lymph Node
+Arms and Hands@Armpits@Darkening of Skin Around Your Armpits and/or the Back of the Neck and/or Groin@Potentially Cancer and/or Diabetes
+Arms and Hands@Arms@Bone Pain That Wakes You at Night@Potential Bone Cancer
+Arms and Hands@Arms@Numbness or Tingling or Burning Pains, Sometimes with Confusion, Weakness, Paralysis, Double Vision, Difficulty Speaking, and/or Slurred Speech, etc.@Stroke
+Arms and Hands@Arms@Poor Coordination and/or Staggering After a Tick Bite@Tick Paralysis
+Arms and Hands@Arms@Muscle Cramping, with Salt Craving and Dehydration, Associated with Steroid Use@Steroid Complications
+Arms and Hands@Arms@Muscle Weakness in Legs, Spreading to Arms and Upper Body, Often with Breathing Difficulties, Following Infections, Surgery, and Vaccinations, etc.@Guillan-Barré Syndrome
+Arms and Hands@Arms@Muscle Weakness, Dehydration, Heart Rhythm Abnormalities, Loss of Memory, Confusion, Constipation, Bone Pain, Depression, Anxiety, Psychosis, and/or Other Symptoms@Hyperparathyroidism
+Arms and Hands@Arms@Muscle Weakness and/or Muscle Cramps@Problem with Potassium Levels
+Arms and Hands@Arms@A Short Episode of Weakness in the Hand and/or Arm, Numbness on One Side of the Face, Slurred Speech, Double Vision, Momentary Blindness, and/or “Vertigo” (an Unbalanced Feeling), etc.@Transient Ischemic Attack
+Arms and Hands@Joints@Joint Swelling, Two Weeks After Strep Throat, Fever@Rheumatic Fever
+Arms and Hands@Hands@Hand Tremors; Intolerance to Heat; Rapid and Irregular Pulse; Profuse Sweating; Bulging, Prominent Eyes; etc.@Overactive Thyroid Gland
+Arms and Hands@Hands@Shaking Hands@Potential Overactive Thyroid Gland or Parkinson's Disease
+Arms and Hands@Hands@Sores on the Fingertips or Toes of a Smoker@Blockage of the Arteries
+Arms and Hands@Hands@Spots (Brown in African Americans and Asians and Pink to Dusty Red in Caucasians) on the Palms of the Hands and/or Wrists, etc.@Syphilis or Rocky Mountain Spotted Fever
+Arms and Hands@Hands@Swelling of One Hand Alone, Usually Painless@Severe Allergic Reaction
+Arms and Hands@Fingers@Enlarged Fingertips@Potential Problem with Oxygenation of the Blood
+Arms and Hands@Fingernails@Dark Reddish Spots in the Fingernails@Serious Heart Infection
+Arms and Hands@Fingernails@Nail Fungus@Nail Fungus
+Breast@Breast@A Lump in the Breast@Breast Cancer
+Breast@Breast@Changes in a Breast: Redness and/or Swelling, Dimpling of the Skin, Orange Peel Appearance of the Skin, Nipple Retraction, or Crusty Appearance of the Nipple@Potential Breast Cancer
+Breast@Breast@Nipple Discharge, Not Associated with a Current or Recent Pregnancy@Potential Problems based on Discharge
+Breast@Breast@Male Breast Enlargement@Probable Hormonal Imbalance
+Chest Area@Breathing Difficulties@Asthma Attack@Asthma Attack
+Chest Area@Breathing Difficulties@Wheezing@Serious Lung Problem
+Chest Area@Breathing Difficulties@Breathing Difficulties and Chest Deformities@Deformities of the Chest
+Chest Area@Breathing Difficulties@Breathing Difficulty; Swelling of the Lips, Tongue, and Throat; After a Bee Sting or Exposure to Other Allergen@Severe Allergic Reaction
+Chest Area@Breathing Difficulties@Breathing Difficulty, with Weakness and/or Tingling Spreading from the Legs to the Arms and Upper Body, Following Certain Infections, Surgery, or a Vaccination@Guillan-Barré Syndrome
+Chest Area@Breathing Difficulties@Excessive Snoring, and/or Short Episodes of “No Breathing” During Sleep, and Daytime Sleepiness@Nightime Oxygen Deprivation
+Chest Area@Breathing Difficulties@“Seal-Like” Gasping, a Convulsive Effort to Breathe, Often Associated with a Severe Sore Throat@Epiglottitis
+Chest Area@Shortness of Breath@after a Leg Injury@Blood Clot in the Lung
+Chest Area@Shortness of Breath@and/or Weakness, Especially in Women, Seniors, and Diabetics@Warning Sign of Heart Attack
+Chest Area@Shortness of Breath@in a Smoker@Emphysema
+Chest Area@Shortness of Breath@when You Lie Flat in Bed, That Wakes You Up at Night@Heart Failure
+Chest Area@Shortness of Breath@with Chest Pain and/or Bloody Cough@Blood Clot in the Lung, or other Illness
+Chest Area@Shortness of Breath@with Exertion@Serious Medical Problem in the Lung or Heart
+Chest Area@Shortness of Breath@with Paleness, Fatigue, and Rapid Pulse@Anemia
+Chest Area@Shortness of Breath@with Smokers’ Cough@Risk of Serious Lung Infection
+Chest Area@Shortness of Breath@with or without Pain and Tenderness in Groin or Back of Lower Leg, After Surgery@Blood Clot in the Lung, or Pneumonia
+Chest Area@Cough@and/or Shortness of Breath After Surgery@Blood Clot in the Lung, or Pneumonia
+Chest Area@Cough@in a Smoker@Emphysema
+Chest Area@Cough@up Blood@Bronchitis, Pneumonia, Blood Clot, or Cancer
+Chest Area@Cough@up Blood, with Shortness of Breath and Chest Pain@Blood Clot in the Lung, or other Illness
+Chest Area@Cough@up Dirty-Looking Phlegm@Pus in Lung
+Chest Area@Cough@that Lasts More Than Two Weeks@Many Possible Illnesses with the Lung
+Chest Area@Cough@with Fever and Chest Pains@Pneumonia
+Chest Area@Cough@with Fever and Night Sweats@Tuberculosis
+Chest Area@Chest Pain or Discomfort@and/or Pain and Tenderness in the Back of the Lower Leg, and/or Shortness of Breath, After a Long Trip or Being Bedridden@Potentially Dangerous Blood Clot
+Chest Area@Chest Pain or Discomfort@after Vomiting, with or without Blood@Tear in Lining of the Esophagus
+Chest Area@Chest Pain or Discomfort@that Gets Worse When Taking a Deep Breath@Many Diseases associated with Pleurisy
+Chest Area@Chest Pain or Discomfort@that Is Worse When Lying Down but Gets Better When Sitting Up@Inflammation of Heart Sac
+Chest Area@Chest Pain or Discomfort@located on the Left Side, with Tightness, and Burning, Extending to the Neck, Throat, Jaw, and/or Left Shoulder and Upper Arm, Usually Lasting Less than Twenty Minutes, Often Occurring with Exertion, but Can Occur During Rest or Sleep@Angina
+Chest Area@Chest Pain or Discomfort@under the Breastbone, That Extends to the Back Between the Shoulder Blades@Dissecting Aneurysm of the Thoracic Aorta
+Chest Area@Chest Pain or Discomfort@with Bloody Cough and Shortness of Breath@Blood Clot in the Lung, or other Illness
+Chest Area@Chest Pain or Discomfort@with Rapid, Slow, or Irregular Heartbeat@Irregular Heartbeat
+Chest Area@Chest Pain or Discomfort@Angina or Heart Attack in a Blood-Related Family Member Means a Higher Risk of Having a Heart Attack@Hereditary Warning Signs of Heart Attack
+Chest Area@Chest Pain or Discomfort@Chest Discomfort That Indicates a Heart Attack@Chest Discomfort that could Lead to a Heart Attack
+Chest Area@Chest Pain or Discomfort@Chest Pain That Feels Like a Heart Attack@Save your Life During a Heart Attack
+Chest Area@Chest Pain or Discomfort@General Weakness in Senior Citizens and Diabetics@Warning Sign of a Heart Attack
+Chest Area@Chest Pain or Discomfort@Heartburn and Belching@Reflux
+Chest Area@Chest Pain or Discomfort@Indigestion Discomfort@Indigestion with signs of a Heart Attack
+Chest Area@Chest Pain or Discomfort@Sudden Sharp Pain on the Side of the Chest, with Shortness of Breath@Collapsed Lung
+Chest Area@Irregular Heartbeat and Heart Sounds@A Feeling of Your Heart Pounding with Weakness, Sudden Dizziness, and/or Nausea, etc.@Painless Heart Attack
+Chest Area@Irregular Heartbeat and Heart Sounds@Heart Beating Inside Your Head, Usually in Association with Episodic Headaches@Blood Vessel Malformation
+Chest Area@Irregular Heartbeat and Heart Sounds@A Swooshing Sound Heard in the Chest with a Stethoscope@Heart Murmur
+Chest Area@Rapid Heart Rate@A Rapid Pulse, Often Accompanied by Weakness, Dizziness, etc.@Rapid Pulse
+Chest Area@Rapid Heart Rate@An Intermittently Rapid Pulse@Sudden Rapid Pulse
+Chest Area@Rapid Heart Rate@Rapid or Irregular Heartbeat@Irregular Heartbeat
+Chest Area@Rapid Heart Rate@A Rapid Heartbeat with Seizures, Dizziness, Blackout Spells, “Acting Weird,” Weakness, and Sweating, Followed by Unconsciousness@Painless Heart Attack
+Chest Area@Irregular Heart Rate@An Irregular Heartbeat, Often in Teenagers, and/or Seizures or Loss of Consciousness@Long QT Syndrome
+Chest Area@Irregular Heart Rate@An Irregular Heartbeat, with Constipation, Dehydration, Muscle Weakness, Bone Pain, Kidney Stones, Confusion, Memory Loss, Psychosis, Anxiety, and/or Other Symptoms@Hyperparathyroidism
+Chest Area@Irregular Heart Rate@An Irregular Pulse That Is Usually Rapid@Atrial Fibrillation
+Chest Area@Irregular Heart Rate@An Irregular Pulse, with Excessive Fluid Loss from Diarrhea,Water Pills,and/or Sweating, etc.@Mineral Level Change in Blood
+Chest Area@Irregular Heart Rate@An Irregular and Rapid Pulse, Intolerance to Heat, Tremors, Profuse Sweating, Bulging Eyes, etc.@Overactive Thyroid Gland
+Chest Area@Irregular Heart Rate@An Irregular or Rapid Heartbeat@Irregular Heartbeat
+Chest Area@Slow Heart Rate@A Slow and Irregular Pulse, Intolerance to Cold, Weakness and Fatigue, Generalized Body Swelling (Especially of the Face), and High Cholesterol Level, etc.@Underactive Thyroid Gland
+Chest Area@Slow Heart Rate@A Slow Pulse Rate@Impairment in Heart Pacing System
+Belly, Stomach Area, or Abdomen@Appetite@Increased Appetite, Thirst, Urination, and Weight Loss@Diabetes
+Belly, Stomach Area, or Abdomen@Appetite@Increased Appetite, Tremors, Bulging Eyes, Heat Intolerance, Irregular Pulse, etc.@Overactive Thyroid Gland
+Belly, Stomach Area, or Abdomen@Appetite@Loss of Appetite and/or Weight Loss@Serious Underlying Illness
+Belly, Stomach Area, or Abdomen@Indigestion and Heartburn@Heartburn and Belching@Reflux
+Belly, Stomach Area, or Abdomen@Indigestion and Heartburn@Indigestion Discomfort@Indigestion with signs of a Heart Attack
+Belly, Stomach Area, or Abdomen@Upset Stomach@with Flu-Like Symptoms, Sore Mouth or Tongue, and/or Rash@Allergic Reaction
+Belly, Stomach Area, or Abdomen@Belly Pain@after Taking Pain Pills, with or without Vomiting Blood, and/or Black Tarry Stools@Ulceration of the Stomach
+Belly, Stomach Area, or Abdomen@Belly Pain@associated with Drinking Alcohol and/or Smoking, with or without Vomiting Blood, and/or Black Tarry Stools@Ulcer Inflammation in the Stomach
+Belly, Stomach Area, or Abdomen@Belly Pain@from a Recurrent Ulcer, with or without Vomiting Blood, and/or Black Tarry Stools@Infection of the Stomach Lining
+Belly, Stomach Area, or Abdomen@Belly Pain@with or without Nausea, Vomiting, Increased Thirst and Urination, Loss of Appetite, and/or Many Other Symptoms@Hyperparathyroidism
+Belly, Stomach Area, or Abdomen@Belly Pain@with or without Vomiting Blood, and/or Black Tarry Stools, in a Smoker@Stomach Ulcer
+Belly, Stomach Area, or Abdomen@Belly Pain@Persistent Abdominal Discomfort or Pain, Bloating, and/or Feeling Full, in a Woman@Potential Ovarian Cancer
+Belly, Stomach Area, or Abdomen@Belly Pain@Left or Upper-Middle Belly Area Pain, with or without Vomiting Blood, and/or Black Tarry Stools@Ulcer in the Duodenum
+Belly, Stomach Area, or Abdomen@Belly Pain@Left or Upper-Middle Belly Pain That Extends into the Back, Sometimes with Vomiting@Pancreatitis
+Belly, Stomach Area, or Abdomen@Belly Pain@Severe Belly Pain That Worsens with Any Movement,and Very Rigid Belly Muscles@Perforated Ulcer
+Belly, Stomach Area, or Abdomen@Belly Pain@Upper-Middle Belly Pain or Upper-Right Belly Pain Under the Breastbone, When Pregnant, with Headaches, Dizziness, Nosebleeds, Blurred Vision, and/or Swelling@Preeclampsia
+Belly, Stomach Area, or Abdomen@Belly Pain@Upper-Right and/or Middle Belly Pain After Eating Fatty Foods, with or without Nausea and Vomiting@Gallstones
+Belly, Stomach Area, or Abdomen@Belly Pain@Upper-Right Belly Pain, with or without Yellow Jaundice, and Drinking Alcohol@Hepatitis
+Belly, Stomach Area, or Abdomen@Belly Pain@Worsening or Recurring Left Upper Belly Pain, Often Accompanied by Left Shoulder Pain, After an Injury to the Belly@Internal Hemorrhage
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@and Vaginal Discharge That Is Thick, Green, and Foul- Smelling@Infection of the Female Organs
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@with High Fever, Bright Red Rash, and/or Severe Vaginal Infection@Toxic Shock Syndrome
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@with Low Back Pain, Slowing of Urine Flow, and Pain on Urination, in Men@Infection of the Urinary Tract
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@with Reappearance of Vaginal Bleeding in the First Four Months of Pregnancy@Potential Miscarriage
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@with Swelling, Vomiting, and/or No Bowel Movements@Bowel Blockage
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@on the Right Side, with Tenderness@Appendicitis
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@General  Belly  Discomfort  and/or  Heavy Bleeding and Fever, Shortly After Delivering a Baby@Serious Infection of the Womb
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@mild, or Pain During Sexual Intercourse, in Women@Chlamydia
+Belly, Stomach Area, or Abdomen@Lower Belly Pain@sudden, and Often Persistent, Usually on the Left Side, in Middle-Aged or Older People@Diverticulitis
+Belly, Stomach Area, or Abdomen@Bulges and Swelling in the Belly@A Bulge in the Belly Area@Hernia
+Belly, Stomach Area, or Abdomen@Bulges and Swelling in the Belly@Increased Waistline with Decreased Weight@Serious Underlying Illness
+Belly, Stomach Area, or Abdomen@Bulges and Swelling in the Belly@Persistent Bloating, Abdominal Discomfort or Pain, and/or Feeling Full, in a Woman@Potential Ovarian Cancer
+Belly, Stomach Area, or Abdomen@Bulges and Swelling in the Belly@Pulsating Bulge in the Belly and/or Pain in the Lower Back, Abdomen, or Side@Aortic Aneurysm
+Belly, Stomach Area, or Abdomen@Sense of Fullness@Feeling Full, Persistent Bloating, and/or Abdominal Discomfort or Pain, in a Woman@Potential Ovarian Cancer
+Belly, Stomach Area, or Abdomen@Sense of Fullness@Feeling Full, Vomiting After Small Meals, and Possible History of Ulcers@Blockage from Scarring in the Stomach
+Belly, Stomach Area, or Abdomen@Sense of Fullness@Sense of Fullness, Tea-Colored Urine with or without Nausea, and/or Yellow Skin and Eyes@Constipation
+Nausea and Vomiting@Nausea@and Appearing Pregnant (Missed Periods and a Positive Pregnancy Test), with Vomiting, Vaginal Bleeding, and/or Discharge of Grapelike Particles@Tumor in the Womb
+Nausea and Vomiting@Nausea@and/or Vomiting, After a Head Injury, with Many Other Possible Symptoms@Head Injury
+Nausea and Vomiting@Nausea@and/or Vomiting, Loss of Appetite, Abdominal Pain, Increased Thirst and Urination, with Many Other Possible Symptoms@Hyperparathyroidism
+Nausea and Vomiting@Nausea@and/or Vomiting, with Weakness, Sudden Dizziness, Shortness of Breath, etc.@Painless Heart Attack
+Nausea and Vomiting@Nausea@with Headache, Drowsiness, and/or Bright Red Gums and Lips, Often Worse Indoors and Affecting Everyone in the Household@Carbon Monoxide Poisoning
+Nausea and Vomiting@Nausea@with Sense of Fullness, Tea-Colored Urine, and/or Yellow Skin and Eyes@Chronic Problem with Gallstones
+Nausea and Vomiting@Vomiting@and Appearing Pregnant (Missed Periods and a Positive Pregnancy Test), with Severe Nausea, Vaginal Bleeding, and/or Discharge of Grapelike Particles@Tumor in the Womb
+Nausea and Vomiting@Vomiting@and Belly Pain  Extending into the Back@Pancreatitis
+Nausea and Vomiting@Vomiting@with Dizziness and Nausea@Dizziness
+Nausea and Vomiting@Vomiting@and Feeling Full After Small Meals, with Possible History of Ulcers@Blockage from Scarring in the Stomach
+Nausea and Vomiting@Vomiting Blood@and Belly Pain and/or Black Tarry Stools, After Taking Certain Pain Pills@Ulceration of the Stomach
+Nausea and Vomiting@Vomiting Blood@and Belly Pain and/or Black Tarry Stools, in a Smoker@Stomach Ulcer
+Nausea and Vomiting@Vomiting Blood@with Pain in the Upper-Middle or Left Belly Area and/or Black Tarry Stools@Ulcer in the Duodenum
+Nausea and Vomiting@Vomiting Blood@with Pain in the Upper-Middle or Left Belly Area and/or Black Tarry Stools, possibly from a Recurrent Ulcer@Infection of the Stomach Lining
+Nausea and Vomiting@Vomiting Blood@Associated with Drinking Alcohol and/or Black Tarry Stools@Ulcer Inflammation in the Stomach
+Genitalia@Male@Swelling, Pain, and/or Tenderness in a Testicle@Testicular Cancer
+Genitalia@Male@A Nonpainful, Raw-Looking Sore on or Near the Genitals and/or Mouth@Syphilis
+Genitalia@Male@Irritation, Redness, and Tenderness of the Penis Foreskin@Diabetes
+Genitalia@Male@Sores in the Genital Area, Anus, Mouth, Nose, and/or Eyes, with a Targetlike Rash and Mild Fever, After Starting Medications@Fatal Reaction
+Genitalia@Female@A Nonpainful, Raw-Looking Sore Near Genitals and/or Mouth@Syphilis
+Genitalia@Female@Pain During Intercourse and/or Mild Belly Pain@Chlamydia
+Genitalia@Female@Redness, Itching, White Patches, and/or an Ulcer That Does Not Heal, in or Near the Genital Area of Older Women@Cancer of the Vulva
+Genitalia@Female@Sores in the Genital Area, Anus, Mouth, Nose, and/or Eyes, with a Targetlike Rash and Mild Fever, After Starting Certain Medications@Fatal Reaction
+Genitalia@Female@Vaginal Bleeding and/or Discharge of Grapelike Particles, Appearing Pregnant (Missed Periods and a Positive Pregnancy Test), Often with Severe Nausea and Vomiting@Tumor in the Womb
+Genitalia@Female@Vaginal Discharge That Is Thick, Green, and Foul- Smelling, Especially with Lower Belly Discomfort@Infection of the Female Organs
+Genitalia@Female@Wart in the Genital Area@Developing Cervical Cancer
+Genitalia@Female@White Discharge and/or Patches, and/or a Red Eroded Area in or Near the Vagina, Skin, or Mouth@Yeast Infection
+Genitalia@Groin@A Bulge in the Belly Area or Groin@Hernia
+Genitalia@Groin@Pain and Tenderness in the Groin or Leg@Blood Clot in the Groin or Leg
+Genitalia@Groin@Pain and Tenderness in the Groin or Leg, with Cough and/or Shortness of Breath After Surgery@Blood Clot in the Lung, or Pneumonia
+Bowel Movement@Pain@Anal Pain@Abscess around Rectum
+Bowel Movement@Form and Frequency@A Change in Bowel Movement Pattern, or Passing Pencil-Size Slivers of Stools@Colon Cancer
+Bowel Movement@Form and Frequency@Constipation@Constipation
+Bowel Movement@Form and Frequency@Constipation, with Memory Loss, Depression, Confusion, Anxiety, Muscle Weakness, Bone Pain, and/or Psychosis@Hyperparathyroidism
+Bowel Movement@Form and Frequency@Diarrhea@Diarrhea
+Bowel Movement@Form and Frequency@No Bowel Movements, and/or Lower Belly Pain, Swelling, and Vomiting@Bowel Blockage
+Bowel Movement@Color@Black Tarry Stools after Taking Certain Pain Pills, with or without Vomiting (Sometimes  Blood),  and  Belly  Pain@Ulceration of the Stomach
+Bowel Movement@Color@Black Tarry Stools and Belly Pain, with or without Vomiting (Sometimes Blood), in a Smoker@Stomach Ulcer
+Bowel Movement@Color@Black Tarry Stools and Pain in the Upper-Middle Belly Area and/or Vomiting (Sometimes Blood), Waking You at Night@Ulcer in the Duodenum
+Bowel Movement@Color@Black Tarry Stools and Pain in the Upper-Middle Belly Area and/or Vomiting (Sometimes Blood)@Infection of the Stomach Lining
+Bowel Movement@Color@Black Tarry Stools and Upper-Middle Belly Pain, and/or Vomiting (Sometimes Blood), Associated with Drinking Alcohol@Ulcer Inflammation in the Stomach
+Bowel Movement@Color@Bright Red or Dark Blood in the Bowel Movement@Potentially Multiple Serious Diagnoses around the Colon
+Bowel Movement@Color@Pale, Putty-Colored Stools@Blockage of the Bile Duct
+Bowel Movement@Color@Rectal Bleeding, Gum Bleeds, Nosebleeds, Bleeding Too Long After a Cut, a Change in Bruising Patterns, Black or Red Dots on the Skin@Blood-Clotting Problem
+Urine@Appearance@Blood in the Urine, Without Pain@Potentially Many Serious Problems around the Genitalia
+Urine@Appearance@Blood in the Urine, with Back Pain, Sometimes with Fever and Urination Problems@Kidney Disease
+Urine@Appearance@Passing Bubbles in the Stream While You Urinate, “Machine Gun” Urine@Abnormal Opening between Bladder and Colon
+Urine@Appearance@Tea-Colored Urine, with or without Nausea and a Sense of Fullness, and/or Yellow Skin or Eyes@Chronic Problem with Gallstones
+Urine@Discomfort@Painful Urination, Increased Frequency and/or Urgency, Slowing of Urine Flow, Pain and Tenderness in the Lower Belly with Low Back Pain, in Men@Infection of the Urinary Tract
+Urine@Discomfort@Repeated Painful Burning, a Recurrent Feeling That You Need to Urinate, and/or Frequent Urination@Bladder Infection
+Urine@Frequency@Frequent Urination and Increased Thirst, Often with Weight Loss@Diabetes
+Urine@Frequency@Frequent Urination and Increased Thirst, with or without Nausea, Vomiting, Loss of Appetite, Abdominal Pain, and/or Many Other Symptoms@Hyperparathyroidism
+Urine@Frequency@Frequent Urination, a Recurrent Feeling That You Need to Urinate, with or without Pain or Burning@Bladder Infection
+Urine@Frequency@Inability to Urinate@Narrowed Urethra
+Urine@Urine Flow@Slowing of Urine Flow, and/or Pain on Urination, Pain and Tenderness in the Lower Belly, with Low Back Pain, in Men@Infection of the Urinary Tract
+Menstruation, Menopause, and PMS@Irregular Periods@A Change in Your Normal Menstrual Pattern, and/or Nipple Discharge, and/or Limitations in Peripheral Vision, without Pregnancy@Tumor of the Pituitary Gland
+Menstruation, Menopause, and PMS@Irregular Periods@Heavy or Erratic Bleeding During  Menstruation@Serious Vaginal Disease
+Menstruation, Menopause, and PMS@Missed Periods@Failure to Menstruate, with Reappearance of Vaginal Bleeding and/or Lower Belly Pain, in the First Four Months of Pregnancy@Potential Miscarriage
+Menstruation, Menopause, and PMS@Missed Periods@and a Positive Pregnancy Test, Appearing Pregnant, Vaginal Bleeding, and/or Discharge of Grapelike Particles, Often with Severe Nausea and Vomiting@Tumor in the Womb
+Menstruation, Menopause, and PMS@Missed Periods@Prolonged Failure to Menstruate, without Pregnancy@Failure of Glands other than the Ovary
+Menstruation, Menopause, and PMS@Pain and PMS@Painful Menstruation and PMS@Premenstrual Syndrome
+Menstruation, Menopause, and PMS@Bleeding after Menopause@Vaginal Bleeding After Menopause@Ovarian Cancer
+Menstruation, Menopause, and PMS@Vaginal Bleeding@and/or Discharge of Grapelike Particles, Often with Severe Nausea and Vomiting, Appearing Pregnant, and a Positive Pregnancy Test@Tumor in the Womb
+Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Lower Belly Pain in the First Four Months of Pregnancy@Potential Miscarriage
+Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Severe Belly Pain or Contractions, on or After the Fifth Month of Pregnancy@Hemorhagge
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Bone Pain That Wakes You in the Night@Bone Cancer
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Legs with Severe Back Pain and Sometimes Fever@Serious Back Infection
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Hips, Buttocks, and/or Legs When Walking@Clogged Arteries
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Low Back and the Buttocks That Travels Down the Back of the Legs@Spinal Nerve Irritation
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain and Tenderness in the Groin or Leg (Usually in the Back of the Lower Leg)@Blood Clot in the Groin or Leg
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain and Tenderness in the Leg (Usually in the Back of the Lower Leg), After Surgery@Blood Clot in the Lung, or Pneumonia
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Leg Injury and Shortness of Breath@Blood Clot in the Lung
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Muscle Cramps, Salt Craving, and Dehydration, Associated with Steroid Use@Steroid Complications
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Numbness and/or Weakness, Sometimes with Paralysis, Confusion, Burning Pains, Tingling, Double Vision, Difficulty Speaking, and/or Slurred Speech, etc.@Stroke
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@A Short Episode of Numbness and/or Weakness, Double Vision, Blurred Vision, “Vertigo” (an Unbalanced Feeling), Momentary Blindness, etc.@Transient Ischemic Attack
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Staggering and/or Poor Coordination, After a Tick Bite@Tick Paralysis
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Weakness and/or Muscle Cramps@Problem with Potassium Levels
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Weakness and/or Tingling, Spreading to the Arms and Upper Body, Often with Breathing Difficulties,  Following Infections, Surgery, or Rarely Some Vaccinations@Guillan-Barré Syndrome
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Feet@Sores on the Toes or Fingertips of a Smoker@Blockage of the Arteries
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Feet@Spots on the Soles of the Feet and/or the Ankles@Syphilis or Rocky Mountain Spotted Fever
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Feet@Swelling of One Foot Alone (Usually Not the Ankles), Usually Painless@Severe Allergic Reaction
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Feet@Toenail Fungus@Nail Fungus
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Joints@Joint Ache, with Flu-Like Symptoms, Sore Mouth or Tongue, and/or Upset Stomach@Allergic Reaction
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Ankles@Spots on the Ankles or Soles of the Feet, etc.@Syphilis or Rocky Mountain Spotted Fever
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Ankles@Swelling of the Ankles@Potentially Serious Disease in the Lower Leg
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Ankles@Swelling of the Ankles when Pregnant, with Upper-Right or Middle Belly Pain Under the Breastbone, Headaches, Dizziness, Blurred Vision, and/or Nosebleeds@Preeclampsia
+Skin@Bites@Animal Bites, Animal Saliva Contamination, and Rabies@Rabies
+Skin@Bites@Bee Sting, or Exposure to Other Allergens, Followed by Swelling of the Lips and Throat, and/or Difficulty Breathing@Severe Allergic Reaction
+Skin@Bites@Infection After a Human Bite@Infection of the Skin
+Skin@Bites@Snakebite, Followed by Swelling and Discomfort@Venom
+Skin@Bites@Tick Bite, Followed by a Circular Skin Rash@Lyme Disease
+Skin@Bites@Tick Bite, Followed by Rash on Wrists, Palms of Hands, Ankles, and/or Soles of Feet, Sometimes with Fever@Syphilis or Rocky Mountain Spotted Fever
+Skin@Bites@Tick Bite, Followed by Staggering, Poor Coordination, and Paralysis@Tick Paralysis
+Skin@Discolorations@Blue Skin, or Blue Mucous Membranes@Insufficient Oxygen Supply
+Skin@Discolorations@Bright Red Gums and Lips, Drowsiness, Headache, and/or Nausea, Often Worse Indoors and Affecting Everyone in the Household@Carbon Monoxide Poisoning
+Skin@Discolorations@Change in Bruising Pattern, Black or Red Dots on the Skin, Nosebleeds, Gum Bleeds, Bleeding Too Long After a Cut, and/or Rectal Bleeding@Blood-Clotting Problem
+Skin@Discolorations@Darkening of Skin Around the Armpits, Groin, or the Back of the Neck@Potentially Cancer and/or Diabetes
+Skin@Discolorations@Spots (Brown in African Americans and Asians, Pink to Dusty Red in Caucasians) on the Wrists, Palms of  the Hands, Ankles, Soles of the Feet, Sometimes with Fever@Syphilis or Rocky Mountain Spotted Fever
+Skin@Discolorations@Paleness, Fatigue, and/or Rapid Pulse, with or without Shortness of Breath@Anemia
+Skin@Discolorations@Red Streaks on the Skin@Skin Infection
+Skin@Discolorations@Sunburn@Potentially Lupus
+Skin@Discolorations@Yellow Jaundice and Drinking Alcohol, Mild Tenderness over the Upper-Right Belly Area@Hepatitis
+Skin@Discolorations@Yellow Jaundice, Yellow Eyes, and Tea-Colored Urine@Chronic Problem with Gallstones
+Skin@Freckles, Moles, Bumps, Warts, Lumps, Plaques, and Patches@Freckles on the Lips or Inside  the  Mouth@Growths in the Intestines
+Skin@Freckles, Moles, Bumps, Warts, Lumps, Plaques, and Patches@A Mole That Is Dark, Multicolored, Enlarging, Irregular, Bleeding, Itching, or Painful@Melanoma
+Skin@Freckles, Moles, Bumps, Warts, Lumps, Plaques, and Patches@Round, Pearly Bump on Area of the Skin Exposed to the Sun@Skin Cancer
+Skin@Freckles, Moles, Bumps, Warts, Lumps, Plaques, and Patches@Yellow, Cheesy-Looking Plaque or Deposit Under Skin, Often Near Eyes or Nose@Cholesterol Problem
+Skin@Freckles, Moles, Bumps, Warts, Lumps, Plaques, and Patches@Wart in the Genital Area of Women@Developing Cervical Cancer
+Skin@Infections@Skin Infections@Skin Infection
+Skin@Itching or Reddened Skin@Itchy Skin, without a Rash@Potentially Multiple Serious Diseases of the Skin
+Skin@Itching or Reddened Skin@Irritation, Redness, and Tenderness of the Penis Foreskin@Diabetes
+Skin@Itching or Reddened Skin@Red, Eroded Area on the Skin, Mouth, or Around the Genitals@Yeast Infection
+Skin@Itching or Reddened Skin@Redness, Itching, and/or an Ulcer That Does Not Heal in the Genital Area in Older Women@Cancer of the Vulva
+Skin@Itching or Reddened Skin@Red Streaks on the Skin@Skin Infection
+Skin@Lacerations@Bleeding Too Long After a Cut@Blood-Clotting Problem
+Skin@Lacerations@Blood Spurting from a Laceration@Pierced Artery
+Skin@Night Sweats@with Cough@Tuberculosis
+Skin@Night Sweats@Continuous, with Fever@Potentially Serious Infection, similar to TB or AIDS
+Skin@Rashes@A Circular Skin Rash, After a Tick Bite@Lyme Disease
+Skin@Rashes@Fiery Red Rash All Over the Body, Sore Throat and Fever, Sometimes with a “Strawberry Tongue”@Scarlet Fever
+Skin@Rashes@An Intensely Itching, Giant Mosquito Bite–Appearing Rash@Hives
+Skin@Rashes@Rash, Flu-Like Symptoms, Sore Mouth or Tongue, and/or Upset Stomach@Allergic Reaction
+Skin@Rashes@Spots on the Palms of the Hand and/or Soles of the Feet@Syphilis or Rocky Mountain Spotted Fever
+Skin@Rashes@Targetlike Rash on the Skin with a Low-Grade Fever, Often with Sores in Mouth, Nose, Eyes, Anus, and/or Genital Area, After Starting Certain Medicines@Fatal Reaction
+Skin@Sores and Ulcers@A Nonpainful, Raw-Looking Sore on or Near Genitals, Breast, or Mouth@Syphilis
+Skin@Sores and Ulcers@A Red, Eroded, in Many Possible Locations, Including on the Skin, in the Vagina, in the Mouth, etc.@Yeast Infection
+Skin@Sores and Ulcers@A Sore with Pus That Will Not Heal@Body-Invading Fungus Infection
+Skin@Sores and Ulcers@Sores in the Mouth, Nose, Eyes, Anus, and/or Genital Area, with a Targetlike Rash and Mild Fever, After Starting Certain Medications@Fatal Reaction
+Skin@Sores and Ulcers@Sores on the Fingertips or Toes of a Smoker@Blockage of the Arteries
+Skin@Sores and Ulcers@Ulcer on the Skin That Does Not Heal@Skin Cancer
+Back@Back Pain@a Few Inches Above the Belt Line, on Either Side of the Backbone, Often Made Worse When Tapped, Sometimes with Fever, with or without Pain and Difficulty Urinating and Blood-Tinged Urine@Kidney Disease
+Back@Back Pain@Chest Pain Under the Breastbone That Extends to the Back, Between the Shoulder Blades@Aneurysm of the Thoracic Aorta
+Back@Back Pain@Gradually Increasing Pain in the Neck or Low Back, Often with Night Sweats and Fever@Epidural or Intraspinal Abscess
+Back@Back Pain@Pain in the Lower Back, Abdomen, or Side, Possibly with a Pulsating Bulge in the Belly@Aortic Aneurysm
+Back@Back Pain@Pain in the Lower Back or Buttocks That Travels Down the Back of the Leg@Spinal Nerve Irritation
+Back@Back Pain@Severe Back Pain, Often with Fever, Sometimes with Leg Pain@Serious Back Infection
+Back@Back Pain@Sudden Onset of Back Pain, Especially in Senior Citizens@Compression Fracture
