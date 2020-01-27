@@ -1,0 +1,81 @@
+Head@Headache and Visual Changes, in an Adolescent@Benign Intracranial Hypertension
+Head@Headache with Vomiting and Visual Disturbances@Childhood Brain Tumor
+Head@Headache with Stiff Neck and Fever@Childhood Meningitis
+Head@Drowsiness, Vomiting, and/or Other Changes After a Head Injury@Internal Bleeding Inside the Head
+Head@Fever, with Convulsions@Childhood Seizure
+Head@Headache Often Worse Indoors and Affecting Everyone in the Household, and Possibly with Nausea, Drowsiness, Vomiting, and/or Bright Red Gums and Lips@Childhood Carbon Monoxide Poisoning
+Head@Unusual Rhythmic Movements in Face or Limbs@Potentially Serious Underlying Causes of Convulsion
+Psychological Problems@Depression, in an Adolescent@Childhood Depression
+Psychological Problems@Eating Disorder, in an Adolescent@Anorexia
+Eyes@Pain in One Eye when Both Eyes Move, Often in Children, but Also in Adults@Infection or Tumor within Eye
+Eyes@Red Eyes and Red Mouth, Fever, Rash, Peeling Skin, and Enlarged Neck Glands, Extreme Irritability@Kawasaki's Disease
+Eyes@Unparallel Eyes, White or Different-Looking Pupil, or Change in Color of One Iris@Tumor in the Back of the Eye
+Eyes@Visual Changes and Headaches, in an Adolescent@Benign Intracranial Hypertension
+Eyes@Visual Disturbances and Headaches, Usually in the Morning, with Vomiting@Childhood Brain Tumor
+Face, Mouth, Throat, and Neck@Bright Red Gums and Lips, Often with Nausea, Vomiting, Headache, and/or Drowsiness, Often Worse Indoors and Affecting the Whole Household@Childhood Carbon Monoxide Poisoning
+Face, Mouth, Throat, and Neck@Chronic Hoarseness and Pain When Swallowing or Difficulty Breathing During Exercise@Papilloma on the Vocal Chords
+Face, Mouth, Throat, and Neck@Enlarged Neck Glands, Red Eyes and Red Mouth (Redder Than Normal), Fever, Rash, Peeling Skin, Very Irritable@Kawasaki's Disease
+Face, Mouth, Throat, and Neck@Freckles Around the Mouth@Peutz-Jeghers Syndrome
+Face, Mouth, Throat, and Neck@Refusal to Swallow, with or without Drooling, Difficulty Breathing or Speaking, etc.@Childhood Throat Infection
+Face, Mouth, Throat, and Neck@Stiff Neck, Faint Pink or Purple Splotchy Rash,Fever,and Other Flu-Like Symptoms@Meningococcosis
+Face, Mouth, Throat, and Neck@Stiff Neck, Headache, and Fever@Childhood Meningitis
+Face, Mouth, Throat, and Neck@Sudden Swelling of the Lips and Tongue, Difficulty Breathing, Accompanied by Weakness, a Feeling of Faintness, and/or Fainting@Anaphylactic Shock
+Face, Mouth, Throat, and Neck@Thirst (Excessive), Frequent Urination, and/or Weight Loss@Diabetes Mellitus
+Face, Mouth, Throat, and Neck@Unusual Rhythmic Movements in Face or Limbs@Potentially Serious Underlying Causes of Convulsion
+Arms, Hands, Fingers, and Nails@Fragile Nails; Dry Skin; Dry, Sparse Hair; and Pointed Teeth@Ectodermal Dysplasias
+Arms, Hands, Fingers, and Nails@Hand Swelling Alone (Usually Painless)@Severe Allergic Reaction
+Arms, Hands, Fingers, and Nails@Pain in the Bones of the Arms and Legs@Childhood Bone Cancer
+Arms, Hands, Fingers, and Nails@Swollen, Tender Fingers or Toes, in an Infant@Sickle Cell Disease
+Arms, Hands, Fingers, and Nails@Unusual Rhythmic Movements in Limbs or Face@Potentially Serious Underlying Causes of Convulsion
+Back@An Asymmetrical Backbone@Curved Spine
+Chest@Inappropriate Early Signs of Puberty: Breast Enlargement, Onset of Menstruation, Pubic and Axillary Hair, Adult Body Odor, Acne, etc.@Childhood Hormone Issue
+Chest@Difficulty Breathing, Sudden Swelling of the Lips and Tongue, Accompanied by Weakness and a Feeling of Faintness@Anaphylactic Shock
+Chest@Noisy Breathing@Stridor
+Chest@Wheezing or a Cough, Asthma@Childhood Asthma
+Chest@Severe Asthmatic Attack: Struggling to Breathe, Difficulty Speaking, and Possibly Turning Blue@Childhood Asthma Attack
+Belly@A Mass or Firmness Felt or Observed in the Belly Area, or an Enlarging Belly Area@Childhood Kidney Cancer
+Belly@Nausea, Vomiting, and Red or Purple Blotches on the Skin of a Baby, Usually with a Fever@Childhood Meningococcos
+Belly@Vomiting and Diarrhea, Dehydration@Childhood Diarrhea
+Urine@Frequent (Sometimes Painful) Urination, Bedwetting, Mild Fever, etc.@Childhood Urinary Tract Infection
+Urine@Frequent Urination, Weight Loss, and/or Increased Thirst@Diabetes Mellitus
+Urine@Reduced Urine Output, Red or Brown Urine, Drowsiness, Irritability, Paleness, and/or Red Spots Following Diarrhea or Respiratory Infection@Childhood Anemia
+Bowel Movement@Chronic Constipation Since Birth@Childhood Abnormality in the Nerve Supply
+Bowel Movement@Crying Abnormally, Pulling Up Knees, and Possibly Passing Jellylike Bright Red or Maroon-Colored Stools, in an Infant@Intussusception
+Bowel Movement@Diarrhea with Blood and/or Severe Cramping@Potentially Serious Infection of the Childhood Bowels
+Bowel Movement@Diarrhea or Respiratory Infection, Followed by Paleness, Reduced Urine	Output, Drowsiness, Irritability@Childhood Anemia
+Bowel Movement@Diarrhea, and/or Vomiting, Dehydration@Childhood Diarrhea
+Genitalia@Inappropriate Early Signs of Puberty: Increasing Genitalia Size, Deepening Voice, Acne, Adult Body Odor, Hair Growth (Pubic, Facial, and Armpit), etc.@Childhood Hormone Issue
+Legs@Difficulty Standing, Walking, or Climbing Stairs, and/or Falls Frequently, in Boys@Muscular Dystrophy
+Legs@Loss of Skills, Such as Walking, Talking, etc.@Developmental Regression
+Legs@Painful Bones, Especially Near the Knee@Childhood Bone Cancer
+Legs@Pulling Up Knees, Crying Abnormally, and Possibly Passing Jellylike or Discolored Stools, in an Infant@Potentially Serious Infection of the Childhood Bowels
+Legs@Unusual Rhythmic Movements in Limbs or Face@Potentially Serious Underlying Causes of Convulsion
+Feet, Toes, and Nails@Fragile Nails, Dry Skin, Dry and Sparse Hair@Ectodermal Dysplasias
+Feet, Toes, and Nails@Swelling of One Foot (Usually Not the Ankle)@Severe Allergic Reaction
+Feet, Toes, and Nails@Swollen, Tender Toes or Fingers, in an Infant@Sickle Cell Disease
+Skin and Hair@Five or More “Birthmarks” on a Child (or Adult)@Neurofibromatosis
+Skin and Hair@Freckles Around the Mouth or Anus@Peutz-Jeghers Syndrome
+Skin and Hair@Rash, Peeling Skin, Fever, Red Eyes and Red Mouth (Redder Than Usual), and Enlarged Neck Glands, Extreme Irritability@Kawasaki's Disease
+Skin and Hair@A Red, Flat Birthmark Covering One-Third of Face@Serious Underlying Brain Abnormalities
+Skin and Hair@Red or Purple Blotches or Faint Pink Rash, Usually with a Fever, Flu-Like Symptoms, and/or a Stiff Neck@Meningococcosis
+Skin and Hair@Red Spots on Skin, Reduced Urine Output, Drowsiness, Paleness, Vomiting, and Diarrhea@Childhood Anemia
+Skin and Hair@Jaundice (Yellow Skin and/or Eyes) in a Baby Under One Week Old@High Levels of Bilirubin
+Skin and Hair@Inappropriate Early Signs of Puberty: Pubic, Axillary, Facial Hair, Increasing Genitalia Size, Breast Enlargement, etc.@Childhood Hormone Issue
+Allergic Reactions@Sudden Swelling of the Lips and Tongue, Difficulty Breathing, Weakness, and a Feeling of Faintness@Anaphylactic Shock
+Convulsions@Convulsions in a Baby@Potentially Serious Underlying Causes of Convulsion
+Convulsions@Convulsions with Fever@Childhood Seizure
+Convulsions@Crying in Regular Intervals@Potentially Serious Infection of the Childhood Bowels
+Drowsiness@with Nausea, Headache, and/or Bright Red Gums and Lips, Often Worse Indoors and Affecting Everyone in the Household@Childhood Carbon Monoxide Poisoning
+Drowsiness@with Paleness, Reduced Urine Output, Irritability After Diarrhea or a Respiratory Infection@Childhood Anemia
+Drowsiness@with Vomiting, and/or Other Changes, After a Head Injury@Internal Bleeding Inside the Head
+Fever@with Convulsions@Childhood Seizure
+Fever@especially with Irritability, Not Drinking Liquids, and/or Difficult to Awaken, in a Baby Under Eighteen Months@Potential Childhood Meningitis
+Fever@with Red Eyes and Red Mouth (Redder Than Normal), Rash, Peeling Skin, and Enlarged Neck Glands, Extreme Irritability@Kawasaki's Disease
+Fever@with Stiff Neck and Headache@Childhood Meningitis
+Fever@with Red or Purple Blotches on the Skin, Flu-Like Symptoms, and/or a Stiff Neck@Meningococcosis
+Fever@A Mild Fever with Frequent (Sometimes Painful) Urination, Bed-Wetting@Childhood Urinary Tract Infection
+Child is Losing Skills@Such as Walking and Talking, and/or Regression to Thumb-Sucking, “Baby Talk,” Bed-Wetting, etc.@Developmental Regression
+Crib Death@Family History of Crib Death, or an Infant with “Near-Miss” Crib Death@Crib Death
+Poisoning and Substance Abuse@Inappropriate Ingestion of Medicine or Ingestion of Poison@Childhood Poisoning
+Poisoning and Substance Abuse@Substance Abuse in Children and Teenagers@Childhood Substance Abuse
+Weight Loss@With Increased Thirst, Frequent Urination@Diabetes Mellitus

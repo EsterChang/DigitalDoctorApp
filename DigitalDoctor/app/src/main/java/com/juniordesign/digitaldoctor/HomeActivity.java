@@ -96,13 +96,12 @@ public class HomeActivity extends AppCompatActivity {
 
             // note from Kyle --> this is for database testing purposes, do not delete
 
-//            Cursor cur = db.getAllData(db.BODY_PART_TABLE);
+//            Cursor cur = db.getAllData(db.CHILDHOOD_SYMPTOM_TABLE);
 //            StringBuffer buffer = new StringBuffer();
 //            while (cur.moveToNext()) {
 //                buffer.append("Area: " + cur.getString(0) + "\n");
 //                buffer.append("Symptom: " + cur.getString(1) + "\n");
 //                buffer.append("Extra Info: " + cur.getString(2) + "\n");
-//                buffer.append("Name: " + cur.getString(3) + "\n");
 //            }
 //            new AlertDialog.Builder(this)
 //                    .setTitle("Database")
