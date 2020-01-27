@@ -138,17 +138,17 @@ public class HomeActivity extends AppCompatActivity {
 
     private void selectFragment(MenuItem item) {
         Fragment frag = null;
+
         // init corresponding fragment
-        // only home fragment is currently set-up, but everything else works similarly
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 frag = HomeFragment.newInstance();
                 break;
             case R.id.navigation_search:
-                frag = null;
+                frag = SearchFragment.newInstance();
                 break;
-            case R.id.navigationView:
-                frag = null;
+            case R.id.navigation_book:
+                frag = BookFragment.newInstance();
                 break;
         }
 
@@ -163,7 +163,7 @@ public class HomeActivity extends AppCompatActivity {
 
         if (frag != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.add(R.id.container, frag, frag.getTag());
+            ft.replace(R.id.fragment_container, frag);
             ft.commit();
         }
     }

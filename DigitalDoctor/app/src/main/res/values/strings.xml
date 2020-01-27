@@ -10,4 +10,15 @@
     <string name="terms_and_conditions_error">Error: cannot show Terms and Conditions.</string>
     <string name="back_button">Back</string>
     <string name="agree">I Agree</string>
+    <string name="question_1">Which of these categories best describes your symptoms?</string>
+    <string name="prompt_1">Select Symptom Category</string>
+    <string name="question_2">Where is your primary symptom located?</string>
+    <string name="prompt_2">Select Symptom Location</string>
+    <string name="question_3">Which is your primary symptom?</string>
+    <string name="prompt_3">Select Primary Symptom</string>
+    <string name="question_4">Which of these applies most to you?</string>
+    <string name="prompt_4">Select Extra Information</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
