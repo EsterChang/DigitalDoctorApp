@@ -12,9 +12,13 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+    // Kyle -- this whole file
+
+    // create constants necessary for database creation -- database name and version number
     public static final String DATABASE_NAME = "DigitalDoctor.db";
     public static final Integer DATABASE_VERSION = 1;
 
+    // create constants necessary for table creation -- table name and columns
     public static final String BODY_PART_TABLE = "body_part_specific_table";
     public static final String GENERALIZED_SYMPTOM_TABLE = "generalized_symptom_table";
     public static final String PREGNANCY_TABLE = "pregnancy_table";
@@ -36,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
+    // creates the necessary tables for the database, through SQL as a String
     public void onCreate(SQLiteDatabase db) {
         // create table body_part_specific_table (primary_area TEXT, primary_symptom TEXT,
         // extra_info TEXT, symptom_name TEXT, PRIMARY KEY ("primary_symptom, symptom_name))
@@ -69,6 +74,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
+    // this is necessary for if the database changes structure (columns shifted, etc), as
+    // we will need to update the version of the database, which will delete the old version
+    // and store the new one within system files. I do not anticipate using this.
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists " + BODY_PART_TABLE);
         db.execSQL("drop table if exists " + GENERALIZED_SYMPTOM_TABLE);
@@ -78,6 +86,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // params -- reader - a BufferedReader linked to a text file
+    //           tableName - a string for what table we are loading the text data into
+    // returns -- boolean -> never used, may modify to void later
     public boolean loadAllData(BufferedReader reader, String tableName) {
         String line = null;
         try {
@@ -92,14 +103,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // takes in a String and returns an array split at the @ symbols
     public String[] formatLine(String line) {
         return line.split("@", 0);
     }
 
     //Inserts data, completely generic. Expects a table name, and an array of values in the correct
     //ordering of the table
+    // doesn't need to be a boolean currently - may modify later
     public boolean insertData(String tableName, String[] values) {
         SQLiteDatabase db = this.getWritableDatabase();
+        //content values are the type of data that is needed to insert into the table, essentially
+        //it just specifies that these Strings are now content for the database
         ContentValues contentValues = new ContentValues();
         if (tableName.equals(BODY_PART_TABLE)) {
             contentValues.put(PRIMARY_AREA, values[0]);
@@ -126,12 +141,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    // takes in a tableName, and returns all the data from the table
+    // test method only, will delete later
     public Cursor getAllData(String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + tableName, null);
         return res;
     }
 
+    // removes all data from the database, currently used on first load to make certain we
+    // are testing the correct values in the database
+    // will remove later
     public void deleteAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("drop table if exists " + BODY_PART_TABLE);

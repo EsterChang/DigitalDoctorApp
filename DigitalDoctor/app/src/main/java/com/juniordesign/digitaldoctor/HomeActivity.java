@@ -59,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
-      //uncomment to make easy edits to first load
+        // Kyle -- this exists to always state the app is within first load. We will remove this in the future.
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("firstStart", true);
         editor.apply();
@@ -69,11 +69,12 @@ public class HomeActivity extends AppCompatActivity {
         if (firstStart) {
             showTermsDialog();
 
-            // to be removed once we have all data loaded, and first start uncommented
+            // to be removed once the database is in its final form
             db.deleteAllData();
 
             Resources res = getResources();
 
+            //Kyle -- this reads in the resource file to allow loading into the database
             InputStream in_s = res.openRawResource(R.raw.body_part_table_information);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
 
