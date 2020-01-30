@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,14 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        settings = (ImageButton) rootView.findViewById(R.id.settings_button);
-        settings.setOnClickListener(new View.OnClickListener(){
+        settings = rootView.findViewById(R.id.settings_button);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                Intent settings = new Intent(HomeFragment.this.getActivity(), SettingsActivity.class);
-                startActivity(settings);
+                //Red - changed this to transition to settings fragment
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.fragment_container, new SettingsFragment());
+                fr.commit();
             }
         });
         return rootView;

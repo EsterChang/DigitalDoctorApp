@@ -1,41 +1,70 @@
 package com.juniordesign.digitaldoctor;
 
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.io.InputStream;
 
-public class  SettingsActivity extends AppCompatActivity {
+
+//Red Chu - Settings fragment class, rewrote this using SettingsActivity
+public class SettingsFragment extends Fragment {
+
+    Button onTermsAndConditionsPressed;
+    Button onLiabilityPressed;
+    ImageButton backButton;
+
+    public static Fragment newInstance() {
+        return new SettingsFragment();
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        //handle liability warning button pressed
+        onLiabilityPressed = rootView.findViewById(R.id.liability_button);
+        onLiabilityPressed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showLiabilityDialog();
+            }
+        });
+
+        //handle terms and conditions pressed
+        onTermsAndConditionsPressed = rootView.findViewById(R.id.terms_and_conditions_button);
+        onTermsAndConditionsPressed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTermsDialog();
+            }
+        });
+
+        //handle Back button pressed
+        backButton = rootView.findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.fragment_container, new HomeFragment());
+                fr.commit();
+            }
+        });
+
+        return rootView;
     }
 
-    public void onBackButtonPressed(View view) {
-        Intent home = new Intent(this, HomeActivity.class);
-        startActivity(home);
-    }
-
-    public void onShowTermsandConditionButtonPressed(View view){
-        showTermsDialog();
-    }
-
-    public void onShowLiabilityButtonPressed(View view){
-        showLiabilityDialog();
-    }
-
-    private void showTermsDialog() {
+    public void showTermsDialog() {
         String message;
 
         try {
@@ -50,7 +79,7 @@ public class  SettingsActivity extends AppCompatActivity {
             message = this.getResources().getString(R.string.terms_and_conditions_error);
         }
 
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.terms_and_conditions)
                 .setMessage(message)
                 .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
@@ -79,7 +108,7 @@ public class  SettingsActivity extends AppCompatActivity {
             message = this.getResources().getString(R.string.liability_error);
         }
 
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.liability)
                 .setMessage(message)
                 .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
@@ -92,4 +121,7 @@ public class  SettingsActivity extends AppCompatActivity {
                 .create()
                 .show();
     }
+
+
+
 }
