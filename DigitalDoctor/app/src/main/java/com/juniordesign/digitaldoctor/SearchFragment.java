@@ -1,6 +1,7 @@
 package com.juniordesign.digitaldoctor;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class SearchFragment extends Fragment {
     private View mContent;
     ListView listView;
     ImageButton restart;
+    DatabaseHelper db;
 
     public static Fragment newInstance() {
         Fragment frag = new SearchFragment();
@@ -49,24 +51,64 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        ArrayList<String> arrayList = new ArrayList<String>();
+        // Ester - below are a few test cases that simulate the following search sequence using db.BODY_PART_TABLE:
+        // Head -> Headache -> with Stiff Neck and Fever -> Meningitis
+        // uncomment each test case to go through each level of search; the results from db.getData() should populate the listview
 
-        arrayList.add("this");
-        arrayList.add("holds");
-        arrayList.add("the");
-        arrayList.add("place");
-        arrayList.add("for");
-        arrayList.add("symptoms");
-        arrayList.add("body-part");
-        arrayList.add("generalized symptoms");
-        arrayList.add("pregnancy symptoms");
-        arrayList.add("common childhood symptoms");
-        arrayList.add("head");
-        arrayList.add("eyes");
-        arrayList.add("nose, ear, mouth");
-        arrayList.add("arms and hand");
+        db = new DatabaseHelper(getActivity());
+        ArrayList<String> whereColumns = new ArrayList<>();
+        ArrayList<String> whereMatches = new ArrayList<>();
+        Cursor cur;
+        ArrayList<String> resultsList = new ArrayList<>();
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, arrayList);
+//        //test 0 - populates listview with all items in the PRIMARY_AREA column
+//        whereColumns = new ArrayList<>();
+//        whereMatches = new ArrayList<>();
+//        resultsList = new ArrayList<>();
+//        cur = db.getData(db.PRIMARY_AREA, db.BODY_PART_TABLE, whereColumns, whereMatches);
+//        while (cur.moveToNext()) {
+//            resultsList.add(cur.getString(0));
+//        }
+
+//        //test 1 - populates listview with all unique PRIMARY_SYMPTOM where PRIMARY_AREA = Head
+//        whereColumns.add(db.PRIMARY_AREA);
+//        whereMatches.add("Head");
+//        cur = db.getData(db.PRIMARY_SYMPTOM, db.BODY_PART_TABLE, whereColumns, whereMatches);
+//        while (cur.moveToNext()) {
+//            resultsList.add(cur.getString(0));
+//        }
+//
+//        //test 2 - populates listview with all unique EXTRA_INFORMATION where PRIMARY_AREA = Head and PRIMARY_SYMPTOM = Headache
+//        whereColumns = new ArrayList<>();
+//        whereMatches = new ArrayList<>();
+//        resultsList = new ArrayList<>();
+//        whereColumns.add(db.PRIMARY_AREA);
+//        whereColumns.add(db.PRIMARY_SYMPTOM);
+//        whereMatches.add("Head");
+//        whereMatches.add("Headache");
+//        cur = db.getData(db.EXTRA_INFORMATION, db.BODY_PART_TABLE, whereColumns, whereMatches);
+//        while (cur.moveToNext()) {
+//            resultsList.add(cur.getString(0));
+//        }
+//
+//        //test 3 - populates listview with all unique SYMPTOM_NAME where PRIMARY_AREA = Head
+//        // and PRIMARY_SYMPTOM = Headache and EXTRA_INFORMATION = "with Stiff Neck and Fever" (result should be Meningitis)
+
+//        whereColumns = new ArrayList<>();
+//        whereMatches = new ArrayList<>();
+//        resultsList = new ArrayList<>();
+//        whereColumns.add(db.PRIMARY_AREA);
+//        whereColumns.add(db.PRIMARY_SYMPTOM);
+//        whereColumns.add(db.EXTRA_INFORMATION);
+//        whereMatches.add("Head");
+//        whereMatches.add("Headache");
+//        whereMatches.add("with Stiff Neck and Fever");
+//        cur = db.getData(db.SYMPTOM_NAME, db.BODY_PART_TABLE, whereColumns, whereMatches);
+//        while (cur.moveToNext()) {
+//            resultsList.add(cur.getString(0));
+//        }
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
 
         listView.setAdapter(arrayAdapter);
         return rootView;
