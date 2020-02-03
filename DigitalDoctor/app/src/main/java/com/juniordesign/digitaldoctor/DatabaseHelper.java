@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Kyle -- this whole file
@@ -168,5 +169,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Integer deleteData(String symptomName) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(BODY_PART_TABLE, "" + SYMPTOM_NAME + " = ?", new String[] {symptomName});
+    }
+
+    //ester - this is a generic select method that returns a cursor with all unique _select entries from tableName
+    //where items in whereColumns match with items in whereMatches
+    public Cursor getData(String _select, String tableName, ArrayList<String> whereColumns, ArrayList<String> whereMatches) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //whereString includes the SQL commands that test equivalencies between each item in whereColumns with
+        //corresponding item in whereMatches
+        String whereString = "";
+        for (int i = 0; i < whereColumns.size(); i++) {
+            whereString += whereColumns.get(i) + " = '" + whereMatches.get(i) + "'";
+            if (i < whereColumns.size() - 1) {
+                whereString += " AND ";
+            }
+        }
+
+        Cursor cur;
+        //if there are items in whereColumns, include a WHERE statement in the SQL command. otherwise, WHERE can be
+        //omitted from SQL command
+        if (whereColumns.size() > 0) {
+            cur = db.rawQuery("select distinct (" + _select + ") from " + tableName + " where " +
+                    whereString, null);
+        } else {
+            cur = db.rawQuery("select distinct (" + _select + ") from " + tableName, null);
+        }
+
+        return cur;
     }
 }
