@@ -10,9 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.io.Console;
 import java.util.ArrayList;
 
 
@@ -23,8 +26,11 @@ public class SearchFragment extends Fragment {
 
     private View mContent;
     ListView listView;
+    TextView questionsView;
+    TextView promptsView;
     ImageButton restart;
     DatabaseHelper db;
+    int table;
 
     public static Fragment newInstance() {
         Fragment frag = new SearchFragment();
@@ -35,10 +41,16 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        table = 0;
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.activity_search, container, false);
-        // example listView
+
+        // get the listView, questions, prompts to be set in future during search
         listView = (ListView)rootView.findViewById(R.id.listView);
+        questionsView = (TextView) rootView.findViewById(R.id.questions);
+        promptsView = (TextView) rootView.findViewById(R.id.prompts);
+
+        //restart button
         restart = (ImageButton)rootView.findViewById(R.id.restart_button);
         restart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
@@ -51,15 +63,82 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        // Ester - below are a few test cases that simulate the following search sequence using db.BODY_PART_TABLE:
-        // Head -> Headache -> with Stiff Neck and Fever -> Meningitis
-        // uncomment each test case to go through each level of search; the results from db.getData() should populate the listview
 
-        db = new DatabaseHelper(getActivity());
-        ArrayList<String> whereColumns = new ArrayList<>();
-        ArrayList<String> whereMatches = new ArrayList<>();
-        Cursor cur;
-        ArrayList<String> resultsList = new ArrayList<>();
+
+        //Irene - add a pre-selection into the listview for the four tables
+        //1 - Body-Part Specific Symptoms
+        //2 - Generalized (Whole Body) Symptoms
+        //3 - Pregnancy Symptoms
+        //4 - Common Childhood Symptoms
+        // - unassigned, show the tables names in listView
+
+        //first select table
+        //set questions and prompts
+        questionsView.setText("Which of these categories best describes your symptoms?");
+        promptsView.setText("Select Symptom Category");
+
+        //set the listView
+        ArrayList<String> tableNames = new ArrayList<>();
+        tableNames.add("Body-Part Specific Symptoms");
+        tableNames.add("Generalized (Whole Body) Symptoms");
+        tableNames.add("Pregnancy Symptoms");
+        tableNames.add("Common Childhood Symptoms");
+        ArrayAdapter tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
+        listView.setAdapter(tableNameArrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected item text from ListView
+                //String selectedItem = (String) parent.getItemAtPosition(position);
+                if (table == 0) {
+                    table = position + 1;
+                    if (table == 1) {
+                        //1 - Body-Part Specific Symptoms
+                        questionsView.setText("1 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
+
+                    }
+                    else if (table == 2){
+                        //2 - Generalized (Whole Body) Symptoms
+                        questionsView.setText("2 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
+
+
+                    }
+                    else if (table == 3){
+                        //3 - Pregnancy Symptoms
+                        questionsView.setText("3 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
+
+
+                    }
+                    else if (table == 4) {
+                        //4 - Common Childhood Symptoms
+                        questionsView.setText("4 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
+
+                    }
+                }
+
+
+            }
+        });
+
+
+
+
+
+            // Ester - below are a few test cases that simulate the following search sequence using db.BODY_PART_TABLE:
+            // Head -> Headache -> with Stiff Neck and Fever -> Meningitis
+            // uncomment each test case to go through each level of search; the results from db.getData() should populate the listview
+
+            db = new DatabaseHelper(getActivity());
+            ArrayList<String> whereColumns = new ArrayList<>();
+            ArrayList<String> whereMatches = new ArrayList<>();
+            Cursor cur;
+            ArrayList<String> resultsList = new ArrayList<>();
+
 
 //        //test 0 - populates listview with all items in the PRIMARY_AREA column
 //        whereColumns = new ArrayList<>();
@@ -108,9 +187,13 @@ public class SearchFragment extends Fragment {
 //            resultsList.add(cur.getString(0));
 //        }
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+            //ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
 
-        listView.setAdapter(arrayAdapter);
+            //listView.setAdapter(resultArrayAdapter);
+
+
+
+
         return rootView;
     }
 
