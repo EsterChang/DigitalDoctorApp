@@ -30,6 +30,7 @@ public class SearchFragment extends Fragment {
     TextView promptsView;
     ImageButton restart;
     DatabaseHelper db;
+    int table;
 
     public static Fragment newInstance() {
         Fragment frag = new SearchFragment();
@@ -40,6 +41,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        table = 0;
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.activity_search, container, false);
 
@@ -89,35 +91,37 @@ public class SearchFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
                 //String selectedItem = (String) parent.getItemAtPosition(position);
-                int table = position + 1;
+                if (table == 0) {
+                    table = position + 1;
+                    if (table == 1) {
+                        //1 - Body-Part Specific Symptoms
+                        questionsView.setText("1 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
 
-                if (table == 1) {
-                    //1 - Body-Part Specific Symptoms
-                    questionsView.setText("1 Where is your primary symptom located?");
-                    promptsView.setText("Select Symptom Location");
+                    }
+                    else if (table == 2){
+                        //2 - Generalized (Whole Body) Symptoms
+                        questionsView.setText("2 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
 
+
+                    }
+                    else if (table == 3){
+                        //3 - Pregnancy Symptoms
+                        questionsView.setText("3 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
+
+
+                    }
+                    else if (table == 4) {
+                        //4 - Common Childhood Symptoms
+                        questionsView.setText("4 Where is your primary symptom located?");
+                        promptsView.setText("Select Symptom Location");
+
+                    }
                 }
-                else if (table == 2){
-                    //2 - Generalized (Whole Body) Symptoms
-                    questionsView.setText("2 Where is your primary symptom located?");
-                    promptsView.setText("Select Symptom Location");
 
 
-                }
-                else if (table == 3){
-                    //3 - Pregnancy Symptoms
-                    questionsView.setText("3 Where is your primary symptom located?");
-                    promptsView.setText("Select Symptom Location");
-
-
-                }
-                else if (table == 4) {
-                    //4 - Common Childhood Symptoms
-                    questionsView.setText("4 Where is your primary symptom located?");
-                    promptsView.setText("Select Symptom Location");
-
-
-                }
             }
         });
 
