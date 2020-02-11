@@ -20,7 +20,7 @@ public class DetailFragment extends Fragment {
     private View mContent;
 
     public static Fragment newInstance() {
-        Fragment frag = new SearchFragment();
+        Fragment frag = new DetailFragment();
         return frag;
     }
 
