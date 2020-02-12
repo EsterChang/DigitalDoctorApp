@@ -104,7 +104,6 @@ public class SearchFragment extends Fragment {
                         //1 - Body-Part Specific Symptoms
                         questionsView.setText("1 Where is your primary symptom located?");
                         promptsView.setText("Select Symptom Location");
-                        updateListView(tableNameArrayAdapter, updateList);
                     } else if (table == 2) {
                         //2 - Generalized (Whole Body) Symptoms
                         questionsView.setText("2 Where is your primary symptom located?");
