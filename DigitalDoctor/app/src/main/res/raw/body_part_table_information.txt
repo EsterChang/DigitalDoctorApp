@@ -36,7 +36,7 @@ Head@Face-General@A Short Episode of Numbness on One Side of the Face, Slurred S
 Head@Face-General@Sores in the Mouth, Nose, Eyes, etc., with a Targetlike Rash and Mild Fever, After Starting Certain Medications@Fatal Reaction
 Head@Face-General@Swelling of the Face, Intolerance to Cold, Weakness and Fatigue, Irregular and Slow Pulse, High Cholesterol Level, etc.@Underactive Thyroid Gland
 Head@Face-General@Swelling of the Lips and Throat and/or Difficulty Breathing After a Bee Sting or Exposure to Other Allergen@Severe Allergic Reaction
-Head@Face-General@Tired  Jaw,  Droopy  Eyelids,  and/or  Double Vision@Myasthenia Gravis
+Head@Face-General@Tired Jaw, Droopy  Eyelids, and/or Double Vision@Myasthenia Gravis
 Eyes@Eyeballs@Blue Mucous Membranes of the Eyes, Nose, Mouth, etc., or Blue Skin@Insufficient Oxygen Supply
 Eyes@Eyeballs@Bulging Eyes, Heat Intolerance, Fatigue, Tremors, Double Vision, etc.@Overactive Thyroid Gland
 Eyes@Eyeballs@Unequal Pupil Size Alone or with a Droopy Eyelid,and/or Double Vision@Aneurysm
