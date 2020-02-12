@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -18,9 +20,20 @@ import android.widget.ImageButton;
 public class DetailFragment extends Fragment {
 
     private View mContent;
+    ImageView icon;
+    TextView emergency;
+    TextView name;
+    TextView description;
 
-    public static Fragment newInstance() {
+    public static Fragment newInstance(String name, String emergency, String text) {
         Fragment frag = new DetailFragment();
+
+        Bundle args = new Bundle();
+        args.putString("name", name);
+        args.putString("emergency", emergency);
+        args.putString("text", text);
+        frag.setArguments(args);
+
         return frag;
     }
 
@@ -29,6 +42,30 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
+        String name_ = getArguments().getString("name", "");
+        String emergency_ = getArguments().getString("emergency", "");
+        String text_ = getArguments().getString("text", "");
+
+        // need casting (TextView), etc
+        icon = rootView.findViewById(R.id.detail_icon);
+        emergency = rootView.findViewById(R.id.detail_emergency);
+        name = rootView.findViewById(R.id.detail_name);
+        description = rootView.findViewById(R.id.detail_description);
+
+        // need null checks
+        name.setText(name_);
+        description.setText(text_);
+        emergency.setText(emergency_);
+
+        if (emergency_.equalsIgnoreCase("emergency")) {
+            icon.setImageResource(R.drawable.emergency);
+        } else if (emergency_.equalsIgnoreCase("caution")) {
+            icon.setImageResource(R.drawable.caution);
+        } else if (emergency_.equalsIgnoreCase("not an emergency")) {
+            icon.setImageResource(R.drawable.not_an_emergency);
+        } else {
+
+        }
         return rootView;
     }
 
