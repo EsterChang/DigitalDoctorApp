@@ -200,86 +200,8 @@ public class SearchFragment extends Fragment {
 
             }
         });
-
-
-
-            // Ester - below are a few test cases that simulate the following search sequence using db.BODY_PART_TABLE:
-            // Head -> Headache -> with Stiff Neck and Fever -> Meningitis
-            // uncomment each test case to go through each level of search; the results from db.getData() should populate the listview
-
-
-
-
-//        //test 0 - populates listview with all items in the PRIMARY_AREA column
-//        whereColumns = new ArrayList<>();
-//        whereMatches = new ArrayList<>();
-//        resultsList = new ArrayList<>();
-//        cur = db.getData(db.PRIMARY_AREA, db.BODY_PART_TABLE, whereColumns, whereMatches);
-//        while (cur.moveToNext()) {
-//            resultsList.add(cur.getString(0));
-//        }
-
-//        //test 1 - populates listview with all unique PRIMARY_SYMPTOM where PRIMARY_AREA = Head
-//        whereColumns.add(db.PRIMARY_AREA);
-//        whereMatches.add("Head");
-//        cur = db.getData(db.PRIMARY_SYMPTOM, db.BODY_PART_TABLE, whereColumns, whereMatches);
-//        while (cur.moveToNext()) {
-//            resultsList.add(cur.getString(0));
-//        }
-//
-//        //test 2 - populates listview with all unique EXTRA_INFORMATION where PRIMARY_AREA = Head and PRIMARY_SYMPTOM = Headache
-//        whereColumns = new ArrayList<>();
-//        whereMatches = new ArrayList<>();
-//        resultsList = new ArrayList<>();
-//        whereColumns.add(db.PRIMARY_AREA);
-//        whereColumns.add(db.PRIMARY_SYMPTOM);
-//        whereMatches.add("Head");
-//        whereMatches.add("Headache");
-//        cur = db.getData(db.EXTRA_INFORMATION, db.BODY_PART_TABLE, whereColumns, whereMatches);
-//        while (cur.moveToNext()) {
-//            resultsList.add(cur.getString(0));
-//        }
-//
-//        //test 3 - populates listview with all unique SYMPTOM_NAME where PRIMARY_AREA = Head
-//        // and PRIMARY_SYMPTOM = Headache and EXTRA_INFORMATION = "with Stiff Neck and Fever" (result should be Meningitis)
-
-//        whereColumns = new ArrayList<>();
-//        whereMatches = new ArrayList<>();
-//        resultsList = new ArrayList<>();
-//        whereColumns.add(db.PRIMARY_AREA);
-//        whereColumns.add(db.PRIMARY_SYMPTOM);
-//        whereColumns.add(db.EXTRA_INFORMATION);
-//        whereMatches.add("Head");
-//        whereMatches.add("Headache");
-//        whereMatches.add("with Stiff Neck and Fever");
-//        cur = db.getData(db.SYMPTOM_NAME, db.BODY_PART_TABLE, whereColumns, whereMatches);
-//        while (cur.moveToNext()) {
-//            resultsList.add(cur.getString(0));
-//        }
-
-            //ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
-
-            //listView.setAdapter(resultArrayAdapter);
-
-
-
-
+        
         return rootView;
-    }
-
-    void updateListView(ArrayAdapter arrayAdapter, ArrayList<String> arrayList) {
-        arrayAdapter.clear();
-        for (String string : arrayList) {
-            arrayAdapter.add(string);
-        }
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //For testing purposes
-                Log.d("Testing", "Clicked: " + position);
-            }
-        });
     }
 
     @Override
