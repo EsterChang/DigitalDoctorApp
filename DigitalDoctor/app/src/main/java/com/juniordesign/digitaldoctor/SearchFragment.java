@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,10 @@ public class SearchFragment extends Fragment {
     ImageButton restart;
     DatabaseHelper db;
     int table;
+
+    //The ArrayAdapter and the ArrayList needs to be global variables
+    ArrayAdapter tableNameArrayAdapter;
+    ArrayList<String> updateList;
 
     public static Fragment newInstance() {
         Fragment frag = new SearchFragment();
@@ -83,8 +88,10 @@ public class SearchFragment extends Fragment {
         tableNames.add("Generalized (Whole Body) Symptoms");
         tableNames.add("Pregnancy Symptoms");
         tableNames.add("Common Childhood Symptoms");
-        ArrayAdapter tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
+        tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
         listView.setAdapter(tableNameArrayAdapter);
+        updateList = new ArrayList<String>();
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,35 +104,22 @@ public class SearchFragment extends Fragment {
                         //1 - Body-Part Specific Symptoms
                         questionsView.setText("1 Where is your primary symptom located?");
                         promptsView.setText("Select Symptom Location");
-
-                    }
-                    else if (table == 2){
+                    } else if (table == 2) {
                         //2 - Generalized (Whole Body) Symptoms
                         questionsView.setText("2 Where is your primary symptom located?");
                         promptsView.setText("Select Symptom Location");
-
-
-                    }
-                    else if (table == 3){
+                    } else if (table == 3) {
                         //3 - Pregnancy Symptoms
                         questionsView.setText("3 Where is your primary symptom located?");
                         promptsView.setText("Select Symptom Location");
-
-
-                    }
-                    else if (table == 4) {
+                    } else if (table == 4) {
                         //4 - Common Childhood Symptoms
                         questionsView.setText("4 Where is your primary symptom located?");
                         promptsView.setText("Select Symptom Location");
-
                     }
                 }
-
-
             }
         });
-
-
 
 
 
@@ -195,6 +189,21 @@ public class SearchFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    void updateListView(ArrayAdapter arrayAdapter, ArrayList<String> arrayList) {
+        arrayAdapter.clear();
+        for (String string : arrayList) {
+            arrayAdapter.add(string);
+        }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //For testing purposes
+                Log.d("Testing", "Clicked: " + position);
+            }
+        });
     }
 
     @Override
