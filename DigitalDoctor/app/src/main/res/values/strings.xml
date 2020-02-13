@@ -32,4 +32,7 @@
     <string name="emergency">emergency</string>
     <string name="caution">caution</string>
     <string name="not_an_emergency">not an emergency</string>
+
+    <!-- delete after book -->
+    <string name="hello_blank_fragment">I am a blank fragment.</string>
 </resources>
