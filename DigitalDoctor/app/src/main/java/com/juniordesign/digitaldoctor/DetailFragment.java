@@ -57,11 +57,11 @@ public class DetailFragment extends Fragment {
         description.setText(text_);
         emergency.setText(emergency_);
 
-        if (emergency_.equalsIgnoreCase("emergency")) {
+        if (emergency_.equalsIgnoreCase(getResources().getString(R.string.emergency))) {
             icon.setImageResource(R.drawable.emergency_icon);
-        } else if (emergency_.equalsIgnoreCase("caution")) {
+        } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.caution))) {
             icon.setImageResource(R.drawable.caution_icon);
-        } else if (emergency_.equalsIgnoreCase("not an emergency")) {
+        } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.not_an_emergency))) {
             icon.setImageResource(R.drawable.not_an_emergency);
         } else {
 

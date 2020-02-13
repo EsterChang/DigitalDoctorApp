@@ -1,12 +1,10 @@
 package com.juniordesign.digitaldoctor;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.io.Console;
 import java.util.ArrayList;
 
 
@@ -27,8 +24,8 @@ public class SearchFragment extends Fragment {
 
     private View mContent;
     ListView listView;
-    TextView questionsView;
-    TextView promptsView;
+    TextView promptView;
+    TextView directiveView;
     ImageButton restart;
     ImageButton back;
     DatabaseHelper db;
@@ -66,8 +63,8 @@ public class SearchFragment extends Fragment {
 
         // get the listView, questions, prompts to be set in future during search
         listView = (ListView)rootView.findViewById(R.id.listView);
-        questionsView = (TextView) rootView.findViewById(R.id.questions);
-        promptsView = (TextView) rootView.findViewById(R.id.prompts);
+        promptView = (TextView) rootView.findViewById(R.id.questions);
+        directiveView = (TextView) rootView.findViewById(R.id.prompts);
 
         //restart button
         restart = (ImageButton)rootView.findViewById(R.id.restart_button);
@@ -91,15 +88,15 @@ public class SearchFragment extends Fragment {
                     level = 0;
                 }
                 if (level == 0) {
-                    questionsView.setText("Which of these categories best describes your problem?");
-                    promptsView.setText("Select Problem Category");
+                    promptView.setText(R.string.initial_search_prompt);
+                    directiveView.setText(R.string.initial_search_directive);
 
                     //set the listView
                     final ArrayList<String> tableNames = new ArrayList<>();
-                    tableNames.add("Body-Part Specific Symptoms");
-                    tableNames.add("Generalized (Whole Body) Symptoms");
-                    tableNames.add("Pregnancy Symptoms");
-                    tableNames.add("Common Childhood Symptoms");
+                    tableNames.add(getResources().getString(R.string.body_part_specific));
+                    tableNames.add(getResources().getString(R.string.generalized_symptoms));
+                    tableNames.add(getResources().getString(R.string.pregnancy_symptoms));
+                    tableNames.add(getResources().getString(R.string.childhood_symptoms));
                     tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
                     listView.setAdapter(tableNameArrayAdapter);
                     _tableName = "";
@@ -112,44 +109,44 @@ public class SearchFragment extends Fragment {
                     if (level == 1) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
                             _select = db.PRIMARY_AREA;
-                            questionsView.setText("Where is your primary symptom located?");
-                            promptsView.setText("Select Symptom Location");
+                            promptView.setText(R.string.primary_symptom_location_prompt);
+                            directiveView.setText(R.string.primary_symptom_location_directive);
                         } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                             _select = db.PRIMARY_SYMPTOM;
-                            questionsView.setText("What is your primary symptom?");
-                            promptsView.setText("Select Symptom");
+                            promptView.setText(R.string.primary_symptom_identification_prompt);
+                            directiveView.setText(R.string.primary_symptom_identification_directive);
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
                             _select = db.PRIMARY_SYMPTOM;
-                            questionsView.setText("When is this happening?");
-                            promptsView.setText("Select Time Period");
+                            promptView.setText(R.string.time_period_prompt);
+                            directiveView.setText(R.string.time_period_directive);
                         } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
                             _select = db.PRIMARY_AREA;
-                            questionsView.setText("What is the main problem?");
-                            promptsView.setText("Select Appropriate Category");
+                            promptView.setText(R.string.general_problem_prompt);
+                            directiveView.setText(R.string.general_problem_directive);
                         }
                     } else if (level == 2) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
                             _select = db.PRIMARY_SYMPTOM;
-                            questionsView.setText("What is the main problem?");
-                            promptsView.setText("Select Appropriate Category");
+                            promptView.setText(R.string.general_problem_prompt);
+                            directiveView.setText(R.string.general_problem_directive);
                         } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         }
                     } else if (level == 3) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                             //new fragment
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
@@ -183,15 +180,15 @@ public class SearchFragment extends Fragment {
 
         //first select table
         //set questions and prompts
-        questionsView.setText("Which of these categories best describes your problem?");
-        promptsView.setText("Select Problem Category");
+        promptView.setText(R.string.initial_search_prompt);
+        directiveView.setText(R.string.initial_search_directive);
 
         //set the listView
         final ArrayList<String> tableNames = new ArrayList<>();
-        tableNames.add("Body-Part Specific Symptoms");
-        tableNames.add("Generalized (Whole Body) Symptoms");
-        tableNames.add("Pregnancy Symptoms");
-        tableNames.add("Common Childhood Symptoms");
+        tableNames.add(getResources().getString(R.string.body_part_specific));
+        tableNames.add(getResources().getString(R.string.generalized_symptoms));
+        tableNames.add(getResources().getString(R.string.pregnancy_symptoms));
+        tableNames.add(getResources().getString(R.string.childhood_symptoms));
         tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
         listView.setAdapter(tableNameArrayAdapter);
 
@@ -218,20 +215,20 @@ public class SearchFragment extends Fragment {
 
                     if (_tableName.equals(db.BODY_PART_TABLE)) {
                         _select = db.PRIMARY_AREA;
-                        questionsView.setText("Where is your primary symptom located?");
-                        promptsView.setText("Select Symptom Location");
+                        promptView.setText(R.string.primary_symptom_location_prompt);
+                        directiveView.setText(R.string.primary_symptom_location_directive);
                     } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                         _select = db.PRIMARY_SYMPTOM;
-                        questionsView.setText("What is your primary symptom?");
-                        promptsView.setText("Select Symptom");
+                        promptView.setText(R.string.primary_symptom_identification_prompt);
+                        directiveView.setText(R.string.primary_symptom_identification_directive);
                     } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
                         _select = db.PRIMARY_SYMPTOM;
-                        questionsView.setText("When is this happening?");
-                        promptsView.setText("Select Time Period");
+                        promptView.setText(R.string.time_period_prompt);
+                        directiveView.setText(R.string.time_period_directive);
                     } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
                         _select = db.PRIMARY_AREA;
-                        questionsView.setText("What is the main problem?");
-                        promptsView.setText("Select Appropriate Category");
+                        promptView.setText(R.string.general_problem_prompt);
+                        directiveView.setText(R.string.general_problem_directive);
                     }
                     cur = db.getData(_select, _tableName, whereColumns, whereMatches);
                     resultsList.clear();
@@ -246,26 +243,26 @@ public class SearchFragment extends Fragment {
                     if (level == 1) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
                             _select = db.PRIMARY_SYMPTOM;
-                            questionsView.setText("What is the main problem?");
-                            promptsView.setText("Select Appropriate Category");
+                            promptView.setText(R.string.general_problem_prompt);
+                            directiveView.setText(R.string.general_problem_directive);
                         } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         }
                     } else if (level == 2) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
                             _select = db.EXTRA_INFORMATION;
-                            questionsView.setText("Please provide extra information.");
-                            promptsView.setText("Select Most Similar Category");
+                            promptView.setText(R.string.extra_info_prompt);
+                            directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                             //new fragment
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
