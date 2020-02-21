@@ -10,15 +10,29 @@
     <string name="terms_and_conditions_error">Error: cannot show Terms and Conditions.</string>
     <string name="back_button">Back</string>
     <string name="agree">I Agree</string>
-    <string name="question_1">Which of these categories best describes your symptoms?</string>
-    <string name="prompt_1">Select Symptom Category</string>
-    <string name="question_2">Where is your primary symptom located?</string>
-    <string name="prompt_2">Select Symptom Location</string>
-    <string name="question_3">Which is your primary symptom?</string>
-    <string name="prompt_3">Select Primary Symptom</string>
-    <string name="question_4">Which of these applies most to you?</string>
-    <string name="prompt_4">Select Extra Information</string>
+    <string name="initial_search_prompt">Which of these categories best describes your problem?</string>
+    <string name="initial_search_directive">Select Problem Category</string>
+    <string name="primary_symptom_location_prompt">Where is your primary symptom located?</string>
+    <string name="primary_symptom_location_directive">Select Symptom Location</string>
+    <string name="primary_symptom_identification_prompt">What is your primary symptom?</string>
+    <string name="primary_symptom_identification_directive">Select Symptom</string>
+    <string name="time_period_prompt">When is this happening?</string>
+    <string name="time_period_directive">Select Time Period</string>
+    <string name="general_problem_prompt">What is the main problem?</string>
+    <string name="general_problem_directive">Select Appropriate Category</string>
+    <string name="extra_info_prompt">Please provide extra information.</string>
+    <string name="extra_info_directive">Select Most Similar Category</string>
+    <string name="body_part_specific">Body-Part Specific Symptoms</string>
+    <string name="generalized_symptoms">Generalized (Whole Body) Symptoms</string>
+    <string name="pregnancy_symptoms">Pregnancy Symptoms</string>
+    <string name="childhood_symptoms">Common Childhood Symptoms</string>
+    <string name="error_emergency">No Status Found</string>
+    <string name="error_name">No Name Found</string>
+    <string name="error_text">No Text to Display</string>
+    <string name="emergency">emergency</string>
+    <string name="caution">caution</string>
+    <string name="not_an_emergency">not an emergency</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- delete after book -->
+    <string name="hello_blank_fragment">I am a blank fragment.</string>
 </resources>

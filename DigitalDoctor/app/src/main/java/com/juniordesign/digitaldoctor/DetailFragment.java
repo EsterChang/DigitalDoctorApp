@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 /**
  * Fragment class for each nav menu item
@@ -42,29 +44,27 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
-        String name_ = getArguments().getString("name", "");
-        String emergency_ = getArguments().getString("emergency", "");
-        String text_ = getArguments().getString("text", "");
+        String name_ = getArguments().getString("name", getResources().getString(R.string.error_name));
+        String emergency_ = getArguments().getString("emergency", getResources().getString(R.string.error_emergency));
+        String text_ = getArguments().getString("text", getResources().getString(R.string.error_text));
 
-        // need casting (TextView), etc
-        icon = rootView.findViewById(R.id.detail_icon);
-        emergency = rootView.findViewById(R.id.detail_emergency);
-        name = rootView.findViewById(R.id.detail_name);
-        description = rootView.findViewById(R.id.detail_description);
+        icon = (ImageView) rootView.findViewById(R.id.detail_icon);
+        emergency = (TextView) rootView.findViewById(R.id.detail_emergency);
+        name = (TextView) rootView.findViewById(R.id.detail_name);
+        description = (TextView) rootView.findViewById(R.id.detail_description);
 
-        // need null checks
         name.setText(name_);
         description.setText(text_);
         emergency.setText(emergency_);
 
-        if (emergency_.equalsIgnoreCase("emergency")) {
+        if (emergency_.equalsIgnoreCase(getResources().getString(R.string.emergency))) {
             icon.setImageResource(R.drawable.emergency_icon);
-        } else if (emergency_.equalsIgnoreCase("caution")) {
+        } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.caution))) {
             icon.setImageResource(R.drawable.caution_icon);
-        } else if (emergency_.equalsIgnoreCase("not an emergency")) {
+        } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.not_an_emergency))) {
             icon.setImageResource(R.drawable.not_an_emergency);
         } else {
-
+            icon.setImageResource(R.drawable.emergency_icon);
         }
         return rootView;
     }
