@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,15 +51,13 @@ public class DetailFragment extends Fragment {
         String text_ = getArguments().getString("text", getResources().getString(R.string.error_text));
 
         //restart button
-        restart = (ImageButton)rootView.findViewById(R.id.restart_button);
+        restart = (ImageButton) rootView.findViewById(R.id.restart_button);
         restart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                SearchFragment fragment = (SearchFragment)
-                        getFragmentManager().findFragmentById(R.id.fragment_container);
-                getFragmentManager().beginTransaction()
-                        .detach(fragment)
-                        .attach(fragment)
-                        .commit();
+                Fragment frag = SearchFragment.newInstance();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, frag);
+                ft.commit();
             }
         });
 
