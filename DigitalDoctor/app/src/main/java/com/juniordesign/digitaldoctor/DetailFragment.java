@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class DetailFragment extends Fragment {
     TextView emergency;
     TextView name;
     TextView description;
+    ImageButton restart;
 
     public static Fragment newInstance(String name, String emergency, String text) {
         Fragment frag = new DetailFragment();
@@ -47,6 +49,17 @@ public class DetailFragment extends Fragment {
         String name_ = getArguments().getString("name", getResources().getString(R.string.error_name));
         String emergency_ = getArguments().getString("emergency", getResources().getString(R.string.error_emergency));
         String text_ = getArguments().getString("text", getResources().getString(R.string.error_text));
+
+        //restart button
+        restart = (ImageButton) rootView.findViewById(R.id.restart_button);
+        restart.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Fragment frag = SearchFragment.newInstance();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, frag);
+                ft.commit();
+            }
+        });
 
         icon = (ImageView) rootView.findViewById(R.id.detail_icon);
         emergency = (TextView) rootView.findViewById(R.id.detail_emergency);
