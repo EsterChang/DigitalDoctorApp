@@ -28,6 +28,7 @@ public class SearchFragment extends Fragment {
     TextView directiveView;
     ImageButton restart;
     ImageButton back;
+
     DatabaseHelper db;
     int level;
     String _select;
@@ -42,8 +43,7 @@ public class SearchFragment extends Fragment {
     ArrayList<String> updateList;
 
     public static Fragment newInstance() {
-        Fragment frag = new SearchFragment();
-        return frag;
+        return new SearchFragment();
     }
 
 
@@ -83,82 +83,34 @@ public class SearchFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                level--;
-                if (level < 0) {
-                    level = 0;
-                }
-                if (level == 0) {
-                    promptView.setText(R.string.initial_search_prompt);
-                    directiveView.setText(R.string.initial_search_directive);
 
-                    //set the listView
-                    final ArrayList<String> tableNames = new ArrayList<>();
-                    tableNames.add(getResources().getString(R.string.body_part_specific));
-                    tableNames.add(getResources().getString(R.string.generalized_symptoms));
-                    tableNames.add(getResources().getString(R.string.pregnancy_symptoms));
-                    tableNames.add(getResources().getString(R.string.childhood_symptoms));
-                    tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
-                    listView.setAdapter(tableNameArrayAdapter);
-                    _tableName = "";
-                    _select = "";
-                    whereMatches.clear();
-                    whereColumns.clear();
+                if (level > 0) {
+                    level--;
+                }
+
+                if (level == 0) {
+                    levelZeroBackHelper();
                 } else {
                     whereColumns.remove(whereColumns.size() - 1);
                     whereMatches.remove(whereMatches.size() - 1);
-                    if (level == 1) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            _select = db.PRIMARY_AREA;
-                            promptView.setText(R.string.primary_symptom_location_prompt);
-                            directiveView.setText(R.string.primary_symptom_location_directive);
-                        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                            _select = db.PRIMARY_SYMPTOM;
-                            promptView.setText(R.string.primary_symptom_identification_prompt);
-                            directiveView.setText(R.string.primary_symptom_identification_directive);
-                        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                            _select = db.PRIMARY_SYMPTOM;
-                            promptView.setText(R.string.time_period_prompt);
-                            directiveView.setText(R.string.time_period_directive);
-                        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                            _select = db.PRIMARY_AREA;
-                            promptView.setText(R.string.general_problem_prompt);
-                            directiveView.setText(R.string.general_problem_directive);
-                        }
-                    } else if (level == 2) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            _select = db.PRIMARY_SYMPTOM;
-                            promptView.setText(R.string.general_problem_prompt);
-                            directiveView.setText(R.string.general_problem_directive);
-                        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        }
-                    } else if (level == 3) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                            //new fragment
-                        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                            //new fragment
-                        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                            //new fragment
-                        }
-                    } else if (level == 4) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            //new fragment
-                        }
+
+                    switch (level) {
+                        case 1:
+                            levelOneBackHelper();
+                            break;
+                        case 2:
+                            levelTwoBackHelper();
+                            break;
+                        case 3:
+                            levelThreeBackHelper();
+                            break;
+                        case 4:
+                            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                                //new fragment
+                            }
+                            break;
                     }
+
                     cur = db.getData(_select, _tableName, whereColumns, whereMatches);
                     resultsList.clear();
                     while (cur.moveToNext()) {
@@ -169,6 +121,7 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
+
 
 
         //Irene - add a pre-selection into the listview for the four tables
@@ -199,19 +152,25 @@ public class SearchFragment extends Fragment {
                 // Get the selected item text from ListView
                 //String selectedItem = (String) parent.getItemAtPosition(position);
                 if (level == 0) {
-                    if (position == 0) {
-                        //1 - Body-Part Specific Symptoms
-                        _tableName = db.BODY_PART_TABLE;
-                    } else if (position == 1) {
-                        //2 - Generalized (Whole Body) Symptoms or Pregnancy Symptoms
-                        _tableName = db.GENERALIZED_SYMPTOM_TABLE;
-                    } else if (position == 2) {
-                        //2 - Generalized (Whole Body) Symptoms or Pregnancy Symptoms
-                        _tableName = db.PREGNANCY_TABLE;
-                    } else if (position == 3) {
-                        //4 - Common Childhood Symptoms
-                        _tableName = db.CHILDHOOD_SYMPTOM_TABLE;
+                    switch (position) {
+                        case 0:
+                            //1 - Body-Part Specific Symptoms
+                            _tableName = db.BODY_PART_TABLE;
+                            break;
+                        case 1:
+                            //2 - Generalized (Whole Body) Symptoms or Pregnancy Symptoms
+                            _tableName = db.GENERALIZED_SYMPTOM_TABLE;
+                            break;
+                        case 2:
+                            //2 - Generalized (Whole Body) Symptoms or Pregnancy Symptoms
+                            _tableName = db.PREGNANCY_TABLE;
+                            break;
+                        case 3:
+                            //4 - Common Childhood Symptoms
+                            _tableName = db.CHILDHOOD_SYMPTOM_TABLE;
+                            break;
                     }
+
 
                     if (_tableName.equals(db.BODY_PART_TABLE)) {
                         _select = db.PRIMARY_AREA;
@@ -289,6 +248,78 @@ public class SearchFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    private void levelZeroBackHelper() {
+        promptView.setText(R.string.initial_search_prompt);
+        directiveView.setText(R.string.initial_search_directive);
+
+        //set the listView
+        final ArrayList<String> tableNames = new ArrayList<>();
+        tableNames.add(getResources().getString(R.string.body_part_specific));
+        tableNames.add(getResources().getString(R.string.generalized_symptoms));
+        tableNames.add(getResources().getString(R.string.pregnancy_symptoms));
+        tableNames.add(getResources().getString(R.string.childhood_symptoms));
+        tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
+        listView.setAdapter(tableNameArrayAdapter);
+        _tableName = "";
+        _select = "";
+        whereMatches.clear();
+        whereColumns.clear();
+    }
+
+    private void levelOneBackHelper() {
+        if (_tableName.equals(db.BODY_PART_TABLE)) {
+            _select = db.PRIMARY_AREA;
+            promptView.setText(R.string.primary_symptom_location_prompt);
+            directiveView.setText(R.string.primary_symptom_location_directive);
+        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+            _select = db.PRIMARY_SYMPTOM;
+            promptView.setText(R.string.primary_symptom_identification_prompt);
+            directiveView.setText(R.string.primary_symptom_identification_directive);
+        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+            _select = db.PRIMARY_SYMPTOM;
+            promptView.setText(R.string.time_period_prompt);
+            directiveView.setText(R.string.time_period_directive);
+        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+            _select = db.PRIMARY_AREA;
+            promptView.setText(R.string.general_problem_prompt);
+            directiveView.setText(R.string.general_problem_directive);
+        }
+    }
+
+    private void levelTwoBackHelper() {
+        if (_tableName.equals(db.BODY_PART_TABLE)) {
+            _select = db.PRIMARY_SYMPTOM;
+            promptView.setText(R.string.general_problem_prompt);
+            directiveView.setText(R.string.general_problem_directive);
+        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+            _select = db.EXTRA_INFORMATION;
+            promptView.setText(R.string.extra_info_prompt);
+            directiveView.setText(R.string.extra_info_directive);
+        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+            _select = db.EXTRA_INFORMATION;
+            promptView.setText(R.string.extra_info_prompt);
+            directiveView.setText(R.string.extra_info_directive);
+        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+            _select = db.EXTRA_INFORMATION;
+            promptView.setText(R.string.extra_info_prompt);
+            directiveView.setText(R.string.extra_info_directive);
+        }
+    }
+
+    private void levelThreeBackHelper() {
+        if (_tableName.equals(db.BODY_PART_TABLE)) {
+            _select = db.EXTRA_INFORMATION;
+            promptView.setText(R.string.extra_info_prompt);
+            directiveView.setText(R.string.extra_info_directive);
+        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+            //new fragment
+        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+            //new fragment
+        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+            //new fragment
+        }
     }
 
     @Override
