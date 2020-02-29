@@ -39,6 +39,7 @@ public class SearchFragment extends Fragment {
     ArrayList<String> whereMatches;
     ArrayList<String> resultsList;
     Cursor cur;
+    boolean detailBackPressed = false;
 
     //The ArrayAdapter and the ArrayList needs to be global variables
     ArrayAdapter tableNameArrayAdapter;
@@ -51,7 +52,6 @@ public class SearchFragment extends Fragment {
     public static Fragment newInstance(ArrayList<String> resultsList, int level, String _select, String _tableName, ArrayList<String> whereColumns, ArrayList<String> whereMatches) {
 
         Fragment frag = new SearchFragment();
-
         Bundle args = new Bundle();
         args.putStringArrayList("resultsList", resultsList);
         args.putInt("level", level);
@@ -68,6 +68,7 @@ public class SearchFragment extends Fragment {
         super.onCreate(savedInstanceState);
         db = new DatabaseHelper(getActivity());
         if (getArguments() != null) {
+            detailBackPressed = true;
             resultsList = getArguments().getStringArrayList("resultsList");
             level = getArguments().getInt("level");
             _select = getArguments().getString("_select");
@@ -120,15 +121,8 @@ public class SearchFragment extends Fragment {
                 if (level == 0) {
                     levelZeroBackHelper();
                 } else {
-                    // remove item from whereColumns and whereMatches if we are going backwards in search and haven't reached detail page yet
                     whereColumns.remove(whereColumns.size() - 1);
                     whereMatches.remove(whereMatches.size() - 1);
-
-                    // remove another item from whereColumns and whereMatches if we are going backwards from the detail page
-                    if (getArguments() != null && whereColumns.size() > 1) {
-                        whereColumns.remove(whereColumns.size() - 1);
-                        whereMatches.remove(whereMatches.size() - 1);
-                    }
 
                     switch (level) {
                         case 1:
@@ -146,7 +140,7 @@ public class SearchFragment extends Fragment {
                             }
                             break;
                     }
-
+                    setSelect(level - 1, _tableName);
                     cur = db.getData(_select, _tableName, whereColumns, whereMatches);
                     resultsList.clear();
                     while (cur.moveToNext()) {
@@ -167,7 +161,7 @@ public class SearchFragment extends Fragment {
         //4 - Common Childhood Symptoms
         // - unassigned, show the tables names in listView
 
-        if (getArguments() == null) {
+        if (!detailBackPressed) {
             //first select table
             //set questions and prompts
             promptView.setText(R.string.initial_search_prompt);
@@ -181,6 +175,18 @@ public class SearchFragment extends Fragment {
             resultsList.add(getResources().getString(R.string.childhood_symptoms));
 
 
+        } else {
+            setPromptText(level - 1, _tableName);
+            setSelect(level - 1, _tableName);
+            if (whereColumns.size() > 0) {
+                whereColumns.remove(whereColumns.size() - 1);
+                whereMatches.remove(whereMatches.size() - 1);
+            }
+            cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+            resultsList.clear();
+            while (cur.moveToNext()) {
+                resultsList.add(cur.getString(0));
+            }
         }
         tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
         listView.setAdapter(tableNameArrayAdapter);
@@ -192,6 +198,9 @@ public class SearchFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
                 //String selectedItem = (String) parent.getItemAtPosition(position);
+
+                //searchDone - whether or not we reached the end of a search sequence
+                boolean searchDone = false;
                 if (level == 0) {
                     switch (position) {
                         case 0:
@@ -211,25 +220,9 @@ public class SearchFragment extends Fragment {
                             _tableName = db.CHILDHOOD_SYMPTOM_TABLE;
                             break;
                     }
+                    setPromptText(level, _tableName);
+                    setSelect(level, _tableName);
 
-
-                    if (_tableName.equals(db.BODY_PART_TABLE)) {
-                        _select = db.PRIMARY_AREA;
-                        promptView.setText(R.string.primary_symptom_location_prompt);
-                        directiveView.setText(R.string.primary_symptom_location_directive);
-                    } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                        _select = db.PRIMARY_SYMPTOM;
-                        promptView.setText(R.string.primary_symptom_identification_prompt);
-                        directiveView.setText(R.string.primary_symptom_identification_directive);
-                    } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                        _select = db.PRIMARY_SYMPTOM;
-                        promptView.setText(R.string.time_period_prompt);
-                        directiveView.setText(R.string.time_period_directive);
-                    } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                        _select = db.PRIMARY_AREA;
-                        promptView.setText(R.string.general_problem_prompt);
-                        directiveView.setText(R.string.general_problem_directive);
-                    }
                     cur = db.getData(_select, _tableName, whereColumns, whereMatches);
                     resultsList.clear();
                     while (cur.moveToNext()) {
@@ -240,39 +233,23 @@ public class SearchFragment extends Fragment {
                 } else {
                     whereColumns.add(_select);
                     whereMatches.add(listView.getItemAtPosition(position).toString());
-                    if (level == 1) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            _select = db.PRIMARY_SYMPTOM;
-                            promptView.setText(R.string.general_problem_prompt);
-                            directiveView.setText(R.string.general_problem_directive);
-                        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        }
-                    } else if (level == 2) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            _select = db.EXTRA_INFORMATION;
-                            promptView.setText(R.string.extra_info_prompt);
-                            directiveView.setText(R.string.extra_info_directive);
-                        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+                    setPromptText(level, _tableName);
+                    setSelect(level, _tableName);
+                    if (level == 2) {
+                        if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
                             createDetailFragment(_tableName, whereColumns, whereMatches);
+                            searchDone = true;
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
                             createDetailFragment(_tableName, whereColumns, whereMatches);
+                            searchDone = true;
                         } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
                             createDetailFragment(_tableName, whereColumns, whereMatches);
+                            searchDone = true;
                         }
                     } else if (level == 3) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
                             createDetailFragment(_tableName, whereColumns, whereMatches);
+                            searchDone = true;
                         }
                     }
                     cur = db.getData(_select, _tableName, whereColumns, whereMatches);
@@ -280,8 +257,11 @@ public class SearchFragment extends Fragment {
                     while (cur.moveToNext()) {
                         resultsList.add(cur.getString(0));
                     }
-                    ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
-                    listView.setAdapter(resultArrayAdapter);
+
+                    if (!searchDone) {
+                        ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+                        listView.setAdapter(resultArrayAdapter);
+                    }
                 }
                 level++;
 
@@ -289,6 +269,82 @@ public class SearchFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    //Sets the correct text based on current level of search and tableName
+    private void setPromptText(int level, String _tableName) {
+        if (level == 0) {
+            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                _select = db.PRIMARY_AREA;
+                promptView.setText(R.string.primary_symptom_location_prompt);
+                directiveView.setText(R.string.primary_symptom_location_directive);
+            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+                _select = db.PRIMARY_SYMPTOM;
+                promptView.setText(R.string.primary_symptom_identification_prompt);
+                directiveView.setText(R.string.primary_symptom_identification_directive);
+            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+                _select = db.PRIMARY_SYMPTOM;
+                promptView.setText(R.string.time_period_prompt);
+                directiveView.setText(R.string.time_period_directive);
+            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+                _select = db.PRIMARY_AREA;
+                promptView.setText(R.string.general_problem_prompt);
+                directiveView.setText(R.string.general_problem_directive);
+            }
+        } else if (level == 1) {
+            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                _select = db.PRIMARY_SYMPTOM;
+                promptView.setText(R.string.general_problem_prompt);
+                directiveView.setText(R.string.general_problem_directive);
+            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+                promptView.setText(R.string.extra_info_prompt);
+                directiveView.setText(R.string.extra_info_directive);
+            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+                promptView.setText(R.string.extra_info_prompt);
+                directiveView.setText(R.string.extra_info_directive);
+            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+                promptView.setText(R.string.extra_info_prompt);
+                directiveView.setText(R.string.extra_info_directive);
+            }
+        } else if (level == 2) {
+            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+                promptView.setText(R.string.extra_info_prompt);
+                directiveView.setText(R.string.extra_info_directive);
+            }
+        }
+    }
+
+    //Sets the _select variable based on current level of search and tableName
+    private void setSelect(int level, String _tableName) {
+        if (level == 0) {
+            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                _select = db.PRIMARY_AREA;
+            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+                _select = db.PRIMARY_SYMPTOM;
+            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+                _select = db.PRIMARY_SYMPTOM;
+            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+                _select = db.PRIMARY_AREA;
+            }
+        } else if (level == 1) {
+            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                _select = db.PRIMARY_SYMPTOM;
+            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+            }
+        } else if (level == 2) {
+            if (_tableName.equals(db.BODY_PART_TABLE)) {
+                _select = db.EXTRA_INFORMATION;
+            }
+        }
     }
 
     private void createDetailFragment(String _tableName, ArrayList whereColumns, ArrayList whereMatches) {
@@ -314,7 +370,7 @@ public class SearchFragment extends Fragment {
         while (populate.moveToNext()) {
             text = (populate.getString(0));
         }
-        Fragment frag = DetailFragment.newInstance(name, emergency, text, resultsList, level, _select, _tableName, whereColumns, whereMatches);
+        Fragment frag = DetailFragment.newInstance(name, emergency, text, resultsList, level , _select, _tableName, whereColumns, whereMatches);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, frag);
         ft.commit();
