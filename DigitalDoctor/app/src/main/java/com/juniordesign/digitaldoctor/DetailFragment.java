@@ -86,12 +86,15 @@ public class DetailFragment extends Fragment {
 
         //back button
         back = (ImageButton)rootView.findViewById(R.id.back_button);
-        back.setOnClickListener((view) -> {
-            Fragment frag = SearchFragment.newInstance(resultsList, level, _select, _tableName, whereColumns, whereMatches);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, frag);
-            ft.commit();
-                });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment frag = SearchFragment.newInstance(resultsList, level, _select, _tableName, whereColumns, whereMatches);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, frag);
+                ft.commit();
+            }
+        });
 
         icon = (ImageView) rootView.findViewById(R.id.detail_icon);
         emergency = (TextView) rootView.findViewById(R.id.detail_emergency);

@@ -104,25 +104,25 @@ public class HomeActivity extends AppCompatActivity {
 
             // note from Kyle --> this is for database testing purposes, do not delete
 
-            Cursor cur = db.getAllData(db.DIAGNOSIS_TABLE);
-            StringBuffer buffer = new StringBuffer();
-            while (cur.moveToNext()) {
-                buffer.append("Name: " + cur.getString(0) + "\n");
-                buffer.append("Severity: " + cur.getString(1) + "\n");
-                buffer.append("Info: " + cur.getString(2) + "\n");
-            }
-            new AlertDialog.Builder(this)
-                    .setTitle("Database")
-                    .setMessage(buffer.toString())
-                    .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    })
-                    .setCancelable(false)
-                    .create()
-                    .show();
+//            Cursor cur = db.getAllData(db.DIAGNOSIS_TABLE);
+//            StringBuffer buffer = new StringBuffer();
+//            while (cur.moveToNext()) {
+//                buffer.append("Name: " + cur.getString(0) + "\n");
+//                buffer.append("Severity: " + cur.getString(1) + "\n");
+//                buffer.append("Info: " + cur.getString(2) + "\n");
+//            }
+//            new AlertDialog.Builder(this)
+//                    .setTitle("Database")
+//                    .setMessage(buffer.toString())
+//                    .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    })
+//                    .setCancelable(false)
+//                    .create()
+//                    .show();
         }
     }
 

@@ -101,12 +101,10 @@ public class SearchFragment extends Fragment {
         restart = (ImageButton)rootView.findViewById(R.id.restart_button);
         restart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                SearchFragment fragment = (SearchFragment)
-                        getFragmentManager().findFragmentById(R.id.fragment_container);
-                getFragmentManager().beginTransaction()
-                        .detach(fragment)
-                        .attach(fragment)
-                        .commit();
+                Fragment frag = SearchFragment.newInstance();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, frag);
+                ft.commit();
             }
         });
 
