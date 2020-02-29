@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -223,15 +225,15 @@ public class SearchFragment extends Fragment {
                             promptView.setText(R.string.extra_info_prompt);
                             directiveView.setText(R.string.extra_info_directive);
                         } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                            //new fragment
+                            createDetailFragment(_tableName, whereColumns, whereMatches);
                         } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                            //new fragment
+                            createDetailFragment(_tableName, whereColumns, whereMatches);
                         } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                            //new fragment
+                            createDetailFragment(_tableName, whereColumns, whereMatches);
                         }
                     } else if (level == 3) {
                         if (_tableName.equals(db.BODY_PART_TABLE)) {
-                            //new fragment
+                            createDetailFragment(_tableName, whereColumns, whereMatches);
                         }
                     }
                     cur = db.getData(_select, _tableName, whereColumns, whereMatches);
@@ -248,6 +250,35 @@ public class SearchFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    private void createDetailFragment(String _tableName, ArrayList whereColumns, ArrayList whereMatches) {
+        String name = null;
+        Cursor populate = db.getData(db.SYMPTOM_NAME, _tableName, whereColumns, whereMatches);
+        while (populate.moveToNext()) {
+            name = (populate.getString(0));
+        }
+        ArrayList<String> symptomname = new ArrayList<>();
+        ArrayList<String> column = new ArrayList<>();
+        if (symptomname != null) {
+            symptomname.add(name);
+            column.add(db.SYMPTOM_NAME);
+        }
+
+        String emergency = null;
+        populate = db.getData(db.SYMPTOM_SEVERITY, db.DIAGNOSIS_TABLE, column, symptomname);
+        while (populate.moveToNext()) {
+            emergency = (populate.getString(0));
+        }
+        String text = null;
+        populate = db.getData(db.SYMPTOM_INFORMATION, db.DIAGNOSIS_TABLE, column, symptomname);
+        while (populate.moveToNext()) {
+            text = (populate.getString(0));
+        }
+        Fragment frag = DetailFragment.newInstance(name, emergency, text);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, frag);
+        ft.commit();
     }
 
     private void levelZeroBackHelper() {
