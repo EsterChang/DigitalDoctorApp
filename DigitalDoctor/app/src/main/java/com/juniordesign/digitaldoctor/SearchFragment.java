@@ -48,17 +48,45 @@ public class SearchFragment extends Fragment {
         return new SearchFragment();
     }
 
+    public static Fragment newInstance(ArrayList<String> resultsList, int level, String _select, String _tableName, ArrayList<String> whereColumns, ArrayList<String> whereMatches) {
+
+        Fragment frag = new SearchFragment();
+
+        Bundle args = new Bundle();
+        args.putStringArrayList("resultsList", resultsList);
+        args.putInt("level", level);
+        args.putString("_select", _select);
+        args.putString("_tableName", _tableName);
+        args.putStringArrayList("whereColumns", whereColumns);
+        args.putStringArrayList("whereMatches", whereMatches);
+        frag.setArguments(args);
+
+        return frag;
+    }
+
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        db = new DatabaseHelper(getActivity());
+        if (getArguments() != null) {
+            resultsList = getArguments().getStringArrayList("resultsList");
+            level = getArguments().getInt("level");
+            _select = getArguments().getString("_select");
+            _tableName = getArguments().getString("_tableName");
+            whereColumns = getArguments().getStringArrayList("whereColumns");
+            whereMatches = getArguments().getStringArrayList("whereMatches");
+        } else {
+            level = 0;
+            _select = "";
+            _tableName = "";
+            whereColumns = new ArrayList<>();
+            whereMatches = new ArrayList<>();
+            resultsList = new ArrayList<>();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        level = 0;
-        db = new DatabaseHelper(getActivity());
-        _select = "";
-        _tableName = "";
-        whereColumns = new ArrayList<>();
-        whereMatches = new ArrayList<>();
-        resultsList = new ArrayList<>();
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.activity_search, container, false);
@@ -85,7 +113,6 @@ public class SearchFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (level > 0) {
                     level--;
                 }
@@ -93,8 +120,15 @@ public class SearchFragment extends Fragment {
                 if (level == 0) {
                     levelZeroBackHelper();
                 } else {
+                    // remove item from whereColumns and whereMatches if we are going backwards in search and haven't reached detail page yet
                     whereColumns.remove(whereColumns.size() - 1);
                     whereMatches.remove(whereMatches.size() - 1);
+
+                    // remove another item from whereColumns and whereMatches if we are going backwards from the detail page
+                    if (getArguments() != null && whereColumns.size() > 1) {
+                        whereColumns.remove(whereColumns.size() - 1);
+                        whereMatches.remove(whereMatches.size() - 1);
+                    }
 
                     switch (level) {
                         case 1:
@@ -133,19 +167,24 @@ public class SearchFragment extends Fragment {
         //4 - Common Childhood Symptoms
         // - unassigned, show the tables names in listView
 
-        //first select table
-        //set questions and prompts
-        promptView.setText(R.string.initial_search_prompt);
-        directiveView.setText(R.string.initial_search_directive);
+        if (getArguments() == null) {
+            //first select table
+            //set questions and prompts
+            promptView.setText(R.string.initial_search_prompt);
+            directiveView.setText(R.string.initial_search_directive);
 
-        //set the listView
-        final ArrayList<String> tableNames = new ArrayList<>();
-        tableNames.add(getResources().getString(R.string.body_part_specific));
-        tableNames.add(getResources().getString(R.string.generalized_symptoms));
-        tableNames.add(getResources().getString(R.string.pregnancy_symptoms));
-        tableNames.add(getResources().getString(R.string.childhood_symptoms));
-        tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
+            //set the listView
+
+            resultsList.add(getResources().getString(R.string.body_part_specific));
+            resultsList.add(getResources().getString(R.string.generalized_symptoms));
+            resultsList.add(getResources().getString(R.string.pregnancy_symptoms));
+            resultsList.add(getResources().getString(R.string.childhood_symptoms));
+
+
+        }
+        tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
         listView.setAdapter(tableNameArrayAdapter);
+
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -275,7 +314,7 @@ public class SearchFragment extends Fragment {
         while (populate.moveToNext()) {
             text = (populate.getString(0));
         }
-        Fragment frag = DetailFragment.newInstance(name, emergency, text);
+        Fragment frag = DetailFragment.newInstance(name, emergency, text, resultsList, level, _select, _tableName, whereColumns, whereMatches);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, frag);
         ft.commit();
@@ -361,8 +400,4 @@ public class SearchFragment extends Fragment {
         mContent = view.findViewById(R.id.fragment_content_search);
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
 }
