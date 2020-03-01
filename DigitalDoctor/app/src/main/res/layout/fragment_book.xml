@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_content_book"
     android:layout_width="match_parent"
@@ -7,9 +8,77 @@
     tools:context=".BookFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/book_img"
+            android:layout_width="322dp"
+            android:layout_height="272dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toTopOf="@id/link"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:srcCompat="@drawable/book_frontpage" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="This potentially lifesaving guide, newly revised and updated, gives you instant access to the information you need to spot a serious medical condition before it's too late."
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/link" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Your Body's Red Light Warning Signals"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Buy Now at Amazon"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorLink="@android:color/holo_blue_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_img" />
+
+        <ImageView
+            android:id="@+id/amazon"
+            android:layout_width="28dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@id/link"
+            app:layout_constraintEnd_toStartOf="@+id/link"
+            app:layout_constraintTop_toBottomOf="@id/book_img"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/amazon" />
+    </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

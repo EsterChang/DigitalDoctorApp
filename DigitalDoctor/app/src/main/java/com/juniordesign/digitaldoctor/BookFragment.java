@@ -6,10 +6,13 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 /**
@@ -29,6 +32,11 @@ public class BookFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_book, container, false);
+        TextView link = (TextView)rootView.findViewById(R.id.link);
+        link.setMovementMethod(LinkMovementMethod.getInstance());
+        link.setText(Html.fromHtml("<a href='https://www.amazon.com/Bodys-Light-Warning-" +
+                "Signals-revised/dp/038534161X/ref=sr_1_2?keywords=your+body%27s+red+light+warni" +
+                "ng+signals&qid=1583037974&sr=8-2'> Buy NOW on Amazon </a>"));
         return rootView;
     }
 
