@@ -91,7 +91,7 @@ Ear, Nose, Mouth, Throat, and Neck@Throat@Sore Throat with Fiery Red Rash All Ov
 Ear, Nose, Mouth, Throat, and Neck@Throat@Severe Sore Throat@Throat Infection
 Ear, Nose, Mouth, Throat, and Neck@Neck@Darkening of Skin Behind the Neck@Potentially Cancer and/or Diabetes
 Ear, Nose, Mouth, Throat, and Neck@Neck@Gradually Increasing Pain in the Back of the Neck or Lower Back, Often with Night Sweats and Fever@Epidural or Intraspinal Abscess
-Ear, Nose, Mouth, Throat, and Neck@Neck@Lumps Anywhere in the Neck@Potenially Serious Neck Disease
+Ear, Nose, Mouth, Throat, and Neck@Neck@Lumps Anywhere in the Neck@Potentially Serious Neck Disease
 Ear, Nose, Mouth, Throat, and Neck@Neck@Lumps in the Front Base of the Neck@Thyroid Cancer
 Ear, Nose, Mouth, Throat, and Neck@Neck@Stiff Neck, Headache, and Fever@Meningitis
 Ear, Nose, Mouth, Throat, and Neck@Neck@Swelling of the Throat and Lips and/or Difficulty Breathing Following a Bee Sting or Exposure to Other Allergen@Severe Allergic Reaction
@@ -206,7 +206,7 @@ Belly, Stomach Area, or Abdomen@Bulges and Swelling in the Belly@Persistent Bloa
 Belly, Stomach Area, or Abdomen@Bulges and Swelling in the Belly@Pulsating Bulge in the Belly and/or Pain in the Lower Back, Abdomen, or Side@Aortic Aneurysm
 Belly, Stomach Area, or Abdomen@Sense of Fullness@Feeling Full, Persistent Bloating, and/or Abdominal Discomfort or Pain, in a Woman@Potential Ovarian Cancer
 Belly, Stomach Area, or Abdomen@Sense of Fullness@Feeling Full, Vomiting After Small Meals, and Possible History of Ulcers@Blockage from Scarring in the Stomach
-Belly, Stomach Area, or Abdomen@Sense of Fullness@Sense of Fullness, Tea-Colored Urine with or without Nausea, and/or Yellow Skin and Eyes@Constipation
+Belly, Stomach Area, or Abdomen@Sense of Fullness@Sense of Fullness, Tea-Colored Urine with or without Nausea, and/or Yellow Skin and Eyes@Chronic Problem with Gallstones
 Nausea and Vomiting@Nausea@and Appearing Pregnant (Missed Periods and a Positive Pregnancy Test), with Vomiting, Vaginal Bleeding, and/or Discharge of Grapelike Particles@Tumor in the Womb
 Nausea and Vomiting@Nausea@and/or Vomiting, After a Head Injury, with Many Other Possible Symptoms@Head Injury
 Nausea and Vomiting@Nausea@and/or Vomiting, Loss of Appetite, Abdominal Pain, Increased Thirst and Urination, with Many Other Possible Symptoms@Hyperparathyroidism
@@ -307,7 +307,7 @@ Skin@Discolorations@Darkening of Skin Around the Armpits, Groin, or the Back of 
 Skin@Discolorations@Spots (Brown in African Americans and Asians, Pink to Dusty Red in Caucasians) on the Wrists, Palms of  the Hands, Ankles, Soles of the Feet, Sometimes with Fever@Syphilis or Rocky Mountain Spotted Fever
 Skin@Discolorations@Paleness, Fatigue, and/or Rapid Pulse, with or without Shortness of Breath@Anemia
 Skin@Discolorations@Red Streaks on the Skin@Skin Infection
-Skin@Discolorations@Sunburn@Potentially Lupus
+Skin@Discolorations@Sunburn@Skin Sensitivity
 Skin@Discolorations@Yellow Jaundice and Drinking Alcohol, Mild Tenderness over the Upper-Right Belly Area@Hepatitis
 Skin@Discolorations@Yellow Jaundice, Yellow Eyes, and Tea-Colored Urine@Chronic Problem with Gallstones
 Skin@Freckles, Moles, Bumps, Warts, Lumps, Plaques, and Patches@Freckles on the Lips or Inside  the  Mouth@Growths in the Intestines
@@ -336,7 +336,7 @@ Skin@Sores and Ulcers@A Red, Eroded, in Many Possible Locations, Including on th
 Skin@Sores and Ulcers@A Sore with Pus That Will Not Heal@Body-Invading Fungus Infection
 Skin@Sores and Ulcers@Sores in the Mouth, Nose, Eyes, Anus, and/or Genital Area, with a Targetlike Rash and Mild Fever, After Starting Certain Medications@Fatal Reaction
 Skin@Sores and Ulcers@Sores on the Fingertips or Toes of a Smoker@Blockage of the Arteries
-Skin@Sores and Ulcers@Ulcer on the Skin That Does Not Heal@Skin Cancer
+Skin@Sores and Ulcers@Ulcer on the Skin That Does Not Heal@Potentially Skin Cancer
 Back@Back Pain@a Few Inches Above the Belt Line, on Either Side of the Backbone, Often Made Worse When Tapped, Sometimes with Fever, with or without Pain and Difficulty Urinating and Blood-Tinged Urine@Kidney Disease
 Back@Back Pain@Chest Pain Under the Breastbone That Extends to the Back, Between the Shoulder Blades@Aneurysm of the Thoracic Aorta
 Back@Back Pain@Gradually Increasing Pain in the Neck or Low Back, Often with Night Sweats and Fever@Epidural or Intraspinal Abscess
