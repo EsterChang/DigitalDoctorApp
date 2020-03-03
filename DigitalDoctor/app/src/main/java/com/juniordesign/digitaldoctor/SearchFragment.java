@@ -217,17 +217,8 @@ public class SearchFragment extends Fragment {
                             //4 - Common Childhood Symptoms
                             _tableName = db.CHILDHOOD_SYMPTOM_TABLE;
                             break;
-                    }
-                    setPromptText(level, _tableName);
-                    setSelect(level, _tableName);
-
-                    cur = db.getData(_select, _tableName, whereColumns, whereMatches);
-                    resultsList.clear();
-                    while (cur.moveToNext()) {
-                        resultsList.add(cur.getString(0));
-                    }
-                    ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
-                    listView.setAdapter(resultArrayAdapter);
+                }
+                searchHelper();
                 } else {
                     whereColumns.add(_select);
                     whereMatches.add(listView.getItemAtPosition(position).toString());
@@ -250,16 +241,7 @@ public class SearchFragment extends Fragment {
                             searchDone = true;
                         }
                     }
-                    cur = db.getData(_select, _tableName, whereColumns, whereMatches);
-                    resultsList.clear();
-                    while (cur.moveToNext()) {
-                        resultsList.add(cur.getString(0));
-                    }
-
-                    if (!searchDone) {
-                        ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
-                        listView.setAdapter(resultArrayAdapter);
-                    }
+                    setSearchList(searchDone);
                 }
                 level++;
 
@@ -443,6 +425,32 @@ public class SearchFragment extends Fragment {
             //new fragment
         } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
             //new fragment
+        }
+    }
+
+    private void searchHelper() {
+        setPromptText(level, _tableName);
+        setSelect(level, _tableName);
+
+        cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+        resultsList.clear();
+        while (cur.moveToNext()) {
+            resultsList.add(cur.getString(0));
+        }
+        ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+        listView.setAdapter(resultArrayAdapter);
+    }
+
+    private void setSearchList(boolean searchDone) {
+        cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+        resultsList.clear();
+        while (cur.moveToNext()) {
+            resultsList.add(cur.getString(0));
+        }
+
+        if (!searchDone) {
+            ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+            listView.setAdapter(resultArrayAdapter);
         }
     }
 
