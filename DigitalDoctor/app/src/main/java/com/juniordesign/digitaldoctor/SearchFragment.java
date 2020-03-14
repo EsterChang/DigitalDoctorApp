@@ -118,6 +118,7 @@ public class SearchFragment extends Fragment {
 
                 if (level == 0) {
                     levelZeroBackHelper();
+                    back.setVisibility(View.INVISIBLE);
                 } else {
                     whereColumns.remove(whereColumns.size() - 1);
                     whereMatches.remove(whereMatches.size() - 1);
@@ -172,6 +173,7 @@ public class SearchFragment extends Fragment {
             resultsList.add(getResources().getString(R.string.pregnancy_symptoms));
             resultsList.add(getResources().getString(R.string.childhood_symptoms));
 
+            back.setVisibility(View.INVISIBLE);
 
         } else {
             setPromptText(level - 1, _tableName);
@@ -200,6 +202,7 @@ public class SearchFragment extends Fragment {
                 //searchDone - whether or not we reached the end of a search sequence
                 boolean searchDone = false;
                 if (level == 0) {
+                    back.setVisibility(View.VISIBLE);
                     switch (position) {
                         case 0:
                             //1 - Body-Part Specific Symptoms
