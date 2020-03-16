@@ -8,13 +8,13 @@ Head@Unusual Rhythmic Movements in Face or Limbs@Potentially Serious Underlying 
 Psychological Problems@Depression, in an Adolescent@Childhood Depression
 Psychological Problems@Eating Disorder, in an Adolescent@Anorexia
 Eyes@Pain in One Eye when Both Eyes Move, Often in Children, but Also in Adults@Infection or Tumor within Eye
-Eyes@Red Eyes and Red Mouth, Fever, Rash, Peeling Skin, and Enlarged Neck Glands, Extreme Irritability@Kawasaki's Disease
+Eyes@Red Eyes and Red Mouth, Fever, Rash, Peeling Skin, and Enlarged Neck Glands, Extreme Irritability@Kawasaki Disease
 Eyes@Unparallel Eyes, White or Different-Looking Pupil, or Change in Color of One Iris@Tumor in the Back of the Eye
 Eyes@Visual Changes and Headaches, in an Adolescent@Benign Intracranial Hypertension
 Eyes@Visual Disturbances and Headaches, Usually in the Morning, with Vomiting@Childhood Brain Tumor
 Face, Mouth, Throat, and Neck@Bright Red Gums and Lips, Often with Nausea, Vomiting, Headache, and/or Drowsiness, Often Worse Indoors and Affecting the Whole Household@Childhood Carbon Monoxide Poisoning
 Face, Mouth, Throat, and Neck@Chronic Hoarseness and Pain When Swallowing or Difficulty Breathing During Exercise@Papilloma on the Vocal Chords
-Face, Mouth, Throat, and Neck@Enlarged Neck Glands, Red Eyes and Red Mouth (Redder Than Normal), Fever, Rash, Peeling Skin, Very Irritable@Kawasaki's Disease
+Face, Mouth, Throat, and Neck@Enlarged Neck Glands, Red Eyes and Red Mouth (Redder Than Normal), Fever, Rash, Peeling Skin, Very Irritable@Kawasaki Disease
 Face, Mouth, Throat, and Neck@Freckles Around the Mouth@Peutz-Jeghers Syndrome
 Face, Mouth, Throat, and Neck@Refusal to Swallow, with or without Drooling, Difficulty Breathing or Speaking, etc.@Childhood Throat Infection
 Face, Mouth, Throat, and Neck@Stiff Neck, Faint Pink or Purple Splotchy Rash,Fever,and Other Flu-Like Symptoms@Meningococcosis
@@ -34,7 +34,7 @@ Chest@Noisy Breathing@Stridor
 Chest@Wheezing or a Cough, Asthma@Childhood Asthma
 Chest@Severe Asthmatic Attack: Struggling to Breathe, Difficulty Speaking, and Possibly Turning Blue@Childhood Asthma Attack
 Belly@A Mass or Firmness Felt or Observed in the Belly Area, or an Enlarging Belly Area@Childhood Kidney Cancer
-Belly@Nausea, Vomiting, and Red or Purple Blotches on the Skin of a Baby, Usually with a Fever@Childhood Meningococcos
+Belly@Nausea, Vomiting, and Red or Purple Blotches on the Skin of a Baby, Usually with a Fever@Meningococcosis
 Belly@Vomiting and Diarrhea, Dehydration@Childhood Diarrhea
 Urine@Frequent (Sometimes Painful) Urination, Bedwetting, Mild Fever, etc.@Childhood Urinary Tract Infection
 Urine@Frequent Urination, Weight Loss, and/or Increased Thirst@Diabetes Mellitus
@@ -55,7 +55,7 @@ Feet, Toes, and Nails@Swelling of One Foot (Usually Not the Ankle)@Severe Allerg
 Feet, Toes, and Nails@Swollen, Tender Toes or Fingers, in an Infant@Sickle Cell Disease
 Skin and Hair@Five or More “Birthmarks” on a Child (or Adult)@Neurofibromatosis
 Skin and Hair@Freckles Around the Mouth or Anus@Peutz-Jeghers Syndrome
-Skin and Hair@Rash, Peeling Skin, Fever, Red Eyes and Red Mouth (Redder Than Usual), and Enlarged Neck Glands, Extreme Irritability@Kawasaki's Disease
+Skin and Hair@Rash, Peeling Skin, Fever, Red Eyes and Red Mouth (Redder Than Usual), and Enlarged Neck Glands, Extreme Irritability@Kawasaki Disease
 Skin and Hair@A Red, Flat Birthmark Covering One-Third of Face@Serious Underlying Brain Abnormalities
 Skin and Hair@Red or Purple Blotches or Faint Pink Rash, Usually with a Fever, Flu-Like Symptoms, and/or a Stiff Neck@Meningococcosis
 Skin and Hair@Red Spots on Skin, Reduced Urine Output, Drowsiness, Paleness, Vomiting, and Diarrhea@Childhood Anemia
@@ -70,7 +70,7 @@ Drowsiness@with Paleness, Reduced Urine Output, Irritability After Diarrhea or a
 Drowsiness@with Vomiting, and/or Other Changes, After a Head Injury@Internal Bleeding Inside the Head
 Fever@with Convulsions@Childhood Seizure
 Fever@especially with Irritability, Not Drinking Liquids, and/or Difficult to Awaken, in a Baby Under Eighteen Months@Potential Childhood Meningitis
-Fever@with Red Eyes and Red Mouth (Redder Than Normal), Rash, Peeling Skin, and Enlarged Neck Glands, Extreme Irritability@Kawasaki's Disease
+Fever@with Red Eyes and Red Mouth (Redder Than Normal), Rash, Peeling Skin, and Enlarged Neck Glands, Extreme Irritability@Kawasaki Disease
 Fever@with Stiff Neck and Headache@Childhood Meningitis
 Fever@with Red or Purple Blotches on the Skin, Flu-Like Symptoms, and/or a Stiff Neck@Meningococcosis
 Fever@A Mild Fever with Frequent (Sometimes Painful) Urination, Bed-Wetting@Childhood Urinary Tract Infection
