@@ -3,7 +3,6 @@ package com.juniordesign.digitaldoctor;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -57,73 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         // since we only ever run the select fragment on the home screen currently, always set it checked on application load
         mBottomNav.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-
-        // Kyle -- this exists to always state the app is within first load. We will remove this in the future.
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstStart", true);
-        editor.apply();
-
-        boolean firstStart = prefs.getBoolean("firstStart", true);
-
-        if (firstStart) {
-            showTermsDialog();
-
-            // to be removed once the database is in its final form
-            db.deleteAllData();
-
-            Resources res = getResources();
-
-            //Kyle -- this reads in the resource file to allow loading into the database
-            InputStream in_s = res.openRawResource(R.raw.body_part_table_information);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
-
-            //currently loads all data from our body part table
-            db.loadAllData(reader, db.BODY_PART_TABLE);
-
-            in_s = res.openRawResource(R.raw.generalized_symptom_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
-
-            db.loadAllData(reader, db.GENERALIZED_SYMPTOM_TABLE);
-
-            in_s = res.openRawResource(R.raw.childhood_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
-
-            db.loadAllData(reader, db.CHILDHOOD_SYMPTOM_TABLE);
-
-            in_s = res.openRawResource(R.raw.pregnancy_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
-
-            db.loadAllData(reader, db.PREGNANCY_TABLE);
-
-            in_s = res.openRawResource(R.raw.diagnosis_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
-
-            db.loadAllData(reader, db.DIAGNOSIS_TABLE);
-
-
-            // note from Kyle --> this is for database testing purposes, do not delete
-
-//            Cursor cur = db.getAllData(db.DIAGNOSIS_TABLE);
-//            StringBuffer buffer = new StringBuffer();
-//            while (cur.moveToNext()) {
-//                buffer.append("Name: " + cur.getString(0) + "\n");
-//                buffer.append("Severity: " + cur.getString(1) + "\n");
-//                buffer.append("Info: " + cur.getString(2) + "\n");
-//            }
-//            new AlertDialog.Builder(this)
-//                    .setTitle("Database")
-//                    .setMessage(buffer.toString())
-//                    .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            dialogInterface.dismiss();
-//                        }
-//                    })
-//                    .setCancelable(false)
-//                    .create()
-//                    .show();
-        }
+        handleFirstStart();
     }
 
     // Justin -- saved instance state saves the currently selected icon. We do not currently use this
@@ -181,6 +114,49 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    private void handleFirstStart() {
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+
+        boolean firstStart = prefs.getBoolean("firstStart", true);
+
+        if (firstStart) {
+            showTermsDialog();
+
+            //this just prevents running double insertions on the edge case the user closes out of
+            //the app without agreeing to both the Terms and the Liability Warning
+            db.deleteAllData();
+
+            Resources res = getResources();
+
+            //Kyle -- this reads in the resource file to allow loading into the database
+            InputStream in_s = res.openRawResource(R.raw.body_part_table_information);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
+
+            //currently loads all data from our body part table
+            db.loadAllData(reader, db.BODY_PART_TABLE);
+
+            in_s = res.openRawResource(R.raw.generalized_symptom_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.GENERALIZED_SYMPTOM_TABLE);
+
+            in_s = res.openRawResource(R.raw.childhood_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.CHILDHOOD_SYMPTOM_TABLE);
+
+            in_s = res.openRawResource(R.raw.pregnancy_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.PREGNANCY_TABLE);
+
+            in_s = res.openRawResource(R.raw.diagnosis_table_information);
+            reader = new BufferedReader(new InputStreamReader(in_s));
+
+            db.loadAllData(reader, db.DIAGNOSIS_TABLE);
+        }
+    }
+
     private void showTermsDialog() {
         String message;
 
@@ -233,16 +209,15 @@ public class HomeActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putBoolean("firstStart", false);
+                        editor.apply();
                         dialogInterface.dismiss();
                     }
                 })
                 .setCancelable(false)
                 .create()
                 .show();
-
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstStart", false);
-        editor.apply();
     }
 }
