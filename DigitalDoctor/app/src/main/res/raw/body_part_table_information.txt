@@ -14,7 +14,7 @@ Head@Dizziness@with Nausea, Vomiting@Light-headedness
 Head@Dizziness@with Weakness or Paralysis in the Arms or Legs (or One Side of the Body or Face), Burning Pain, Confusion, Difficulty Speaking, Double Vision, etc.@Stroke
 Head@Dizziness@A Short Episode of Vertigo (an Unbalanced Feeling), Weakness and/or Numbness (in a Leg, Arm, or One Side of the Face), Double Vision, Slurred Speech, Momentary Blindness, etc.@Transient Ischemic Attack
 Head@Dizziness@Sudden, with Weakness, Heart Pounding, Shortness of Breath, and/or Heavy Sweating, Often with Nausea and Vomiting@Painless Heart Attack
-Head@Head Injury@How Serious Is It?@Head Injury
+Head@Head Injury@Head Injury and/or a Stiff Neck with Many Possible Other Symptoms@Head Injury
 Head@Head Injury@Head Injury Followed by Loud, Combative Behavior@Brain Injury
 Head@Psychological Problems@Acting Weird and Blackout Spells, Seizures, Weakness, Rapid Heartbeat, and Sweating, Followed by Unconsciousness@Hypoglycemia
 Head@Psychological Problems@Anxiety and Depression with Possible Constant Fatigue and/or a Panic Disorder@Depression
@@ -107,7 +107,7 @@ Arms and Hands@Arms@Muscle Weakness and/or Muscle Cramps@Problem with Potassium 
 Arms and Hands@Arms@A Short Episode of Weakness in the Hand and/or Arm, Numbness on One Side of the Face, Slurred Speech, Double Vision, Momentary Blindness, and/or “Vertigo” (an Unbalanced Feeling), etc.@Transient Ischemic Attack
 Arms and Hands@Joints@Joint Swelling, Two Weeks After Strep Throat, Fever@Rheumatic Fever
 Arms and Hands@Hands@Hand Tremors; Intolerance to Heat; Rapid and Irregular Pulse; Profuse Sweating; Bulging, Prominent Eyes; etc.@Overactive Thyroid Gland
-Arms and Hands@Hands@Shaking Hands@Potential Overactive Thyroid Gland or Parkinson's Disease
+Arms and Hands@Hands@Shaking Hands@Potential Overactive Thyroid Gland
 Arms and Hands@Hands@Sores on the Fingertips or Toes of a Smoker@Blockage of the Arteries
 Arms and Hands@Hands@Spots (Brown in African Americans and Asians and Pink to Dusty Red in Caucasians) on the Palms of the Hands and/or Wrists, etc.@Syphilis or Rocky Mountain Spotted Fever
 Arms and Hands@Hands@Swelling of One Hand Alone, Usually Painless@Severe Allergic Reaction
@@ -215,7 +215,7 @@ Nausea and Vomiting@Nausea@with Headache, Drowsiness, and/or Bright Red Gums and
 Nausea and Vomiting@Nausea@with Sense of Fullness, Tea-Colored Urine, and/or Yellow Skin and Eyes@Chronic Problem with Gallstones
 Nausea and Vomiting@Vomiting@and Appearing Pregnant (Missed Periods and a Positive Pregnancy Test), with Severe Nausea, Vaginal Bleeding, and/or Discharge of Grapelike Particles@Tumor in the Womb
 Nausea and Vomiting@Vomiting@and Belly Pain  Extending into the Back@Pancreatitis
-Nausea and Vomiting@Vomiting@with Dizziness and Nausea@Dizziness
+Nausea and Vomiting@Vomiting@with Dizziness and Nausea@Light-headedness
 Nausea and Vomiting@Vomiting@and Feeling Full After Small Meals, with Possible History of Ulcers@Blockage from Scarring in the Stomach
 Nausea and Vomiting@Vomiting Blood@and Belly Pain and/or Black Tarry Stools, After Taking Certain Pain Pills@Ulceration of the Stomach
 Nausea and Vomiting@Vomiting Blood@and Belly Pain and/or Black Tarry Stools, in a Smoker@Stomach Ulcer
@@ -272,7 +272,7 @@ Menstruation, Menopause, and PMS@Bleeding after Menopause@Vaginal Bleeding After
 Menstruation, Menopause, and PMS@Vaginal Bleeding@and/or Discharge of Grapelike Particles, Often with Severe Nausea and Vomiting, Appearing Pregnant, and a Positive Pregnancy Test@Tumor in the Womb
 Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Lower Belly Pain in the First Four Months of Pregnancy@Potential Miscarriage
 Menstruation, Menopause, and PMS@Vaginal Bleeding@with or without Severe Belly Pain or Contractions, on or After the Fifth Month of Pregnancy@Hemorrhage
-Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Bone Pain That Wakes You in the Night@Bone Cancer
+Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Bone Pain That Wakes You in the Night@Potential Bone Cancer
 Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Legs with Severe Back Pain and Sometimes Fever@Serious Back Infection
 Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Hips, Buttocks, and/or Legs When Walking@Clogged Arteries
 Hips, Buttocks, Legs, Joints, Ankles, Toes, and Toenails@Legs@Pain in the Low Back and the Buttocks That Travels Down the Back of the Legs@Spinal Nerve Irritation
@@ -338,7 +338,7 @@ Skin@Sores and Ulcers@Sores in the Mouth, Nose, Eyes, Anus, and/or Genital Area,
 Skin@Sores and Ulcers@Sores on the Fingertips or Toes of a Smoker@Blockage of the Arteries
 Skin@Sores and Ulcers@Ulcer on the Skin That Does Not Heal@Potentially Skin Cancer
 Back@Back Pain@a Few Inches Above the Belt Line, on Either Side of the Backbone, Often Made Worse When Tapped, Sometimes with Fever, with or without Pain and Difficulty Urinating and Blood-Tinged Urine@Kidney Disease
-Back@Back Pain@Chest Pain Under the Breastbone That Extends to the Back, Between the Shoulder Blades@Aneurysm of the Thoracic Aorta
+Back@Back Pain@Chest Pain Under the Breastbone That Extends to the Back, Between the Shoulder Blades@Dissecting Aneurysm of the Thoracic Aorta
 Back@Back Pain@Gradually Increasing Pain in the Neck or Low Back, Often with Night Sweats and Fever@Epidural or Intraspinal Abscess
 Back@Back Pain@Pain in the Lower Back, Abdomen, or Side, Possibly with a Pulsating Bulge in the Belly@Aortic Aneurysm
 Back@Back Pain@Pain in the Lower Back or Buttocks That Travels Down the Back of the Leg@Spinal Nerve Irritation
