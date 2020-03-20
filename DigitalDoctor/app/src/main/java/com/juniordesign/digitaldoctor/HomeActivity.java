@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         db = new DatabaseHelper(this);
 
-        mBottomNav = (BottomNavigationView) findViewById(R.id.navigationView);
+        mBottomNav = findViewById(R.id.navigationView);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -133,27 +133,27 @@ public class HomeActivity extends AppCompatActivity {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
 
             //currently loads all data from our body part table
-            db.loadAllData(reader, db.BODY_PART_TABLE);
+            db.loadAllData(reader, DatabaseHelper.BODY_PART_TABLE);
 
             in_s = res.openRawResource(R.raw.generalized_symptom_table_information);
             reader = new BufferedReader(new InputStreamReader(in_s));
 
-            db.loadAllData(reader, db.GENERALIZED_SYMPTOM_TABLE);
+            db.loadAllData(reader, DatabaseHelper.GENERALIZED_SYMPTOM_TABLE);
 
             in_s = res.openRawResource(R.raw.childhood_table_information);
             reader = new BufferedReader(new InputStreamReader(in_s));
 
-            db.loadAllData(reader, db.CHILDHOOD_SYMPTOM_TABLE);
+            db.loadAllData(reader, DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE);
 
             in_s = res.openRawResource(R.raw.pregnancy_table_information);
             reader = new BufferedReader(new InputStreamReader(in_s));
 
-            db.loadAllData(reader, db.PREGNANCY_TABLE);
+            db.loadAllData(reader, DatabaseHelper.PREGNANCY_TABLE);
 
             in_s = res.openRawResource(R.raw.diagnosis_table_information);
             reader = new BufferedReader(new InputStreamReader(in_s));
 
-            db.loadAllData(reader, db.DIAGNOSIS_TABLE);
+            db.loadAllData(reader, DatabaseHelper.DIAGNOSIS_TABLE);
         }
     }
 
@@ -165,10 +165,8 @@ public class HomeActivity extends AppCompatActivity {
             InputStream in_s = res.openRawResource(R.raw.terms);
 
             byte[] b = new byte[in_s.available()];
-            in_s.read(b);
             message = new String(b);
         } catch (Exception e) {
-            // e.printStackTrace();
             message = this.getResources().getString(R.string.terms_and_conditions_error);
         }
 
@@ -196,10 +194,8 @@ public class HomeActivity extends AppCompatActivity {
             InputStream in_s = res.openRawResource(R.raw.liability);
 
             byte[] b = new byte[in_s.available()];
-            in_s.read(b);
             message = new String(b);
         } catch (Exception e) {
-            // e.printStackTrace();
             message = this.getResources().getString(R.string.liability_error);
         }
 

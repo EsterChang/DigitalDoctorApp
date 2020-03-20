@@ -72,10 +72,8 @@ public class SettingsFragment extends Fragment {
             InputStream in_s = res.openRawResource(R.raw.terms);
 
             byte[] b = new byte[in_s.available()];
-            in_s.read(b);
             message = new String(b);
         } catch (Exception e) {
-            // e.printStackTrace();
             message = this.getResources().getString(R.string.terms_and_conditions_error);
         }
 
@@ -101,10 +99,8 @@ public class SettingsFragment extends Fragment {
             InputStream in_s = res.openRawResource(R.raw.liability);
 
             byte[] b = new byte[in_s.available()];
-            in_s.read(b);
             message = new String(b);
         } catch (Exception e) {
-            // e.printStackTrace();
             message = this.getResources().getString(R.string.liability_error);
         }
 
