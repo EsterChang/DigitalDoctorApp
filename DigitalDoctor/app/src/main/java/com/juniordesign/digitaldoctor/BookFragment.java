@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 /**
  * Fragment class for each nav menu item
@@ -17,6 +19,7 @@ import android.widget.TextView;
 public class BookFragment extends Fragment {
 
     View mContent;
+    private TextView book_description;
 
     public static Fragment newInstance() {
         return new BookFragment();
@@ -41,6 +44,21 @@ public class BookFragment extends Fragment {
 
         // retrieve text and color from bundle or savedInstanceState
         mContent = view.findViewById(R.id.fragment_content_book);
+        book_description = view.findViewById(R.id.description);
+        book_description.setText("This potentially lifesaving guide, newly revised and updated, " +
+                "gives you instant access to the information you need to spot a serious medical condition before it's too late." +
+                "When is a headache just an annoyance...and when is it the symptom of a life-threatening condition? When is it crucial " +
+                "to get to a doctor or an emergency room within the next few days, hours, or even minutes?\n" +
+                "\n" +
+                "This potentially lifesaving guide, newly revised and updated, gives you instant access to the " +
+                "information you need to spot a serious medical condition before it’s too late. No matter what the symptom—wavy or " +
+                "distorted vision, a child’s wheezing, a severe sore throat, or an irregular pulse—it offers up-to-date information on " +
+                "possible diagnoses and invaluable advice on when you should seek medical help.\n" +
+                "\n" +
+                "With an essential new section on how to protect yourself from hospital errors, a new appendix listing screening tests " +
+                "that may help you detect health problems even before red-light warning signals show up, special sections on pregnancy and " +
+                "pediatrics, and tips on care for the elderly scattered throughout, this book is a useful resource for all. Written with " +
+                "expertise by three physicians and the input of hundreds of other medical specialists, it is the next best thing to having a doctor in the house.");
     }
 
     @Override

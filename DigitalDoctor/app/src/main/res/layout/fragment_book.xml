@@ -12,73 +12,89 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <ImageView
-            android:id="@+id/book_img"
-            android:contentDescription="@string/book_image"
-            android:layout_width="322dp"
-            android:layout_height="272dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="50dp"
-            app:layout_constraintBottom_toTopOf="@id/link"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:srcCompat="@drawable/book_frontpage" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/book_info"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/link" />
-
-        <TextView
-            android:id="@+id/title"
+        <ScrollView
+            android:id="@+id/ScrollViewBook"
+            android:fillViewport="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/book_name"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textColorLink="@android:color/black"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/buy_text"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textColorLink="@android:color/holo_blue_dark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/book_img" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/amazon"
-            android:contentDescription="@string/amazon_image"
-            android:layout_width="28dp"
-            android:layout_height="23dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toTopOf="@id/link"
-            app:layout_constraintEnd_toStartOf="@+id/link"
-            app:layout_constraintTop_toBottomOf="@id/book_img"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/amazon" />
+                <ImageView
+                    android:id="@+id/book_img"
+                    android:contentDescription="@string/book_image"
+                    android:layout_width="322dp"
+                    android:layout_height="272dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="50dp"
+                    app:layout_constraintBottom_toTopOf="@id/link"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    app:srcCompat="@drawable/book_frontpage" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/book_info"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/link" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/book_name"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textColorLink="@android:color/black"
+                    android:textSize="36sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/buy_text"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textColorLink="@android:color/holo_blue_dark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/book_img" />
+
+                <ImageView
+                    android:id="@+id/amazon"
+                    android:contentDescription="@string/amazon_image"
+                    android:layout_width="28dp"
+                    android:layout_height="23dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintBottom_toTopOf="@id/link"
+                    app:layout_constraintEnd_toStartOf="@+id/link"
+                    app:layout_constraintTop_toBottomOf="@id/book_img"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/amazon" />
+
+                </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
