@@ -39,6 +39,6 @@
     <string name="book_name">Your Body\'s Red Light Warning Signals</string>
     <string name="book_image">A picture of the book Your Body\'s Red Light Warning Signals by Dr. Neil Shulman</string>
     <string name="amazon_image">An image of the Amazon company logo.</string>
-    <string name="buy_text">Buy Now at Amazon</string>
+    <string name="buy_text"><a href='https://www.amazon.com/Bodys-Light-Warning-Signals-revised/dp/0440245133'>Buy NOW at Amazon</a></string>
     <string name="book_info">This potentially lifesaving guide, newly revised and updated, gives you instant access to the information you need to spot a serious medical condition before it\'s too late.</string>
 </resources>
