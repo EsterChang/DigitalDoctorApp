@@ -11,6 +11,7 @@
 
     <ImageView
         android:id="@+id/logo"
+        android:contentDescription="@string/digital_doctor_logo"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_marginBottom="8dp"
@@ -26,6 +27,7 @@
 
     <ImageButton
         android:id="@+id/settings_button"
+        android:contentDescription="@string/settings_button"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
