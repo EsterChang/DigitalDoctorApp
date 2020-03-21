@@ -1,12 +1,9 @@
 package com.juniordesign.digitaldoctor;
 
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +22,7 @@ import java.util.ArrayList;
  */
 public class DetailFragment extends Fragment {
 
-    private View mContent;
+    View mContent;
     ImageView icon;
     TextView emergency;
     TextView name;
@@ -74,7 +71,7 @@ public class DetailFragment extends Fragment {
         whereMatches = getArguments().getStringArrayList("whereMatches");
 
         //restart button
-        restart = (ImageButton) rootView.findViewById(R.id.restart_button);
+        restart = rootView.findViewById(R.id.restart_button);
         restart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Fragment frag = SearchFragment.newInstance();
@@ -85,7 +82,7 @@ public class DetailFragment extends Fragment {
         });
 
         //back button
-        back = (ImageButton)rootView.findViewById(R.id.back_button);
+        back = rootView.findViewById(R.id.back_button);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,10 +93,10 @@ public class DetailFragment extends Fragment {
             }
         });
 
-        icon = (ImageView) rootView.findViewById(R.id.detail_icon);
-        emergency = (TextView) rootView.findViewById(R.id.detail_emergency);
-        name = (TextView) rootView.findViewById(R.id.detail_name);
-        description = (TextView) rootView.findViewById(R.id.detail_description);
+        icon = rootView.findViewById(R.id.detail_icon);
+        emergency = rootView.findViewById(R.id.detail_emergency);
+        name = rootView.findViewById(R.id.detail_name);
+        description = rootView.findViewById(R.id.detail_description);
 
         name.setText(name_);
         description.setText(text_);

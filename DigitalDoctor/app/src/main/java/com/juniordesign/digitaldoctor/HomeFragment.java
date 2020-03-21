@@ -1,11 +1,8 @@
 package com.juniordesign.digitaldoctor;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +15,11 @@ import android.widget.ImageButton;
  */
 public class HomeFragment extends Fragment {
 
-    private View mContent;
+    View mContent;
     ImageButton settings;
 
     public static Fragment newInstance() {
-        Fragment frag = new HomeFragment();
-        return frag;
+        return new HomeFragment();
     }
 
     @Override
@@ -36,9 +32,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Red - changed this to transition to settings fragment
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_container, new SettingsFragment());
-                fr.commit();
+                Fragment frag = SettingsFragment.newInstance();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, frag);
+                ft.commit();
             }
         });
         return rootView;

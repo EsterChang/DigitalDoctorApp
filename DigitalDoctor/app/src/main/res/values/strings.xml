@@ -9,6 +9,9 @@
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="terms_and_conditions_error">Error: cannot show Terms and Conditions.</string>
     <string name="back_button">Back</string>
+    <string name="restart_button">Restart</string>
+    <string name="settings_button">Settings</string>
+    <string name="digital_doctor_logo">The logo for this application, Digital Doctor</string>
     <string name="agree">I Agree</string>
     <string name="initial_search_prompt">Which of these categories best describes your problem?</string>
     <string name="initial_search_directive">Select Problem Category</string>
@@ -32,7 +35,10 @@
     <string name="emergency">emergency</string>
     <string name="caution">caution</string>
     <string name="not_an_emergency">not an emergency</string>
-
-    <!-- delete after book -->
-    <string name="hello_blank_fragment">I am a blank fragment.</string>
+    <string name="emergency_icon">This icon displays an icon signifying the situation\'s level of urgency</string>
+    <string name="book_name">Your Body\'s Red Light Warning Signals</string>
+    <string name="book_image">A picture of the book Your Body\'s Red Light Warning Signals by Dr. Neil Shulman</string>
+    <string name="amazon_image">An image of the Amazon company logo.</string>
+    <string name="buy_text"><a href='https://www.amazon.com/Bodys-Light-Warning-Signals-revised/dp/0440245133'>Buy NOW at Amazon</a></string>
+    <string name="book_info">This potentially lifesaving guide, newly revised and updated, gives you instant access to the information you need to spot a serious medical condition before it\'s too late.</string>
 </resources>

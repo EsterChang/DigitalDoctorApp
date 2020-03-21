@@ -1,56 +1,60 @@
 package com.juniordesign.digitaldoctor;
 
 import android.database.Cursor;
-import android.support.v4.app.Fragment;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-
 /**
- * Fragment class for each nav menu item
+ * Fragment class for the search screen. Contains a couple buttons and a
+ * listview that updates on user input.
  */
 public class SearchFragment extends Fragment {
-
-    private View mContent;
+    View mContent;
     ListView listView;
     TextView promptView;
     TextView directiveView;
     ImageButton restart;
     ImageButton back;
 
+    // used when creating a page from the back button on the detailFragment.
+    boolean detailBackPressed = false;
+
+    // the following variables are used to search for a diagnosis.
     DatabaseHelper db;
+    Cursor cur;
     int level;
     String _select;
     String _tableName;
     ArrayList<String> whereColumns;
     ArrayList<String> whereMatches;
     ArrayList<String> resultsList;
-    Cursor cur;
-    boolean detailBackPressed = false;
 
-    //The ArrayAdapter and the ArrayList needs to be global variables
-    ArrayAdapter tableNameArrayAdapter;
-    ArrayList<String> updateList;
+    /**
+     * The ArrayAdapter needs to be accessible to everything for search update.
+     */
+    ArrayAdapter<String> tableNameArrayAdapter;
 
     public static Fragment newInstance() {
         return new SearchFragment();
     }
 
-    public static Fragment newInstance(ArrayList<String> resultsList, int level, String _select, String _tableName, ArrayList<String> whereColumns, ArrayList<String> whereMatches) {
+    public static Fragment newInstance(ArrayList<String> resultsList, int level,
+                                       String _select, String _tableName,
+                                       ArrayList<String> whereColumns,
+                                       ArrayList<String> whereMatches) {
 
+        // pass in information to the arguments to be accessed later.
         Fragment frag = new SearchFragment();
         Bundle args = new Bundle();
         args.putStringArrayList("resultsList", resultsList);
@@ -67,6 +71,8 @@ public class SearchFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = new DatabaseHelper(getActivity());
+
+        // use previous information if coming from the detail fragment.
         if (getArguments() != null) {
             detailBackPressed = true;
             resultsList = getArguments().getStringArrayList("resultsList");
@@ -89,16 +95,17 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.activity_search, container, false);
+        // Inflate the layout for this fragment. Fill the container.
+        View rootView = inflater.inflate(R.layout.activity_search, container,
+                false);
 
-        // get the listView, questions, prompts to be set in future during search
-        listView = (ListView)rootView.findViewById(R.id.listView);
-        promptView = (TextView) rootView.findViewById(R.id.questions);
-        directiveView = (TextView) rootView.findViewById(R.id.prompts);
+        // Assign important variables for searching.
+        listView = rootView.findViewById(R.id.listView);
+        promptView = rootView.findViewById(R.id.questions);
+        directiveView = rootView.findViewById(R.id.prompts);
 
-        //restart button
-        restart = (ImageButton)rootView.findViewById(R.id.restart_button);
+        // Create restart button and listener.
+        restart = rootView.findViewById(R.id.restart_button);
         restart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Fragment frag = SearchFragment.newInstance();
@@ -108,7 +115,8 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        back = (ImageButton)rootView.findViewById(R.id.back_button);
+        // Create back button and listener.
+        back = rootView.findViewById(R.id.back_button);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,316 +126,367 @@ public class SearchFragment extends Fragment {
 
                 if (level == 0) {
                     levelZeroBackHelper();
-                    back.setVisibility(View.INVISIBLE);
                 } else {
+                    // remove most recent search and matches from the lists.
                     whereColumns.remove(whereColumns.size() - 1);
                     whereMatches.remove(whereMatches.size() - 1);
 
+                    // call appropriate helper function.
                     switch (level) {
                         case 1:
-                            levelOneBackHelper();
+                            levelOneBackHelper(_tableName);
                             break;
                         case 2:
-                            levelTwoBackHelper();
+                            levelTwoBackHelper(_tableName);
                             break;
                         case 3:
-                            levelThreeBackHelper();
-                            break;
-                        case 4:
-                            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                                //new fragment
-                            }
+                            levelThreeBackHelper(_tableName);
                             break;
                     }
+
+                    // get appropriate column name for select statement.
                     setSelect(level - 1, _tableName);
-                    cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+
+                    // populate cursor with results from DatabaseHelper
+                    cur = db.getData(_select, _tableName,
+                            whereColumns, whereMatches);
+
+                    // clear the previous results, in order to add new ones.
                     resultsList.clear();
                     while (cur.moveToNext()) {
                         resultsList.add(cur.getString(0));
                     }
-                    ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+
+                    // create a new adapter and set listview to use it.
+                    ArrayAdapter<String> resultArrayAdapter = new ArrayAdapter<>
+                            (getActivity(), android.R.layout.simple_list_item_1,
+                            resultsList);
                     listView.setAdapter(resultArrayAdapter);
                 }
             }
         });
 
-
-
-        //Irene - add a pre-selection into the listview for the four tables
-        //1 - Body-Part Specific Symptoms
-        //2 - Generalized (Whole Body) Symptoms
-        //3 - Pregnancy Symptoms
-        //4 - Common Childhood Symptoms
-        // - unassigned, show the tables names in listView
-
         if (!detailBackPressed) {
-            //first select table
-            //set questions and prompts
+            // populate the first level of search with a prompt and directive.
             promptView.setText(R.string.initial_search_prompt);
             directiveView.setText(R.string.initial_search_directive);
 
-            //set the listView
+            // set table names manually into the listview to be displayed.
+            resultsList.add(getResources()
+                    .getString(R.string.body_part_specific));
+            resultsList.add(getResources()
+                    .getString(R.string.generalized_symptoms));
+            resultsList.add(getResources()
+                    .getString(R.string.pregnancy_symptoms));
+            resultsList.add(getResources()
+                    .getString(R.string.childhood_symptoms));
 
-            resultsList.add(getResources().getString(R.string.body_part_specific));
-            resultsList.add(getResources().getString(R.string.generalized_symptoms));
-            resultsList.add(getResources().getString(R.string.pregnancy_symptoms));
-            resultsList.add(getResources().getString(R.string.childhood_symptoms));
-
+            // back button should be hidden on first level of search.
             back.setVisibility(View.INVISIBLE);
-
         } else {
+            // if coming from the detailFragment, use passed information.
             setPromptText(level - 1, _tableName);
             setSelect(level - 1, _tableName);
+
+            // remove extra information from the columns.
             if (whereColumns.size() > 0) {
                 whereColumns.remove(whereColumns.size() - 1);
                 whereMatches.remove(whereMatches.size() - 1);
             }
+
+            // populate cursor with results from DatabaseHelper
             cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+
+            // clear the previous results, in order to add new ones.
             resultsList.clear();
             while (cur.moveToNext()) {
                 resultsList.add(cur.getString(0));
             }
         }
-        tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+
+        // create a new adapter and set listview to use it.
+        tableNameArrayAdapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_list_item_1, resultsList);
         listView.setAdapter(tableNameArrayAdapter);
 
-
-
+        // set listview item click listener to search the tables and repopulate.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get the selected item text from ListView
-                //String selectedItem = (String) parent.getItemAtPosition(position);
-
-                //searchDone - whether or not we reached the end of a search sequence
+                // if we have reached the end of the search.
                 boolean searchDone = false;
+
+                // if it is the entry level of the search.
                 if (level == 0) {
+                    // first, set back to visible again.
                     back.setVisibility(View.VISIBLE);
+
+                    // set table that the user will be traversing through.
                     switch (position) {
                         case 0:
-                            //1 - Body-Part Specific Symptoms
-                            _tableName = db.BODY_PART_TABLE;
+                            _tableName = DatabaseHelper.BODY_PART_TABLE;
                             break;
                         case 1:
-                            //2 - Generalized (Whole Body) Symptoms or Pregnancy Symptoms
-                            _tableName = db.GENERALIZED_SYMPTOM_TABLE;
+                            _tableName = DatabaseHelper.GENERALIZED_SYMPTOM_TABLE;
                             break;
                         case 2:
-                            //2 - Generalized (Whole Body) Symptoms or Pregnancy Symptoms
-                            _tableName = db.PREGNANCY_TABLE;
+                            _tableName = DatabaseHelper.PREGNANCY_TABLE;
                             break;
                         case 3:
-                            //4 - Common Childhood Symptoms
-                            _tableName = db.CHILDHOOD_SYMPTOM_TABLE;
+                            _tableName = DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE;
                             break;
-                }
-                searchHelper();
+                    }
+
+                    // call a helper function, which will update the list.
+                    searchHelper();
                 } else {
+                    // add current column and selected item to the arraylist.
                     whereColumns.add(_select);
-                    whereMatches.add(listView.getItemAtPosition(position).toString());
+                    whereMatches.add(listView.getItemAtPosition(position)
+                            .toString());
+
+                    // set new prompt and directive information.
                     setPromptText(level, _tableName);
+
+                    // get column name to search within.
                     setSelect(level, _tableName);
+
+                    // check for transition necessity based on level information.
                     if (level == 2) {
-                        if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                            createDetailFragment(_tableName, whereColumns, whereMatches);
-                            searchDone = true;
-                        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                            createDetailFragment(_tableName, whereColumns, whereMatches);
-                            searchDone = true;
-                        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
+                        if (_tableName.equals(DatabaseHelper.GENERALIZED_SYMPTOM_TABLE)
+                                || _tableName.equals(DatabaseHelper.PREGNANCY_TABLE)
+                                || _tableName.equals(DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE)) {
                             createDetailFragment(_tableName, whereColumns, whereMatches);
                             searchDone = true;
                         }
                     } else if (level == 3) {
-                        if (_tableName.equals(db.BODY_PART_TABLE)) {
+                        if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
                             createDetailFragment(_tableName, whereColumns, whereMatches);
                             searchDone = true;
                         }
                     }
+
+                    // update search if not completed.
                     setSearchList(searchDone);
                 }
+                // move up a level in the search.
                 level++;
-
             }
         });
 
         return rootView;
     }
 
-    //Sets the correct text based on current level of search and tableName
+    //Sets the correct text based on current level of search and tableName.
     private void setPromptText(int level, String _tableName) {
         if (level == 0) {
-            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                _select = db.PRIMARY_AREA;
-                promptView.setText(R.string.primary_symptom_location_prompt);
-                directiveView.setText(R.string.primary_symptom_location_directive);
-            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                _select = db.PRIMARY_SYMPTOM;
-                promptView.setText(R.string.primary_symptom_identification_prompt);
-                directiveView.setText(R.string.primary_symptom_identification_directive);
-            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                _select = db.PRIMARY_SYMPTOM;
-                promptView.setText(R.string.time_period_prompt);
-                directiveView.setText(R.string.time_period_directive);
-            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                _select = db.PRIMARY_AREA;
-                promptView.setText(R.string.general_problem_prompt);
-                directiveView.setText(R.string.general_problem_directive);
+            switch (_tableName) {
+                case DatabaseHelper.BODY_PART_TABLE:
+                    _select = DatabaseHelper.PRIMARY_AREA;
+                    promptView.setText(R.string.primary_symptom_location_prompt);
+                    directiveView.setText(R.string.primary_symptom_location_directive);
+                    break;
+                case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
+                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    promptView.setText(R.string.primary_symptom_identification_prompt);
+                    directiveView.setText(R.string.primary_symptom_identification_directive);
+                    break;
+                case DatabaseHelper.PREGNANCY_TABLE:
+                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    promptView.setText(R.string.time_period_prompt);
+                    directiveView.setText(R.string.time_period_directive);
+                    break;
+                case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
+                    _select = DatabaseHelper.PRIMARY_AREA;
+                    promptView.setText(R.string.general_problem_prompt);
+                    directiveView.setText(R.string.general_problem_directive);
+                    break;
+                default:
+                    break;
             }
         } else if (level == 1) {
-            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                _select = db.PRIMARY_SYMPTOM;
-                promptView.setText(R.string.general_problem_prompt);
-                directiveView.setText(R.string.general_problem_directive);
-            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
-                promptView.setText(R.string.extra_info_prompt);
-                directiveView.setText(R.string.extra_info_directive);
-            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
-                promptView.setText(R.string.extra_info_prompt);
-                directiveView.setText(R.string.extra_info_directive);
-            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
-                promptView.setText(R.string.extra_info_prompt);
-                directiveView.setText(R.string.extra_info_directive);
+            switch (_tableName) {
+                case DatabaseHelper.BODY_PART_TABLE:
+                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    promptView.setText(R.string.general_problem_prompt);
+                    directiveView.setText(R.string.general_problem_directive);
+                    break;
+                case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
+                case DatabaseHelper.PREGNANCY_TABLE:
+                case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
+                    _select = DatabaseHelper.EXTRA_INFORMATION;
+                    promptView.setText(R.string.extra_info_prompt);
+                    directiveView.setText(R.string.extra_info_directive);
+                    break;
+                default:
+                    break;
             }
         } else if (level == 2) {
-            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
+            if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
+                _select = DatabaseHelper.EXTRA_INFORMATION;
                 promptView.setText(R.string.extra_info_prompt);
                 directiveView.setText(R.string.extra_info_directive);
             }
         }
     }
 
-    //Sets the _select variable based on current level of search and tableName
+    //Sets the _select variable based on current level of search and tableName.
     private void setSelect(int level, String _tableName) {
         if (level == 0) {
-            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                _select = db.PRIMARY_AREA;
-            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                _select = db.PRIMARY_SYMPTOM;
-            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                _select = db.PRIMARY_SYMPTOM;
-            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                _select = db.PRIMARY_AREA;
+            switch (_tableName) {
+                case DatabaseHelper.BODY_PART_TABLE:
+                case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
+                    _select = DatabaseHelper.PRIMARY_AREA;
+                    break;
+                case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
+                case DatabaseHelper.PREGNANCY_TABLE:
+                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    break;
+                default:
+                    break;
             }
         } else if (level == 1) {
-            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                _select = db.PRIMARY_SYMPTOM;
-            } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
-            } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
-            } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
+            switch (_tableName) {
+                case DatabaseHelper.BODY_PART_TABLE:
+                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    break;
+                case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
+                case DatabaseHelper.PREGNANCY_TABLE:
+                case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
+                    _select = DatabaseHelper.EXTRA_INFORMATION;
+                    break;
             }
         } else if (level == 2) {
-            if (_tableName.equals(db.BODY_PART_TABLE)) {
-                _select = db.EXTRA_INFORMATION;
+            if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
+                _select = DatabaseHelper.EXTRA_INFORMATION;
             }
         }
     }
 
-    private void createDetailFragment(String _tableName, ArrayList whereColumns, ArrayList whereMatches) {
+    // creates a detailFragment based on passed information
+    private void createDetailFragment(String _tableName,
+                                      ArrayList<String> whereColumns,
+                                      ArrayList<String> whereMatches) {
+        // create a cursor to get the name of the symptom.
         String name = null;
-        Cursor populate = db.getData(db.SYMPTOM_NAME, _tableName, whereColumns, whereMatches);
+        Cursor populate = db.getData(DatabaseHelper.SYMPTOM_NAME, _tableName,
+                whereColumns, whereMatches);
         while (populate.moveToNext()) {
             name = (populate.getString(0));
         }
+
+        // arraylists hold information about the name and corresponding column.
         ArrayList<String> symptomname = new ArrayList<>();
         ArrayList<String> column = new ArrayList<>();
-        if (symptomname != null) {
-            symptomname.add(name);
-            column.add(db.SYMPTOM_NAME);
-        }
+        symptomname.add(name);
+        column.add(DatabaseHelper.SYMPTOM_NAME);
 
+        // get information about the severity of the symptom.
         String emergency = null;
-        populate = db.getData(db.SYMPTOM_SEVERITY, db.DIAGNOSIS_TABLE, column, symptomname);
+        populate = db.getData(DatabaseHelper.SYMPTOM_SEVERITY,
+                DatabaseHelper.DIAGNOSIS_TABLE, column, symptomname);
         while (populate.moveToNext()) {
             emergency = (populate.getString(0));
         }
+
+        // get information about the displayed text.
         String text = null;
-        populate = db.getData(db.SYMPTOM_INFORMATION, db.DIAGNOSIS_TABLE, column, symptomname);
+        populate = db.getData(DatabaseHelper.SYMPTOM_INFORMATION,
+                DatabaseHelper.DIAGNOSIS_TABLE, column, symptomname);
         while (populate.moveToNext()) {
             text = (populate.getString(0));
         }
-        Fragment frag = DetailFragment.newInstance(name, emergency, text, resultsList, level , _select, _tableName, whereColumns, whereMatches);
+
+        // detailfragment needs name, emergency, and text parameters to populate.
+        Fragment frag = DetailFragment.newInstance(name, emergency, text,
+                resultsList, level , _select, _tableName, whereColumns, whereMatches);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, frag);
         ft.commit();
     }
 
+    // create conditions for beginning level of search -- used for back button
     private void levelZeroBackHelper() {
+        // set text to beginning information.
         promptView.setText(R.string.initial_search_prompt);
         directiveView.setText(R.string.initial_search_directive);
 
-        //set the listView
+        // reset the listview.
         final ArrayList<String> tableNames = new ArrayList<>();
         tableNames.add(getResources().getString(R.string.body_part_specific));
         tableNames.add(getResources().getString(R.string.generalized_symptoms));
         tableNames.add(getResources().getString(R.string.pregnancy_symptoms));
         tableNames.add(getResources().getString(R.string.childhood_symptoms));
-        tableNameArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, tableNames);
+
+        // create the new adapter and set listview to it.
+        tableNameArrayAdapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_list_item_1, tableNames);
         listView.setAdapter(tableNameArrayAdapter);
+
+        // reset other important variables.
         _tableName = "";
         _select = "";
         whereMatches.clear();
         whereColumns.clear();
+
+        // hide back button - it should not be visible on level 0.
+        back.setVisibility(View.INVISIBLE);
     }
 
-    private void levelOneBackHelper() {
-        if (_tableName.equals(db.BODY_PART_TABLE)) {
-            _select = db.PRIMARY_AREA;
-            promptView.setText(R.string.primary_symptom_location_prompt);
-            directiveView.setText(R.string.primary_symptom_location_directive);
-        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-            _select = db.PRIMARY_SYMPTOM;
-            promptView.setText(R.string.primary_symptom_identification_prompt);
-            directiveView.setText(R.string.primary_symptom_identification_directive);
-        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-            _select = db.PRIMARY_SYMPTOM;
-            promptView.setText(R.string.time_period_prompt);
-            directiveView.setText(R.string.time_period_directive);
-        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-            _select = db.PRIMARY_AREA;
-            promptView.setText(R.string.general_problem_prompt);
-            directiveView.setText(R.string.general_problem_directive);
+    // create conditions for level one of search -- used for back button
+    private void levelOneBackHelper(String _tableName) {
+        switch (_tableName) {
+            case DatabaseHelper.BODY_PART_TABLE:
+                _select = DatabaseHelper.PRIMARY_AREA;
+                promptView.setText(R.string.primary_symptom_location_prompt);
+                directiveView.setText(R.string.primary_symptom_location_directive);
+                break;
+            case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
+                _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                promptView.setText(R.string.primary_symptom_identification_prompt);
+                directiveView.setText(R.string.primary_symptom_identification_directive);
+                break;
+            case DatabaseHelper.PREGNANCY_TABLE:
+                _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                promptView.setText(R.string.time_period_prompt);
+                directiveView.setText(R.string.time_period_directive);
+                break;
+            case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
+                _select = DatabaseHelper.PRIMARY_AREA;
+                promptView.setText(R.string.general_problem_prompt);
+                directiveView.setText(R.string.general_problem_directive);
+                break;
+            default:
+                break;
         }
     }
 
-    private void levelTwoBackHelper() {
-        if (_tableName.equals(db.BODY_PART_TABLE)) {
-            _select = db.PRIMARY_SYMPTOM;
-            promptView.setText(R.string.general_problem_prompt);
-            directiveView.setText(R.string.general_problem_directive);
-        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-            _select = db.EXTRA_INFORMATION;
-            promptView.setText(R.string.extra_info_prompt);
-            directiveView.setText(R.string.extra_info_directive);
-        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-            _select = db.EXTRA_INFORMATION;
-            promptView.setText(R.string.extra_info_prompt);
-            directiveView.setText(R.string.extra_info_directive);
-        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-            _select = db.EXTRA_INFORMATION;
-            promptView.setText(R.string.extra_info_prompt);
-            directiveView.setText(R.string.extra_info_directive);
+    // create conditions for level two of search -- used for back button
+    private void levelTwoBackHelper(String _tableName) {
+        switch (_tableName) {
+            case DatabaseHelper.BODY_PART_TABLE:
+                _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                promptView.setText(R.string.general_problem_prompt);
+                directiveView.setText(R.string.general_problem_directive);
+                break;
+            case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
+            case DatabaseHelper.PREGNANCY_TABLE:
+            case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
+                _select = DatabaseHelper.EXTRA_INFORMATION;
+                promptView.setText(R.string.extra_info_prompt);
+                directiveView.setText(R.string.extra_info_directive);
+                break;
+            default:
+                break;
         }
     }
 
-    private void levelThreeBackHelper() {
-        if (_tableName.equals(db.BODY_PART_TABLE)) {
-            _select = db.EXTRA_INFORMATION;
+    // create conditions for level three of search -- used for back button
+    private void levelThreeBackHelper(String _tableName) {
+        if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
+            _select = DatabaseHelper.EXTRA_INFORMATION;
             promptView.setText(R.string.extra_info_prompt);
             directiveView.setText(R.string.extra_info_directive);
-        } else if (_tableName.equals(db.GENERALIZED_SYMPTOM_TABLE)) {
-            //new fragment
-        } else if (_tableName.equals(db.PREGNANCY_TABLE)) {
-            //new fragment
-        } else if (_tableName.equals(db.CHILDHOOD_SYMPTOM_TABLE)) {
-            //new fragment
         }
     }
 
@@ -440,7 +499,9 @@ public class SearchFragment extends Fragment {
         while (cur.moveToNext()) {
             resultsList.add(cur.getString(0));
         }
-        ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+
+        ArrayAdapter resultArrayAdapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_list_item_1, resultsList);
         listView.setAdapter(resultArrayAdapter);
     }
 
@@ -452,7 +513,8 @@ public class SearchFragment extends Fragment {
         }
 
         if (!searchDone) {
-            ArrayAdapter resultArrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, resultsList);
+            ArrayAdapter resultArrayAdapter = new ArrayAdapter<>(getActivity(),
+                    android.R.layout.simple_list_item_1, resultsList);
             listView.setAdapter(resultArrayAdapter);
         }
     }
