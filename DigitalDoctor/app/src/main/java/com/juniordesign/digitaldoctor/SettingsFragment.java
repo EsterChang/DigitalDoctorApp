@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 
@@ -68,13 +69,24 @@ public class SettingsFragment extends Fragment {
         String message;
 
         try {
+            // reads the raw resource file and converts it to a string
             Resources res = getResources();
             InputStream in_s = res.openRawResource(R.raw.terms);
 
-            byte[] b = new byte[in_s.available()];
-            message = new String(b);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+            int i;
+            i = in_s.read();
+            while (i != -1) {
+                byteArrayOutputStream.write(i);
+                i = in_s.read();
+            }
+
+            in_s.close();
+
+            message = byteArrayOutputStream.toString();
         } catch (Exception e) {
-            message = this.getResources().getString(R.string.terms_and_conditions_error);
+            message = this.getResources().getString(R.string.terms_and_conditions_error);;
         }
 
         new AlertDialog.Builder(getActivity())
@@ -95,13 +107,24 @@ public class SettingsFragment extends Fragment {
         String message;
 
         try {
+            // reads the raw resource file and converts it to a string
             Resources res = getResources();
             InputStream in_s = res.openRawResource(R.raw.liability);
 
-            byte[] b = new byte[in_s.available()];
-            message = new String(b);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+            int i;
+            i = in_s.read();
+            while (i != -1) {
+                byteArrayOutputStream.write(i);
+                i = in_s.read();
+            }
+
+            in_s.close();
+
+            message = byteArrayOutputStream.toString();
         } catch (Exception e) {
-            message = this.getResources().getString(R.string.liability_error);
+            message = this.getResources().getString(R.string.liability_error);;
         }
 
         new AlertDialog.Builder(getActivity())
