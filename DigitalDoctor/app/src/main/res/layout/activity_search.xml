@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_content_search"
@@ -9,78 +9,92 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.juniordesign.digitaldoctor.SearchFragment">
 
-    <ImageButton
-        android:id="@+id/back_button"
-        android:contentDescription="@string/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorPrimary"
-        android:src="@drawable/back_icon" />
-
-    <ImageButton
-        android:id="@+id/restart_button"
-        android:contentDescription="@string/restart_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@drawable/research_icon" />
-
-    <TextView
-        android:id="@+id/questions"
-        style="@style/Widget.AppCompat.TextView.SpinnerItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/back_button"
-        android:layout_alignStart="@id/back_button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
-        android:gravity="start"
-        android:paddingStart="0dp"
-        android:paddingEnd="0dp"
-        android:textSize="22sp" />
-
-    <TextView
-        android:id="@+id/prompts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/questions"
-        android:layout_alignStart="@id/back_button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
-        android:textSize="16sp" />
-
-    <ListView
-        android:id="@+id/listView"
-        style="@style/Widget.AppCompat.ListView"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/prompts"
-        android:layout_alignStart="@id/back_button"
-        android:layout_alignEnd="@id/prompts"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/white"
-        android:cacheColorHint="@color/colorSecondary"
-        android:divider="@color/colorAccent"
-        android:dividerHeight="1dp" />
+        android:background="@color/colorPrimary"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.juniordesign.digitaldoctor.DetailFragment">
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/back_button"
+            android:contentDescription="@string/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.011"
+            android:src="@drawable/back_icon" />
+
+        <ImageButton
+            android:id="@+id/restart_button"
+            android:contentDescription="@string/restart_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.011"
+            android:background="@color/colorPrimary"
+            app:srcCompat="@drawable/research_icon" />
+
+            <TextView
+                android:id="@+id/questions"
+                style="@style/Widget.AppCompat.TextView.SpinnerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/back_button"
+
+                app:layout_constraintStart_toStartOf="@id/back_button"
+                app:layout_constraintTop_toBottomOf="@id/back_button"
+                app:layout_constraintVertical_bias="0.011"
+                android:layout_marginTop="8dp"
+                android:textSize="22sp"
+         />
+
+        <TextView
+            android:id="@+id/prompts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/questions"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@id/questions"
+            app:layout_constraintTop_toBottomOf="@id/questions"
+            app:layout_constraintVertical_bias="0.011"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+             />
+
+
+
+        <ListView
+            android:id="@+id/listView"
+            style="@style/Widget.AppCompat.ListView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/prompts"
+            android:layout_marginTop="165dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+
+            android:background="@color/white"
+            android:cacheColorHint="@color/colorSecondary"
+            android:divider="@color/colorAccent"
+            android:dividerHeight="1dp"
+
+            tools:layout_editor_absoluteX="10dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
