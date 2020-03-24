@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Button;
+import android.content.Intent;
 
 import org.w3c.dom.Text;
 
@@ -35,6 +37,7 @@ public class DetailFragment extends Fragment {
     String _tableName;
     ArrayList<String> whereColumns;
     ArrayList<String> whereMatches;
+    Button mapButton;
 
     //Ester - creates a new Detail Fragment keeping track of various parameters needed to populate the
     //detail page as well as information for recreating the last search fragment
@@ -120,10 +123,26 @@ public class DetailFragment extends Fragment {
 
         // retrieve text and color from bundle or savedInstanceState
         mContent = view.findViewById(R.id.fragment_content_detail);
+
+
+        //show me the nearby ERs button
+        //start the GoogleMap activity
+        mapButton = (Button) view.findViewById(R.id.button_to_map);
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityGoogleMap();
+            }
+        });
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+    }
+
+    public void openActivityGoogleMap() {
+        Intent intent = new Intent(getActivity(), GoogleMap.class);
+        startActivity(intent);
     }
 }
