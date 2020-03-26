@@ -1,7 +1,9 @@
 package com.juniordesign.digitaldoctor;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -41,9 +43,47 @@ public class SearchFragment extends Fragment {
     ArrayList<String> resultsList;
 
     /**
-     * The ArrayAdapter needs to be accessible to everything for search update.
+     * This is a custom array adapter made to fix the padding bug
      */
-    ArrayAdapter<String> tableNameArrayAdapter;
+    class CustomAdapter extends ArrayAdapter<String> {
+        Context context;
+        String[] options;
+
+        CustomAdapter(Context c, ArrayList<String> options) {
+            super(c, R.layout.row, R.id.customTextView, options);
+
+            this.options = new String[options.size()];
+            Object[] objArr = options.toArray();
+
+            int i = 0;
+            for (Object obj : objArr) {
+                this.options[i++] = (String)obj;
+            }
+
+            this.context = c;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater layoutInflater =
+                            (LayoutInflater)getActivity().
+                            getApplicationContext().
+                            getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            View row = layoutInflater.inflate(R.layout.row, parent, false);
+            TextView myOption = row.findViewById(R.id.customTextView);
+
+            myOption.setText(options[position]);
+
+            return row;
+        }
+    }
+
+    /**
+     * The Custom ArrayAdapter needs to be accessible to everything for search update.
+     */
+    CustomAdapter tableNameArrayAdapter;
 
     public static Fragment newInstance() {
         return new SearchFragment();
@@ -158,9 +198,7 @@ public class SearchFragment extends Fragment {
                     }
 
                     // create a new adapter and set listview to use it.
-                    ArrayAdapter<String> resultArrayAdapter = new ArrayAdapter<>
-                            (getActivity(), android.R.layout.simple_list_item_1,
-                            resultsList);
+                    CustomAdapter resultArrayAdapter = new CustomAdapter(getActivity(), resultsList);
                     listView.setAdapter(resultArrayAdapter);
                 }
             }
@@ -205,8 +243,7 @@ public class SearchFragment extends Fragment {
         }
 
         // create a new adapter and set listview to use it.
-        tableNameArrayAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_list_item_1, resultsList);
+        tableNameArrayAdapter = new CustomAdapter(getActivity(), resultsList);
         listView.setAdapter(tableNameArrayAdapter);
 
         // set listview item click listener to search the tables and repopulate.
@@ -419,8 +456,7 @@ public class SearchFragment extends Fragment {
         tableNames.add(getResources().getString(R.string.childhood_symptoms));
 
         // create the new adapter and set listview to it.
-        tableNameArrayAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_list_item_1, tableNames);
+        tableNameArrayAdapter = new CustomAdapter(getActivity(), tableNames);
         listView.setAdapter(tableNameArrayAdapter);
 
         // reset other important variables.
@@ -500,8 +536,7 @@ public class SearchFragment extends Fragment {
             resultsList.add(cur.getString(0));
         }
 
-        ArrayAdapter resultArrayAdapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_list_item_1, resultsList);
+        CustomAdapter resultArrayAdapter = new CustomAdapter(getActivity(), resultsList);
         listView.setAdapter(resultArrayAdapter);
     }
 
@@ -513,8 +548,7 @@ public class SearchFragment extends Fragment {
         }
 
         if (!searchDone) {
-            ArrayAdapter resultArrayAdapter = new ArrayAdapter<>(getActivity(),
-                    android.R.layout.simple_list_item_1, resultsList);
+            CustomAdapter resultArrayAdapter = new CustomAdapter(getActivity(), resultsList);
             listView.setAdapter(resultArrayAdapter);
         }
     }
