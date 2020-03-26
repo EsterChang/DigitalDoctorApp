@@ -86,12 +86,16 @@
                     android:id="@+id/detail_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:text="@string/error_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_name"
+                    app:layout_constraintTop_toBottomOf="@+id/mapsIntent"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:layout_conversion_absoluteHeight="254dp"
                     tools:layout_conversion_absoluteWidth="0dp" />
 
@@ -107,6 +111,19 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_conversion_absoluteHeight="24dp"
                     tools:layout_conversion_absoluteWidth="128dp" />
+
+                <Button
+                    android:id="@+id/mapsIntent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/colorSecondary"
+                    android:text="@string/maps_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_name" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
 
