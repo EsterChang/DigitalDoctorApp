@@ -32,6 +32,7 @@
     <string name="error_emergency">No Status Found</string>
     <string name="error_name">No Name Found</string>
     <string name="error_text">No Text to Display</string>
+    <string name="maps_button">Nearby Emergency Rooms</string>
     <string name="emergency">emergency</string>
     <string name="caution">caution</string>
     <string name="not_an_emergency">not an emergency</string>

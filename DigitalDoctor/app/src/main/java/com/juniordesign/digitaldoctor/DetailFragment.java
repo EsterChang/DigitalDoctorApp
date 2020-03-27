@@ -1,6 +1,8 @@
 package com.juniordesign.digitaldoctor;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,12 +10,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 
@@ -29,6 +29,7 @@ public class DetailFragment extends Fragment {
     TextView description;
     ImageButton restart;
     ImageButton back;
+    Button mapButton;
     ArrayList<String> resultsList;
     int level;
     String _select;
@@ -93,11 +94,20 @@ public class DetailFragment extends Fragment {
             }
         });
 
+        mapButton = rootView.findViewById(R.id.mapsIntent);
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/?api=1&query=emergency+room&zoom=11"));
+                startActivity(intent);
+            }
+        });
+
         icon = rootView.findViewById(R.id.detail_icon);
         emergency = rootView.findViewById(R.id.detail_emergency);
         name = rootView.findViewById(R.id.detail_name);
         description = rootView.findViewById(R.id.detail_description);
-
         name.setText(name_);
         description.setText(text_);
         emergency.setText(emergency_);
@@ -108,6 +118,7 @@ public class DetailFragment extends Fragment {
             icon.setImageResource(R.drawable.caution_icon);
         } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.not_an_emergency))) {
             icon.setImageResource(R.drawable.not_an_emergency);
+            mapButton.setVisibility(View.GONE);
         } else {
             icon.setImageResource(R.drawable.emergency_icon);
         }
