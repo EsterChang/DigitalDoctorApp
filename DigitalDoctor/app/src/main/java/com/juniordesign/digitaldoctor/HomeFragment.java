@@ -17,10 +17,8 @@ import android.widget.ImageButton;
  * Fragment class for each nav menu item
  */
 public class HomeFragment extends Fragment {
-
-    View mContent;
-    ImageButton settings;
-    Button emergency;
+    private ImageButton settings;
+    private Button emergency;
 
     public static Fragment newInstance() {
         return new HomeFragment();
@@ -58,9 +56,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // retrieve text and color from bundle or savedInstanceState
-        mContent = view.findViewById(R.id.fragment_content_home);
     }
 
     @Override

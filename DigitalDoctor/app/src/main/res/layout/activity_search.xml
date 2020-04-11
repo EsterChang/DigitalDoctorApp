@@ -17,7 +17,7 @@
         tools:context="com.juniordesign.digitaldoctor.DetailFragment">
 
         <ImageButton
-            android:id="@+id/back_button"
+            android:id="@+id/back_button_search"
             android:contentDescription="@string/back_button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -31,7 +31,7 @@
             android:src="@drawable/back_icon" />
 
         <ImageButton
-            android:id="@+id/restart_button"
+            android:id="@+id/restart_button_search"
             android:contentDescription="@string/restart_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -52,7 +52,7 @@
             style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/back_button"
+            android:layout_below="@id/back_button_search"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:paddingStart="8dp"
@@ -61,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/back_button" />
+            app:layout_constraintTop_toBottomOf="@id/back_button_search" />
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button">
+            app:layout_constraintTop_toBottomOf="@+id/back_button_search">
 
             <TextView
                 android:id="@+id/prompts"
