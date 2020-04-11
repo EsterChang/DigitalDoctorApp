@@ -11,25 +11,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    // Kyle -- this whole file
-
     // create constants necessary for database creation -- database name and version number
-    public static final String DATABASE_NAME = "DigitalDoctor.db";
-    public static final Integer DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "DigitalDoctor.db";
+    private static final Integer DATABASE_VERSION = 1;
 
     // create constants necessary for table creation -- table name and columns
-    public static final String BODY_PART_TABLE = "body_part_specific_table";
-    public static final String GENERALIZED_SYMPTOM_TABLE = "generalized_symptom_table";
-    public static final String PREGNANCY_TABLE = "pregnancy_table";
-    public static final String CHILDHOOD_SYMPTOM_TABLE = "childhood_table";
-    public static final String DIAGNOSIS_TABLE = "diagnosis_table";
+    static final String BODY_PART_TABLE = "body_part_specific_table";
+    static final String GENERALIZED_SYMPTOM_TABLE = "generalized_symptom_table";
+    static final String PREGNANCY_TABLE = "pregnancy_table";
+    static final String CHILDHOOD_SYMPTOM_TABLE = "childhood_table";
+    static final String DIAGNOSIS_TABLE = "diagnosis_table";
 
-    public static final String PRIMARY_AREA = "primary_area";
-    public static final String PRIMARY_SYMPTOM = "primary_symptom";
-    public static final String EXTRA_INFORMATION = "extra_info";
-    public static final String SYMPTOM_NAME = "symptom_name";
-    public static final String SYMPTOM_SEVERITY = "symptom_severity";
-    public static final String SYMPTOM_INFORMATION = "symptom_info";
+    static final String PRIMARY_AREA = "primary_area";
+    static final String PRIMARY_SYMPTOM = "primary_symptom";
+    static final String EXTRA_INFORMATION = "extra_info";
+    static final String SYMPTOM_NAME = "symptom_name";
+    static final String SYMPTOM_SEVERITY = "symptom_severity";
+    static final String SYMPTOM_INFORMATION = "symptom_info";
 
 
     // This creates a database (without a factory), as the first version of the database
@@ -140,17 +138,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    // takes in a tableName, and returns all the data from the table
-    // test method only, will delete later
-    public Cursor getAllData(String tableName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + tableName, null);
-        return res;
-    }
-
     // removes all data from the database, currently used on first load to make certain we
     // are testing the correct values in the database
-    // will remove later
     public void deleteAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("drop table if exists " + BODY_PART_TABLE);

@@ -44,15 +44,14 @@ public class HomeActivity extends AppCompatActivity {
         // physically changes the selected item on app load to the home screen
         MenuItem selectedItem;
         if (savedInstanceState != null) {
-            // Justin -- I do not believe we use this method since I do not think we keep track of states in a meaningful way
             // Note that if we use states later, we will need to change mBottomNav.getMenu().findItem(R.id.navigation_home).setChecked(true) below;
             mSelectedItem = savedInstanceState.getInt(SELECTED_ITEM, 0);
             selectedItem = mBottomNav.getMenu().findItem(mSelectedItem);
         } else {
-            // Justin -- sets the selected icon to the home screen on application load. Otherwise, it would default to book.
+            // sets the selected icon to the home screen on application load. Otherwise, it would default to book.
             selectedItem = mBottomNav.getMenu().getItem(1);
         }
-        // Justin -- runs the select fragment method on either the saved state or the home screen
+        // runs the select fragment method on either the saved state or the home screen
         selectFragment(selectedItem);
 
         // since we only ever run the select fragment on the home screen currently, always set it checked on application load
@@ -61,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         handleFirstStart();
     }
 
-    // Justin -- saved instance state saves the currently selected icon. We do not currently use this
+    // saved instance state saves the currently selected icon. We do not currently use this
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(SELECTED_ITEM, mSelectedItem);
@@ -69,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
-    // Justin -- if android back button is pressed in the application, send back to home screen fragment
+    // if android back button is pressed in the application, send back to home screen fragment
     // if on the home screen, do the default for the android system
     public void onBackPressed() {
         MenuItem homeItem = mBottomNav.getMenu().getItem(1);
@@ -82,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    // Justin -- find the item id on the menu and assigns the frag variable to a new instance of the correct fragment
+    // find the item id on the menu and assigns the frag variable to a new instance of the correct fragment
     private void selectFragment(MenuItem item) {
         Fragment frag = null;
 
@@ -108,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
             menuItem.setChecked(menuItem.getItemId() == item.getItemId());
         }
 
-        // Justin -- if the fragment is not null, then add the fragment to the fragment container xml block
+        // if the fragment is not null, then add the fragment to the fragment container xml block
         if (frag != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, frag);
@@ -130,30 +129,30 @@ public class HomeActivity extends AppCompatActivity {
 
             Resources res = getResources();
 
-            //Kyle -- this reads in the resource file to allow loading into the database
-            InputStream in_s = res.openRawResource(R.raw.body_part_table_information);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in_s));
+            // this reads in the resource file to allow loading into the database
+            InputStream inputStream = res.openRawResource(R.raw.body_part_table_information);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-            //currently loads all data from our body part table
+            //currently loads all data from our current database tables
             db.loadAllData(reader, DatabaseHelper.BODY_PART_TABLE);
 
-            in_s = res.openRawResource(R.raw.generalized_symptom_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
+            inputStream = res.openRawResource(R.raw.generalized_symptom_table_information);
+            reader = new BufferedReader(new InputStreamReader(inputStream));
 
             db.loadAllData(reader, DatabaseHelper.GENERALIZED_SYMPTOM_TABLE);
 
-            in_s = res.openRawResource(R.raw.childhood_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
+            inputStream = res.openRawResource(R.raw.childhood_table_information);
+            reader = new BufferedReader(new InputStreamReader(inputStream));
 
             db.loadAllData(reader, DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE);
 
-            in_s = res.openRawResource(R.raw.pregnancy_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
+            inputStream = res.openRawResource(R.raw.pregnancy_table_information);
+            reader = new BufferedReader(new InputStreamReader(inputStream));
 
             db.loadAllData(reader, DatabaseHelper.PREGNANCY_TABLE);
 
-            in_s = res.openRawResource(R.raw.diagnosis_table_information);
-            reader = new BufferedReader(new InputStreamReader(in_s));
+            inputStream = res.openRawResource(R.raw.diagnosis_table_information);
+            reader = new BufferedReader(new InputStreamReader(inputStream));
 
             db.loadAllData(reader, DatabaseHelper.DIAGNOSIS_TABLE);
         }
@@ -165,22 +164,22 @@ public class HomeActivity extends AppCompatActivity {
         try {
             // reads the raw resource file and converts it to a string
             Resources res = getResources();
-            InputStream in_s = res.openRawResource(R.raw.terms);
+            InputStream inputStream = res.openRawResource(R.raw.terms);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
             int i;
-            i = in_s.read();
+            i = inputStream.read();
             while (i != -1) {
                 byteArrayOutputStream.write(i);
-                i = in_s.read();
+                i = inputStream.read();
             }
 
-            in_s.close();
+            inputStream.close();
 
             message = byteArrayOutputStream.toString();
         } catch (Exception e) {
-            message = this.getResources().getString(R.string.terms_and_conditions_error);;
+            message = this.getResources().getString(R.string.terms_and_conditions_error);
         }
 
         new AlertDialog.Builder(this)
@@ -204,22 +203,22 @@ public class HomeActivity extends AppCompatActivity {
         try {
             // reads the raw resource file and converts it to a string
             Resources res = getResources();
-            InputStream in_s = res.openRawResource(R.raw.liability);
+            InputStream inputStream = res.openRawResource(R.raw.liability);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
             int i;
-            i = in_s.read();
+            i = inputStream.read();
             while (i != -1) {
                 byteArrayOutputStream.write(i);
-                i = in_s.read();
+                i = inputStream.read();
             }
 
-            in_s.close();
+            inputStream.close();
 
             message = byteArrayOutputStream.toString();
         } catch (Exception e) {
-            message = this.getResources().getString(R.string.liability_error);;
+            message = this.getResources().getString(R.string.liability_error);
         }
 
         new AlertDialog.Builder(this)
