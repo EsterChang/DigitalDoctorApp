@@ -22,12 +22,11 @@ import java.util.ArrayList;
  * listview that updates on user input.
  */
 public class SearchFragment extends Fragment {
-    View mContent;
-    ListView listView;
-    TextView promptView;
-    TextView directiveView;
-    ImageButton restart;
-    ImageButton back;
+    private ListView listView;
+    private TextView promptView;
+    private TextView directiveView;
+    private ImageButton restartButton;
+    private ImageButton backButton;
 
     // used when creating a page from the back button on the detailFragment.
     boolean detailBackPressed = false;
@@ -36,8 +35,8 @@ public class SearchFragment extends Fragment {
     DatabaseHelper db;
     Cursor cur;
     int level;
-    String _select;
-    String _tableName;
+    String select;
+    String tableName;
     ArrayList<String> whereColumns;
     ArrayList<String> whereMatches;
     ArrayList<String> resultsList;
@@ -46,7 +45,6 @@ public class SearchFragment extends Fragment {
      * This is a custom array adapter made to fix the padding bug
      */
     class CustomAdapter extends ArrayAdapter<String> {
-        Context context;
         String[] options;
 
         CustomAdapter(Context c, ArrayList<String> options) {
@@ -59,8 +57,6 @@ public class SearchFragment extends Fragment {
             for (Object obj : objArr) {
                 this.options[i++] = (String)obj;
             }
-
-            this.context = c;
         }
 
         @NonNull
@@ -117,14 +113,14 @@ public class SearchFragment extends Fragment {
             detailBackPressed = true;
             resultsList = getArguments().getStringArrayList("resultsList");
             level = getArguments().getInt("level");
-            _select = getArguments().getString("_select");
-            _tableName = getArguments().getString("_tableName");
+            select = getArguments().getString("_select");
+            tableName = getArguments().getString("_tableName");
             whereColumns = getArguments().getStringArrayList("whereColumns");
             whereMatches = getArguments().getStringArrayList("whereMatches");
         } else {
             level = 0;
-            _select = "";
-            _tableName = "";
+            select = "";
+            tableName = "";
             whereColumns = new ArrayList<>();
             whereMatches = new ArrayList<>();
             resultsList = new ArrayList<>();
@@ -145,8 +141,8 @@ public class SearchFragment extends Fragment {
         directiveView = rootView.findViewById(R.id.prompts);
 
         // Create restart button and listener.
-        restart = rootView.findViewById(R.id.restart_button);
-        restart.setOnClickListener(new View.OnClickListener(){
+        restartButton = rootView.findViewById(R.id.restart_button_search);
+        restartButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Fragment frag = SearchFragment.newInstance();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -156,8 +152,8 @@ public class SearchFragment extends Fragment {
         });
 
         // Create back button and listener.
-        back = rootView.findViewById(R.id.back_button);
-        back.setOnClickListener(new View.OnClickListener() {
+        backButton = rootView.findViewById(R.id.back_button_search);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (level > 0) {
@@ -174,21 +170,21 @@ public class SearchFragment extends Fragment {
                     // call appropriate helper function.
                     switch (level) {
                         case 1:
-                            levelOneBackHelper(_tableName);
+                            levelOneBackHelper(tableName);
                             break;
                         case 2:
-                            levelTwoBackHelper(_tableName);
+                            levelTwoBackHelper(tableName);
                             break;
                         case 3:
-                            levelThreeBackHelper(_tableName);
+                            levelThreeBackHelper(tableName);
                             break;
                     }
 
                     // get appropriate column name for select statement.
-                    setSelect(level - 1, _tableName);
+                    setSelect(level - 1, tableName);
 
                     // populate cursor with results from DatabaseHelper
-                    cur = db.getData(_select, _tableName,
+                    cur = db.getData(select, tableName,
                             whereColumns, whereMatches);
 
                     // clear the previous results, in order to add new ones.
@@ -220,11 +216,11 @@ public class SearchFragment extends Fragment {
                     .getString(R.string.childhood_symptoms));
 
             // back button should be hidden on first level of search.
-            back.setVisibility(View.INVISIBLE);
+            backButton.setVisibility(View.INVISIBLE);
         } else {
             // if coming from the detailFragment, use passed information.
-            setPromptText(level - 1, _tableName);
-            setSelect(level - 1, _tableName);
+            setPromptText(level - 1, tableName);
+            setSelect(level - 1, tableName);
 
             // remove extra information from the columns.
             if (whereColumns.size() > 0) {
@@ -233,7 +229,7 @@ public class SearchFragment extends Fragment {
             }
 
             // populate cursor with results from DatabaseHelper
-            cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+            cur = db.getData(select, tableName, whereColumns, whereMatches);
 
             // clear the previous results, in order to add new ones.
             resultsList.clear();
@@ -256,21 +252,21 @@ public class SearchFragment extends Fragment {
                 // if it is the entry level of the search.
                 if (level == 0) {
                     // first, set back to visible again.
-                    back.setVisibility(View.VISIBLE);
+                    backButton.setVisibility(View.VISIBLE);
 
                     // set table that the user will be traversing through.
                     switch (position) {
                         case 0:
-                            _tableName = DatabaseHelper.BODY_PART_TABLE;
+                            tableName = DatabaseHelper.BODY_PART_TABLE;
                             break;
                         case 1:
-                            _tableName = DatabaseHelper.GENERALIZED_SYMPTOM_TABLE;
+                            tableName = DatabaseHelper.GENERALIZED_SYMPTOM_TABLE;
                             break;
                         case 2:
-                            _tableName = DatabaseHelper.PREGNANCY_TABLE;
+                            tableName = DatabaseHelper.PREGNANCY_TABLE;
                             break;
                         case 3:
-                            _tableName = DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE;
+                            tableName = DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE;
                             break;
                     }
 
@@ -278,27 +274,27 @@ public class SearchFragment extends Fragment {
                     searchHelper();
                 } else {
                     // add current column and selected item to the arraylist.
-                    whereColumns.add(_select);
+                    whereColumns.add(select);
                     whereMatches.add(listView.getItemAtPosition(position)
                             .toString());
 
                     // set new prompt and directive information.
-                    setPromptText(level, _tableName);
+                    setPromptText(level, tableName);
 
                     // get column name to search within.
-                    setSelect(level, _tableName);
+                    setSelect(level, tableName);
 
                     // check for transition necessity based on level information.
                     if (level == 2) {
-                        if (_tableName.equals(DatabaseHelper.GENERALIZED_SYMPTOM_TABLE)
-                                || _tableName.equals(DatabaseHelper.PREGNANCY_TABLE)
-                                || _tableName.equals(DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE)) {
-                            createDetailFragment(_tableName, whereColumns, whereMatches);
+                        if (tableName.equals(DatabaseHelper.GENERALIZED_SYMPTOM_TABLE)
+                                || tableName.equals(DatabaseHelper.PREGNANCY_TABLE)
+                                || tableName.equals(DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE)) {
+                            createDetailFragment(tableName, whereColumns, whereMatches);
                             searchDone = true;
                         }
                     } else if (level == 3) {
-                        if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
-                            createDetailFragment(_tableName, whereColumns, whereMatches);
+                        if (tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
+                            createDetailFragment(tableName, whereColumns, whereMatches);
                             searchDone = true;
                         }
                     }
@@ -319,22 +315,22 @@ public class SearchFragment extends Fragment {
         if (level == 0) {
             switch (_tableName) {
                 case DatabaseHelper.BODY_PART_TABLE:
-                    _select = DatabaseHelper.PRIMARY_AREA;
+                    select = DatabaseHelper.PRIMARY_AREA;
                     promptView.setText(R.string.primary_symptom_location_prompt);
                     directiveView.setText(R.string.primary_symptom_location_directive);
                     break;
                 case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
-                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    select = DatabaseHelper.PRIMARY_SYMPTOM;
                     promptView.setText(R.string.primary_symptom_identification_prompt);
                     directiveView.setText(R.string.primary_symptom_identification_directive);
                     break;
                 case DatabaseHelper.PREGNANCY_TABLE:
-                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    select = DatabaseHelper.PRIMARY_SYMPTOM;
                     promptView.setText(R.string.time_period_prompt);
                     directiveView.setText(R.string.time_period_directive);
                     break;
                 case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
-                    _select = DatabaseHelper.PRIMARY_AREA;
+                    select = DatabaseHelper.PRIMARY_AREA;
                     promptView.setText(R.string.general_problem_prompt);
                     directiveView.setText(R.string.general_problem_directive);
                     break;
@@ -344,14 +340,14 @@ public class SearchFragment extends Fragment {
         } else if (level == 1) {
             switch (_tableName) {
                 case DatabaseHelper.BODY_PART_TABLE:
-                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    select = DatabaseHelper.PRIMARY_SYMPTOM;
                     promptView.setText(R.string.general_problem_prompt);
                     directiveView.setText(R.string.general_problem_directive);
                     break;
                 case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
                 case DatabaseHelper.PREGNANCY_TABLE:
                 case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
-                    _select = DatabaseHelper.EXTRA_INFORMATION;
+                    select = DatabaseHelper.EXTRA_INFORMATION;
                     promptView.setText(R.string.extra_info_prompt);
                     directiveView.setText(R.string.extra_info_directive);
                     break;
@@ -360,7 +356,7 @@ public class SearchFragment extends Fragment {
             }
         } else if (level == 2) {
             if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
-                _select = DatabaseHelper.EXTRA_INFORMATION;
+                select = DatabaseHelper.EXTRA_INFORMATION;
                 promptView.setText(R.string.extra_info_prompt);
                 directiveView.setText(R.string.extra_info_directive);
             }
@@ -373,11 +369,11 @@ public class SearchFragment extends Fragment {
             switch (_tableName) {
                 case DatabaseHelper.BODY_PART_TABLE:
                 case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
-                    _select = DatabaseHelper.PRIMARY_AREA;
+                    select = DatabaseHelper.PRIMARY_AREA;
                     break;
                 case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
                 case DatabaseHelper.PREGNANCY_TABLE:
-                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    select = DatabaseHelper.PRIMARY_SYMPTOM;
                     break;
                 default:
                     break;
@@ -385,17 +381,17 @@ public class SearchFragment extends Fragment {
         } else if (level == 1) {
             switch (_tableName) {
                 case DatabaseHelper.BODY_PART_TABLE:
-                    _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                    select = DatabaseHelper.PRIMARY_SYMPTOM;
                     break;
                 case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
                 case DatabaseHelper.PREGNANCY_TABLE:
                 case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
-                    _select = DatabaseHelper.EXTRA_INFORMATION;
+                    select = DatabaseHelper.EXTRA_INFORMATION;
                     break;
             }
         } else if (level == 2) {
             if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
-                _select = DatabaseHelper.EXTRA_INFORMATION;
+                select = DatabaseHelper.EXTRA_INFORMATION;
             }
         }
     }
@@ -413,15 +409,15 @@ public class SearchFragment extends Fragment {
         }
 
         // arraylists hold information about the name and corresponding column.
-        ArrayList<String> symptomname = new ArrayList<>();
+        ArrayList<String> symptomName = new ArrayList<>();
         ArrayList<String> column = new ArrayList<>();
-        symptomname.add(name);
+        symptomName.add(name);
         column.add(DatabaseHelper.SYMPTOM_NAME);
 
         // get information about the severity of the symptom.
         String emergency = null;
         populate = db.getData(DatabaseHelper.SYMPTOM_SEVERITY,
-                DatabaseHelper.DIAGNOSIS_TABLE, column, symptomname);
+                DatabaseHelper.DIAGNOSIS_TABLE, column, symptomName);
         while (populate.moveToNext()) {
             emergency = (populate.getString(0));
         }
@@ -429,14 +425,14 @@ public class SearchFragment extends Fragment {
         // get information about the displayed text.
         String text = null;
         populate = db.getData(DatabaseHelper.SYMPTOM_INFORMATION,
-                DatabaseHelper.DIAGNOSIS_TABLE, column, symptomname);
+                DatabaseHelper.DIAGNOSIS_TABLE, column, symptomName);
         while (populate.moveToNext()) {
             text = (populate.getString(0));
         }
 
         // detailfragment needs name, emergency, and text parameters to populate.
         Fragment frag = DetailFragment.newInstance(name, emergency, text,
-                resultsList, level , _select, _tableName, whereColumns, whereMatches);
+                resultsList, level , select, _tableName, whereColumns, whereMatches);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, frag);
         ft.commit();
@@ -460,35 +456,35 @@ public class SearchFragment extends Fragment {
         listView.setAdapter(tableNameArrayAdapter);
 
         // reset other important variables.
-        _tableName = "";
-        _select = "";
+        tableName = "";
+        select = "";
         whereMatches.clear();
         whereColumns.clear();
 
         // hide back button - it should not be visible on level 0.
-        back.setVisibility(View.INVISIBLE);
+        backButton.setVisibility(View.INVISIBLE);
     }
 
     // create conditions for level one of search -- used for back button
     private void levelOneBackHelper(String _tableName) {
         switch (_tableName) {
             case DatabaseHelper.BODY_PART_TABLE:
-                _select = DatabaseHelper.PRIMARY_AREA;
+                select = DatabaseHelper.PRIMARY_AREA;
                 promptView.setText(R.string.primary_symptom_location_prompt);
                 directiveView.setText(R.string.primary_symptom_location_directive);
                 break;
             case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
-                _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                select = DatabaseHelper.PRIMARY_SYMPTOM;
                 promptView.setText(R.string.primary_symptom_identification_prompt);
                 directiveView.setText(R.string.primary_symptom_identification_directive);
                 break;
             case DatabaseHelper.PREGNANCY_TABLE:
-                _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                select = DatabaseHelper.PRIMARY_SYMPTOM;
                 promptView.setText(R.string.time_period_prompt);
                 directiveView.setText(R.string.time_period_directive);
                 break;
             case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
-                _select = DatabaseHelper.PRIMARY_AREA;
+                select = DatabaseHelper.PRIMARY_AREA;
                 promptView.setText(R.string.general_problem_prompt);
                 directiveView.setText(R.string.general_problem_directive);
                 break;
@@ -501,14 +497,14 @@ public class SearchFragment extends Fragment {
     private void levelTwoBackHelper(String _tableName) {
         switch (_tableName) {
             case DatabaseHelper.BODY_PART_TABLE:
-                _select = DatabaseHelper.PRIMARY_SYMPTOM;
+                select = DatabaseHelper.PRIMARY_SYMPTOM;
                 promptView.setText(R.string.general_problem_prompt);
                 directiveView.setText(R.string.general_problem_directive);
                 break;
             case DatabaseHelper.GENERALIZED_SYMPTOM_TABLE:
             case DatabaseHelper.PREGNANCY_TABLE:
             case DatabaseHelper.CHILDHOOD_SYMPTOM_TABLE:
-                _select = DatabaseHelper.EXTRA_INFORMATION;
+                select = DatabaseHelper.EXTRA_INFORMATION;
                 promptView.setText(R.string.extra_info_prompt);
                 directiveView.setText(R.string.extra_info_directive);
                 break;
@@ -520,17 +516,17 @@ public class SearchFragment extends Fragment {
     // create conditions for level three of search -- used for back button
     private void levelThreeBackHelper(String _tableName) {
         if (_tableName.equals(DatabaseHelper.BODY_PART_TABLE)) {
-            _select = DatabaseHelper.EXTRA_INFORMATION;
+            select = DatabaseHelper.EXTRA_INFORMATION;
             promptView.setText(R.string.extra_info_prompt);
             directiveView.setText(R.string.extra_info_directive);
         }
     }
 
     private void searchHelper() {
-        setPromptText(level, _tableName);
-        setSelect(level, _tableName);
+        setPromptText(level, tableName);
+        setSelect(level, tableName);
 
-        cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+        cur = db.getData(select, tableName, whereColumns, whereMatches);
         resultsList.clear();
         while (cur.moveToNext()) {
             resultsList.add(cur.getString(0));
@@ -541,7 +537,7 @@ public class SearchFragment extends Fragment {
     }
 
     private void setSearchList(boolean searchDone) {
-        cur = db.getData(_select, _tableName, whereColumns, whereMatches);
+        cur = db.getData(select, tableName, whereColumns, whereMatches);
         resultsList.clear();
         while (cur.moveToNext()) {
             resultsList.add(cur.getString(0));
@@ -556,9 +552,6 @@ public class SearchFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // retrieve text and color from bundle or savedInstanceState
-        mContent = view.findViewById(R.id.fragment_content_search);
     }
 
 }

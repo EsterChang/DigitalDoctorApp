@@ -15,7 +15,7 @@
         tools:context="com.juniordesign.digitaldoctor.DetailFragment">
 
         <ImageButton
-            android:id="@+id/back_button"
+            android:id="@+id/back_button_search"
             android:contentDescription="@string/back_button"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
             app:srcCompat="@drawable/back_icon" />
 
         <ImageButton
-            android:id="@+id/restart_button"
+            android:id="@+id/restart_button_search"
             android:contentDescription="@string/restart_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
