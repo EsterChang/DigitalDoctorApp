@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //           tableName - a string for what table we are loading the text data into
     // returns -- boolean -> never used, may modify to void later
     public boolean loadAllData(BufferedReader reader, String tableName) {
-        String line = null;
+        String line;
         try {
             while( null != ( line = reader.readLine() ) ){
                 String[] values = formatLine( line );
@@ -165,14 +165,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //whereString includes the SQL commands that test equivalencies between each item in whereColumns with
         //corresponding item in whereMatches
-        String whereString = "";
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < whereColumns.size(); i++) {
-            whereString += whereColumns.get(i) + " = '" + whereMatches.get(i) + "'";
+            sb.append(whereColumns.get(i));
+            sb.append(" = '");
+            sb.append(whereMatches.get(i));
+            sb.append("'");
             if (i < whereColumns.size() - 1) {
-                whereString += " AND ";
+                sb.append(" AND ");
             }
         }
 
+        String whereString = sb.toString();
         Cursor cur;
         //if there are items in whereColumns, include a WHERE statement in the SQL command. otherwise, WHERE can be
         //omitted from SQL command
