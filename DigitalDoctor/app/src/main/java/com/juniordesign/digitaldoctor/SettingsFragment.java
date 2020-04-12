@@ -18,10 +18,9 @@ import java.io.InputStream;
 
 //Red Chu - Settings fragment class, rewrote this using SettingsActivity
 public class SettingsFragment extends Fragment {
-
-    Button onTermsAndConditionsPressed;
-    Button onLiabilityPressed;
-    ImageButton backButton;
+    private Button termsButton;
+    private Button liabilityButton;
+    private ImageButton backButton;
 
     public static Fragment newInstance() {
         return new SettingsFragment();
@@ -34,8 +33,8 @@ public class SettingsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
         //handle liability warning button pressed
-        onLiabilityPressed = rootView.findViewById(R.id.liability_button);
-        onLiabilityPressed.setOnClickListener(new View.OnClickListener() {
+        liabilityButton = rootView.findViewById(R.id.liability_button);
+        liabilityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showLiabilityDialog();
@@ -43,8 +42,8 @@ public class SettingsFragment extends Fragment {
         });
 
         //handle terms and conditions pressed
-        onTermsAndConditionsPressed = rootView.findViewById(R.id.terms_and_conditions_button);
-        onTermsAndConditionsPressed.setOnClickListener(new View.OnClickListener() {
+        termsButton = rootView.findViewById(R.id.terms_and_conditions_button);
+        termsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showTermsDialog();
@@ -52,7 +51,7 @@ public class SettingsFragment extends Fragment {
         });
 
         //handle Back button pressed
-        backButton = rootView.findViewById(R.id.back_button);
+        backButton = rootView.findViewById(R.id.back_button_search);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,22 +70,22 @@ public class SettingsFragment extends Fragment {
         try {
             // reads the raw resource file and converts it to a string
             Resources res = getResources();
-            InputStream in_s = res.openRawResource(R.raw.terms);
+            InputStream inputStream = res.openRawResource(R.raw.terms);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
             int i;
-            i = in_s.read();
+            i = inputStream.read();
             while (i != -1) {
                 byteArrayOutputStream.write(i);
-                i = in_s.read();
+                i = inputStream.read();
             }
 
-            in_s.close();
+            inputStream.close();
 
             message = byteArrayOutputStream.toString();
         } catch (Exception e) {
-            message = this.getResources().getString(R.string.terms_and_conditions_error);;
+            message = this.getResources().getString(R.string.terms_and_conditions_error);
         }
 
         new AlertDialog.Builder(getActivity())
@@ -109,22 +108,22 @@ public class SettingsFragment extends Fragment {
         try {
             // reads the raw resource file and converts it to a string
             Resources res = getResources();
-            InputStream in_s = res.openRawResource(R.raw.liability);
+            InputStream inputStream = res.openRawResource(R.raw.liability);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
             int i;
-            i = in_s.read();
+            i = inputStream.read();
             while (i != -1) {
                 byteArrayOutputStream.write(i);
-                i = in_s.read();
+                i = inputStream.read();
             }
 
-            in_s.close();
+            inputStream.close();
 
             message = byteArrayOutputStream.toString();
         } catch (Exception e) {
-            message = this.getResources().getString(R.string.liability_error);;
+            message = this.getResources().getString(R.string.liability_error);
         }
 
         new AlertDialog.Builder(getActivity())
@@ -140,7 +139,4 @@ public class SettingsFragment extends Fragment {
                 .create()
                 .show();
     }
-
-
-
 }

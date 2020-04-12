@@ -21,25 +21,27 @@ import java.util.ArrayList;
  * Fragment class for each nav menu item
  */
 public class DetailFragment extends Fragment {
-
-    View mContent;
-    ImageView icon;
-    TextView emergency;
-    TextView name;
-    TextView description;
-    ImageButton restart;
-    ImageButton back;
-    Button mapButton;
+    private ImageView icon;
+    private TextView emergency;
+    private TextView name;
+    private TextView description;
+    private ImageButton restartButton;
+    private ImageButton backButton;
+    private Button mapButton;
+    String select;
+    String tableName;
     ArrayList<String> resultsList;
-    int level;
-    String _select;
-    String _tableName;
     ArrayList<String> whereColumns;
     ArrayList<String> whereMatches;
+    int level;
 
-    //Ester - creates a new Detail Fragment keeping track of various parameters needed to populate the
+    //Creates a new Fragment, keeps track of parameters needed to populate the
     //detail page as well as information for recreating the last search fragment
-    public static Fragment newInstance(String name, String emergency, String text, ArrayList<String> resultsList, int level, String _select, String _tableName, ArrayList<String> whereColumns, ArrayList<String> whereMatches) {
+    public static Fragment newInstance(String name, String emergency, String text,
+                                       ArrayList<String> resultsList, int level,
+                                       String _select, String _tableName,
+                                       ArrayList<String> whereColumns,
+                                       ArrayList<String> whereMatches) {
         Fragment frag = new DetailFragment();
 
         Bundle args = new Bundle();
@@ -61,19 +63,19 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
-        String name_ = getArguments().getString("name", getResources().getString(R.string.error_name));
-        String emergency_ = getArguments().getString("emergency", getResources().getString(R.string.error_emergency));
-        String text_ = getArguments().getString("text", getResources().getString(R.string.error_text));
+        String diagnosisName = getArguments().getString("name", getResources().getString(R.string.error_name));
+        String emergencyIconCaption = getArguments().getString("emergency", getResources().getString(R.string.error_emergency));
+        String pageText = getArguments().getString("text", getResources().getString(R.string.error_text));
         resultsList = getArguments().getStringArrayList("resultsList");
         level = getArguments().getInt("level");
-        _select = getArguments().getString("_select");
-        _tableName = getArguments().getString("_tableName");
+        select = getArguments().getString("_select");
+        tableName = getArguments().getString("_tableName");
         whereColumns = getArguments().getStringArrayList("whereColumns");
         whereMatches = getArguments().getStringArrayList("whereMatches");
 
-        //restart button
-        restart = rootView.findViewById(R.id.restart_button);
-        restart.setOnClickListener(new View.OnClickListener(){
+        //restart button functionality
+        restartButton = rootView.findViewById(R.id.restart_button_search);
+        restartButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Fragment frag = SearchFragment.newInstance();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -82,18 +84,20 @@ public class DetailFragment extends Fragment {
             }
         });
 
-        //back button
-        back = rootView.findViewById(R.id.back_button);
-        back.setOnClickListener(new View.OnClickListener() {
+        //back button functionality
+        backButton = rootView.findViewById(R.id.back_button_search);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment frag = SearchFragment.newInstance(resultsList, level, _select, _tableName, whereColumns, whereMatches);
+                Fragment frag = SearchFragment.newInstance(resultsList, level,
+                        select, tableName, whereColumns, whereMatches);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fragment_container, frag);
                 ft.commit();
             }
         });
 
+        // sets the map button to open a google map url
         mapButton = rootView.findViewById(R.id.mapsIntent);
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,19 +108,21 @@ public class DetailFragment extends Fragment {
             }
         });
 
+        // populate page information
         icon = rootView.findViewById(R.id.detail_icon);
         emergency = rootView.findViewById(R.id.detail_emergency);
         name = rootView.findViewById(R.id.detail_name);
         description = rootView.findViewById(R.id.detail_description);
-        name.setText(name_);
-        description.setText(text_);
-        emergency.setText(emergency_);
+        name.setText(diagnosisName);
+        description.setText(pageText);
+        emergency.setText(emergencyIconCaption);
 
-        if (emergency_.equalsIgnoreCase(getResources().getString(R.string.emergency))) {
+        // sets icon and button states
+        if (emergencyIconCaption.equalsIgnoreCase(getResources().getString(R.string.emergency))) {
             icon.setImageResource(R.drawable.emergency_icon);
-        } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.caution))) {
+        } else if (emergencyIconCaption.equalsIgnoreCase(getResources().getString(R.string.caution))) {
             icon.setImageResource(R.drawable.caution_icon);
-        } else if (emergency_.equalsIgnoreCase(getResources().getString(R.string.not_an_emergency))) {
+        } else if (emergencyIconCaption.equalsIgnoreCase(getResources().getString(R.string.not_an_emergency))) {
             icon.setImageResource(R.drawable.not_an_emergency);
             mapButton.setVisibility(View.GONE);
         } else {
@@ -128,9 +134,6 @@ public class DetailFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // retrieve text and color from bundle or savedInstanceState
-        mContent = view.findViewById(R.id.fragment_content_detail);
     }
 
     @Override

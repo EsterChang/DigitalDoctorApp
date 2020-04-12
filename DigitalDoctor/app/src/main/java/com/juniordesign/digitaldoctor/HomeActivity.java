@@ -21,11 +21,11 @@ import java.io.InputStreamReader;
 public class HomeActivity extends AppCompatActivity {
     DatabaseHelper db;
     private static final String SELECTED_ITEM = "arg_selected_item";
-
     private BottomNavigationView mBottomNav;
 
     // keeps the index of the currently selected item.
     private int mSelectedItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
